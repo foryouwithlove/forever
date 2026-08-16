@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
 
 /* ==================== GLOBAL ==================== */
 *{box-sizing:border-box}
@@ -48,8 +48,8 @@ margin:32px auto 0;
 font-size:1rem;
 line-height:1.9;
 color:var(--text);
-font-family:"Arizonia",monospace;
-opacity:.8;
+font-family:"Quintessential",monospace;
+opacity:.9;
 }
 
 /* ==================== TIMER ==================== */
@@ -63,7 +63,7 @@ position:relative;
 width:min(650px,100%);
 padding:55px 35px;
 text-align:center;
-background:#8F4A61;
+background:#b8365c;
 color:#FFF7FA;
 border-radius:18px;
 box-shadow:0 20px 45px rgba(110,31,58,.18);
@@ -155,7 +155,7 @@ line-height:1.6;
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:70px;
+gap:30px;
 }
 .chapter{
 display:block;
@@ -218,11 +218,11 @@ padding:65px 0 90px;
 }
 .story-intro{margin-bottom:80px}
 .story-intro h1{
-font-size:4rem;
-letter-spacing:-2px;
+font-size:1.7rem;
+letter-spacing:1.2px;
 }
 .intro-text{
-font-size:.92rem;
+font-size:1rem;
 line-height:1.8;
 }
 .timer-card{
