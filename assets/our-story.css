@@ -1,73 +1,184 @@
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #4b2633;
-  background: linear-gradient(135deg, #fff1f5, #ffdce7);
+/* ==================== GLOBAL ==================== */
+*{box-sizing:border-box}
+:root{
+--pink:#d94f70;
+--pink-light:#ffe1e9;
+--wine:#6e1f3a;
+--text:#4b2633;
+--white:#fffafd;
+--shadow:0 16px 40px rgba(110,31,58,.13);
+}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+color:var(--text);
+font-family:Georgia,"Times New Roman",serif;
+background:
+radial-gradient(circle at top left,rgba(255,255,255,.9),transparent 32%),
+linear-gradient(135deg,#fff1f5,#ffdce7);
+overflow-x:hidden;
 }
 
-.navbar {
-  width: min(1100px, calc(100% - 28px));
-  margin: 14px auto;
-  padding: 14px 18px;
-  border-radius: 20px;
-  background: rgba(255,250,252,.9);
-  box-shadow: 0 16px 40px rgba(110,31,58,.12);
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
+/* ==================== PAGE ==================== */
+.story-page{
+width:min(850px,88%);
+margin:auto;
+padding:90px 0 120px;
 }
 
-.brand {
-  color: #6e1f3a;
-  font-weight: bold;
-  text-decoration: none;
+/* ==================== INTRO ==================== */
+.story-intro{
+text-align:center;
+margin-bottom:100px;
+}
+.story-intro h1{
+margin:0;
+color:var(--wine);
+font-size:clamp(3.5rem,9vw,7rem);
+font-weight:400;
+line-height:.95;
+letter-spacing:-3px;
+}
+.story-intro h1 em{font-style:italic}
+.intro-text{
+max-width:500px;
+margin:32px auto 0;
+font-size:1rem;
+line-height:1.9;
+color:var(--text);
+opacity:.8;
 }
 
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
+/* ==================== TIMER ==================== */
+.timer-section{
+text-align:center;
+margin-bottom:110px;
+}
+.timer-title{
+margin:0 0 18px;
+font-size:1.8rem;
+font-style:italic;
+color:var(--wine);
+}
+.relationship-time{
+font-size:1.05rem;
+line-height:1.8;
+color:var(--text);
+}
+.relationship-time span:not(.dot){
+font-weight:bold;
+color:var(--pink);
+}
+.dot{
+margin:0 8px;
+color:var(--pink);
+}
+.live-time{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:8px;
+margin-top:18px;
+color:var(--wine);
+font-size:clamp(2rem,5vw,3.4rem);
+letter-spacing:2px;
+font-variant-numeric:tabular-nums;
+}
+.counting{
+margin-top:16px;
+font-size:.8rem;
+font-style:italic;
+color:var(--text);
+opacity:.6;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #4b2633;
-  padding: 7px 10px;
-  border-radius: 999px;
+/* ==================== MEMORY INTRO ==================== */
+.memory-intro{
+text-align:center;
+margin-bottom:65px;
+}
+.memory-intro p{
+margin:0;
+color:var(--wine);
+font-size:1.6rem;
+font-style:italic;
+line-height:1.6;
 }
 
-.nav-links a:hover {
-  background: #ffe1e9;
+/* ==================== CHAPTERS ==================== */
+.chapters{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:70px;
+}
+.chapter{
+display:block;
+width:min(100%,700px);
+overflow:hidden;
+text-decoration:none;
+transition:transform .45s ease,box-shadow .45s ease;
+}
+.chapter img{
+display:block;
+width:100%;
+height:auto;
+transition:transform .7s ease,filter .5s ease;
+}
+.chapter:hover{
+transform:translateY(-8px);
+box-shadow:0 25px 55px rgba(110,31,58,.2);
+}
+.chapter:hover img{
+transform:scale(1.025);
+filter:brightness(1.03);
 }
 
-main {
-  min-height: 75vh;
-  display: grid;
-  place-items: center;
-  padding: 30px 15px;
+/* ==================== END NOTE ==================== */
+.end-note{
+text-align:center;
+margin-top:110px;
+}
+.end-main{
+margin:0 0 15px;
+color:var(--wine);
+font-size:1.8rem;
+font-style:italic;
+}
+.end-sub{
+max-width:400px;
+margin:auto;
+color:var(--text);
+font-size:.9rem;
+line-height:1.8;
+opacity:.7;
 }
 
-.card {
-  width: min(750px, 100%);
-  padding: 45px 30px;
-  text-align: center;
-  border-radius: 26px;
-  background: rgba(255,250,252,.9);
-  box-shadow: 0 16px 40px rgba(110,31,58,.13);
+/* ==================== MOBILE ==================== */
+@media(max-width:600px){
+.story-page{
+width:90%;
+padding:65px 0 90px;
 }
-
-h1 { color: #6e1f3a; }
-
-.back {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 18px;
-  border-radius: 999px;
-  background: #6e1f3a;
-  color: white;
-  text-decoration: none;
+.story-intro{margin-bottom:80px}
+.story-intro h1{
+font-size:4rem;
+letter-spacing:-2px;
+}
+.intro-text{
+font-size:.92rem;
+line-height:1.8;
+}
+.relationship-time{font-size:.9rem}
+.dot{margin:0 4px}
+.live-time{
+font-size:2.2rem;
+gap:5px;
+}
+.timer-section{margin-bottom:90px}
+.memory-intro{margin-bottom:45px}
+.memory-intro p{font-size:1.3rem}
+.chapters{gap:45px}
+.end-note{margin-top:85px}
+.end-main{font-size:1.5rem}
 }
