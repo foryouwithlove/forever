@@ -82,7 +82,7 @@ event.preventDefault();
 if(chosenDate===correctDate){
 window.location.href="home.html";
 }else{
-dateError.textContent="Hmm... that's not our date 😠 Try again.";
+dateError.textContent="Hmm... Wrong answer 😠 Try again!";
 dateError.style.color="#b32f51";
 }
 });
