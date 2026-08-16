@@ -34,3 +34,50 @@ updateRelationshipTimer();
 
 /* UPDATE EVERY SECOND */
 setInterval(updateRelationshipTimer,1000);
+
+/* ============= TYPEWRITING LOOP ================ */
+const titleText="THE LOVE STORY...";
+const title=document.getElementById("typewriter-title");
+let titleIndex=0;
+let deleting=false;
+
+function typeTitle(){
+if(!deleting){
+title.textContent=titleText.slice(0,titleIndex+1);
+titleIndex++;
+if(titleIndex===titleText.length){
+deleting=true;
+setTimeout(typeTitle,2200);
+return;
+}
+setTimeout(typeTitle,140);
+}else{
+title.textContent=titleText.slice(0,titleIndex-1);
+titleIndex--;
+if(titleIndex===0){
+deleting=false;
+setTimeout(typeTitle,700);
+return;
+}
+setTimeout(typeTitle,70);
+}
+}
+typeTitle();
+
+/* ============= REVEAL ================ */
+const revealElements=document.querySelectorAll(".reveal");
+
+const revealObserver=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+revealObserver.unobserve(entry.target);
+}
+});
+},{
+threshold:.15
+});
+
+revealElements.forEach(element=>{
+revealObserver.observe(element);
+});
