@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For You ❤️</title>
+<link rel="stylesheet" href="assets/home.css">
+</head>
+<body id="top">
+
+<!-- CONTINUE POPUP -->
+<div class="success-overlay" id="successOverlay">
+<div class="success-card">
+<div class="success-sparkles">✦ ♡ ✦</div>
+<div class="success-icon">♡</div>
+<h2 id="successTitle">YAY! YOU GOT IT ♡</h2>
+<p id="successMessage">You really do know our story.</p>
+<button class="success-button" id="successButton">Continue ✦</button>
+</div>
+</div>
+
+<!-- NAVIGATION BAR -->
+<nav class="navbar">
+<div class="nav-progress" id="sectionProgress">0/6</div>
+<a href="#top">Home</a>
+</nav>
+
+<main class="container">
+
+<!-- INTRODUCTION PHOTO STACK -->
+<section class="photo-stack">
+<div class="photo-card"><img src="assets/images/photo1.jpg" alt="Photo 1"></div>
+<div class="photo-card"><img src="assets/images/photo2.jpg" alt="Photo 2"></div>
+<div class="photo-card"><img src="assets/images/photo3.jpg" alt="Photo 3"></div>
+</section>
+
+<!-- QUOTE 1 -->  
+<div class="quote-section reveal">
+<span class="quote-mark">“</span>
+<p>You make me happy in a way no one can.<br>So here's my way of trying to make you happy.</p>
+<span class="quote-mark bottom">”</span>
+</div>
+
+<!-- 1. கதை — OUR STORY -->
+<section class="story-puzzle-section reveal" id="story" data-section>
+<h2>கதை</h2>
+<p class="puzzle-subtitle">Put our story back together ♡</p>
+<div class="story-puzzle" id="storyPuzzle">
+<div class="story-tile" data-correct="1"><img src="assets/images/story1.jpg" alt="Story 1"></div>
+<div class="story-tile" data-correct="2"><img src="assets/images/story2.jpg" alt="Story 2"></div>
+<div class="story-tile" data-correct="3"><img src="assets/images/story3.jpg" alt="Story 3"></div>
+<div class="story-tile" data-correct="4"><img src="assets/images/story4.jpg" alt="Story 4"></div>
+<div class="story-tile" data-correct="5"><img src="assets/images/story5.jpg" alt="Story 5"></div>
+<div class="story-tile" data-correct="6"><img src="assets/images/story6.jpg" alt="Story 6"></div>
+<div class="story-tile" data-correct="7"><img src="assets/images/story7.jpg" alt="Story 7"></div>
+<div class="story-tile" data-correct="8"><img src="assets/images/story8.jpg" alt="Story 8"></div>
+<div class="story-tile" data-correct="9"><img src="assets/images/story9.jpg" alt="Story 9"></div>
+</div>
+
+<div class="story-complete" id="storyComplete">
+<a href="our-story.html" class="story-button">Our Story ✦</a>
+</div>
+</section>
+
+<!-- LYRICS 1 + SPOTIFY -->
+<div class="lyrics-section reveal">
+<img src="assets/images/lyrics1.jpg" alt="Lyrics 1" class="lyrics-image">
+<div class="spotify-player">
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/47isJpIIO8m7BJEhiFhnaf" width="100%" height="152" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+</div>
+</div>
+
+<!-- 2. காதல் — REASONS TO LOVE YOU -->
+<section class="game-section reveal" id="love" data-section>
+<div class="section-heading">
+<h2>காதல் 💗</h2>
+<p>Which anime character is my favourite?</p>
+</div>
+<div class="game-card">
+<div class="option-grid">
+<button class="anime-option" data-correct="false">
+<img src="assets/images/anime1.jpg" alt="Option a">
+<span>Option a</span>
+</button>
+<button class="anime-option" data-correct="false">
+<img src="assets/images/anime2.jpg" alt="Option b">
+<span>Option b</span>
+</button>
+<button class="anime-option" data-correct="true">
+<img src="assets/images/anime3.jpg" alt="Option c">
+<span>Option c</span>
+</button>
+<button class="anime-option" data-correct="false">
+<img src="assets/images/anime4.jpg" alt="Option d">
+<span>Option d</span>
+</button>
+</div>
+<p id="anime-status" class="game-status"></p>
+</div>
+</section>
+
+<!-- LYRICS 2 + SPOTIFY -->
+<div class="lyrics-section reveal">
+<img src="assets/images/lyrics2.jpg" alt="Lyrics 2" class="lyrics-image">
+<div class="spotify-player">
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/47isJpIIO8m7BJEhiFhnaf" width="100%" height="152" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+</div>
+</div>
+
+<!-- SECOND QUOTE -->
+<div class="quote-section reveal">
+<span class="quote-mark">“</span>
+<p>In a room<br>Full of art I'd<br>Still stare<br>At you</p>
+<span class="quote-mark bottom">”</span>
+</div>
+
+<!-- 3. கசப்பு — REASONS TO HATE YOU -->
+<section class="game-section reveal" id="hate" data-section>
+<div class="section-heading">
+<h2>கசப்பு 🖤</h2>
+<p>Guess my number</p>
+</div>
+<div class="game-card number-card">
+<input id="number-input" type="number" placeholder="Enter your guess">
+<button id="number-check" class="primary-button">Guess ❤️</button>
+<p id="number-status" class="game-status"></p>
+</div>
+</section>
+
+<!-- LYRICS 3 + SPOTIFY -->
+<div class="lyrics-section reveal">
+<img src="assets/images/lyrics3.jpg" alt="Lyrics 3" class="lyrics-image">
+<div class="spotify-player">
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/47isJpIIO8m7BJEhiFhnaf" width="100%" height="152" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+</div>
+</div>
+
+<!-- 4. WHY EVERYONE LOVES YOU -->
+<section class="game-section reveal" id="everyone" data-section>
+<div class="section-heading">
+<h2>காதல் 💕</h2>
+<p>Why does everyone love you?</p>
+</div>
+<div class="game-card mcq-card">
+<div class="question">
+<h3>1. What makes you happiest?</h3>
+<label><input type="radio" name="q1" value="a"> Food</label>
+<label><input type="radio" name="q1" value="b"> Sleep</label>
+<label><input type="radio" name="q1" value="c"> Me ❤️</label>
+</div>
+<div class="question">
+<h3>2. Pick a perfect evening.</h3>
+<label><input type="radio" name="q2" value="a"> A quiet walk</label>
+<label><input type="radio" name="q2" value="b"> A movie together</label>
+<label><input type="radio" name="q2" value="c"> Anything with me ❤️</label>
+</div>
+<div class="question">
+<h3>3. What do I admire most?</h3>
+<label><input type="radio" name="q3" value="a"> Your kindness</label>
+<label><input type="radio" name="q3" value="b"> Your smile</label>
+<label><input type="radio" name="q3" value="c"> Everything about you</label>
+</div>
+<div class="question">
+<h3>4. Who is the cutest?</h3>
+<label><input type="radio" name="q4" value="a"> You ❤️</label>
+<label><input type="radio" name="q4" value="b"> Obviously you</label>
+<label><input type="radio" name="q4" value="c"> Still you</label>
+</div>
+<button id="mcq-submit" class="primary-button">Submit Answers ❤️</button>
+<p id="mcq-status" class="game-status"></p>
+</div>
+</section>
+
+<!-- LYRICS 4 + SPOTIFY -->
+<div class="lyrics-section reveal">
+<img src="assets/images/lyrics4.jpg" alt="Lyrics 4" class="lyrics-image">
+<div class="spotify-player">
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/47isJpIIO8m7BJEhiFhnaf" width="100%" height="152" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+</div>
+</div>
+
+<!-- 5. WHY I'M LUCKY -->
+<section class="game-section reveal" id="lucky" data-section>
+<div class="section-heading">
+<h2>காதல் 🌷</h2>
+<p>Match the personalities</p>
+</div>
+<div class="game-card">
+<div class="matching-game">
+<div class="match-column">
+<button class="match-item" data-id="1">Your smile</button>
+<button class="match-item" data-id="2">Your kindness</button>
+<button class="match-item" data-id="3">Your patience</button>
+<button class="match-item" data-id="4">Your ambition</button>
+</div>
+<div class="match-column">
+<button class="match-item" data-id="3">Always understanding</button>
+<button class="match-item" data-id="1">Brightens my day</button>
+<button class="match-item" data-id="4">Makes me proud</button>
+<button class="match-item" data-id="2">Makes you special</button>
+</div>
+</div>
+<p id="match-status" class="game-status">Match the personalities ♡</p>
+</div>
+</section>
+
+<!-- LYRICS 5 + SPOTIFY -->
+<div class="lyrics-section reveal">
+<img src="assets/images/lyrics5.jpg" alt="Lyrics 5" class="lyrics-image">
+<div class="spotify-player">
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/47isJpIIO8m7BJEhiFhnaf" width="100%" height="152" frameborder="0" allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture" loading="lazy"></iframe>
+</div>
+</div>
+
+<!-- 6. கவிதை — POEMS -->
+<section class="game-section reveal" id="kavithai" data-section>
+<div class="section-heading">
+<h2>கவிதை 🌸</h2>
+<p>What's the song that I liked because I listened to it with you?</p>
+</div>
+<div class="game-card number-card">
+<input id="song-input" type="text" placeholder="Type the song name">
+<button id="song-check" class="primary-button">Answer ❤️</button>
+<p id="song-status" class="game-status"></p>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>Made with too much love ♡</p>
+<span>For you, always.</span>
+</footer>
+
+</main>
+<script src="assets/home.js"></script>
+</body>
+</html>

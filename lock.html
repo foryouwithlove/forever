@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For You ❤️</title>
+<link rel="stylesheet" href="assets/lock.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<main class="lock-screen">
+<div class="lock-card">
+<p class="eyebrow">FOR YOU WITH LOVE 💖</p>
+<h1>When did our story begin?</h1>
+<p class="lock-message">A little something is waiting for you inside ♡</p>
+<form id="dateForm">
+<div class="date-box">
+<button type="button" class="date-display" id="dateDisplay">
+<span id="selectedDate">dd / mm / yyyy</span>
+<span class="calendar-icon">🗓️</span>
+</button>
+<div class="calendar" id="calendar">
+<div class="calendar-header">
+<button type="button" id="prevMonth">‹</button>
+<h2 id="monthYear"></h2>
+<button type="button" id="nextMonth">›</button>
+</div>
+<div class="weekdays">
+<span>Sun</span>
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+</div>
+<div class="days" id="days"></div>
+</div>
+</div>
+<button class="main-button" type="submit">Unlock ♡</button>
+<p id="dateError" class="password-error"></p>
+</form>
+</div>
+</main>
+<script src="assets/lock.js"></script>
+</body>
+</html>
