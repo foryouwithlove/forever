@@ -24,7 +24,7 @@ overflow-x:hidden;
 .story-page{
 width:min(850px,88%);
 margin:auto;
-padding:90px 0 120px;
+padding:65px 0 30px;
 }
 
 /* ==================== INTRO ==================== */
@@ -43,27 +43,30 @@ letter-spacing:-2px;
 min-height:1.2em;
 }
 .intro-text{
-max-width:500px;
-margin:32px auto 0;
-font-size:1rem;
+max-width:580px;
+margin:40px auto 0;
+padding:28px 32px;
+font-family:"Quintessential",cursive;
+font-size:1.3rem;
 line-height:1.9;
-color:var(--text);
-font-family:"Quintessential",monospace;
-opacity:.9;
+color:var(--wine);
+background:#FFF7FA;
+border:1px solid rgba(110,31,58,.25);
+box-shadow:6px 7px 0 rgba(110,31,58,.07);
 }
 
 /* ==================== TIMER ==================== */
 .timer-section{
 display:flex;
 justify-content:center;
-margin-bottom:110px;
+margin-bottom:70px;
 }
 .timer-card{
 position:relative;
 width:min(650px,100%);
 padding:55px 35px;
 text-align:center;
-background:#b8365c;
+background:#C98298;;
 color:#FFF7FA;
 border-radius:18px;
 box-shadow:0 20px 45px rgba(110,31,58,.18);
@@ -73,7 +76,7 @@ overflow:hidden;
 content:"";
 position:absolute;
 inset:10px;
-border:1px solid rgba(255,247,250,.22);
+border:1px solid rgba(110,31,58,.18);
 border-radius:12px;
 pointer-events:none;
 }
@@ -137,17 +140,15 @@ font-style:italic;
 opacity:.75;
 }
 
-/* ==================== MEMORY INTRO ==================== */
-.memory-intro{
-text-align:center;
-margin-bottom:65px;
+/* ==================== STORY READY IMAGE ==================== */
+.story-image{
+width:min(100%,700px);
+margin:0 auto 50px;
 }
-.memory-intro p{
-margin:0;
-color:var(--wine);
-font-size:1.6rem;
-font-style:italic;
-line-height:1.6;
+.story-image img{
+display:block;
+width:100%;
+height:auto;
 }
 
 /* ==================== CHAPTERS ==================== */
@@ -168,35 +169,20 @@ transition:transform .45s ease,box-shadow .45s ease;
 display:block;
 width:100%;
 height:auto;
-transition:transform .7s ease,filter .5s ease;
-}
-.chapter:hover{
-transform:translateY(-8px);
-box-shadow:0 25px 55px rgba(110,31,58,.2);
-}
-.chapter:hover img{
-transform:scale(1.025);
-filter:brightness(1.03);
 }
 
 /* ==================== END NOTE ==================== */
 .end-note{
-text-align:center;
-margin-top:110px;
+width:min(100%,700px);
+margin:70px auto 0;
+display:flex;
+flex-direction:column;
+gap:25px;
 }
-.end-main{
-margin:0 0 15px;
-color:var(--wine);
-font-size:1.8rem;
-font-style:italic;
-}
-.end-sub{
-max-width:400px;
-margin:auto;
-color:var(--text);
-font-size:.9rem;
-line-height:1.8;
-opacity:.7;
+.end-note img{
+display:block;
+width:100%;
+height:auto;
 }
 
 /* ==================== REVEAL ==================== */
@@ -214,16 +200,27 @@ transform:translateY(0);
 @media(max-width:600px){
 .story-page{
 width:90%;
-padding:65px 0 90px;
+padding:65px 0 30px;
 }
 .story-intro{margin-bottom:80px}
 .story-intro h1{
-font-size:1.7rem;
+font-size:1.75rem;
 letter-spacing:1.2px;
 }
 .intro-text{
-font-size:1rem;
+padding:22px 20px;
+font-size:1.1rem;
 line-height:1.8;
+}
+.memory-image{
+margin-bottom:45px;
+}
+.end-note{
+margin-top:70px;
+}
+.end-main{
+margin-bottom:35px;
+font-size:1.25rem;
 }
 .timer-card{
 padding:50px 20px;
