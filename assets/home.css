@@ -1,0 +1,634 @@
+/* ==================== GLOBAL ==================== */
+*{box-sizing:border-box}
+:root{
+--pink:#d94f70;
+--pink-light:#ffe1e9;
+--wine:#6e1f3a;
+--text:#4b2633;
+--white:#fffafd;
+--shadow:0 16px 40px rgba(110,31,58,.13);
+}
+html{scroll-behavior:smooth}
+body{
+margin:0;
+color:var(--text);
+font-family:Georgia,"Times New Roman",serif;
+background:
+radial-gradient(circle at top left,rgba(255,255,255,.9),transparent 32%),
+linear-gradient(135deg,#fff1f5,#ffdce7);
+}
+
+/* ==================== NAVBAR ==================== */
+.navbar{
+position:sticky;
+top:0;
+z-index:100;
+height:54px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 25px;
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.3);
+}
+.navbar a{
+color:#8f2948;
+text-decoration:none;
+font:500 14px "Playfair Display",serif;
+transition:.25s;
+}
+.navbar a:hover{
+color:var(--pink);
+transform:translateY(-1px);
+}
+.nav-progress{
+color:#8f2948;
+font:500 14px "Playfair Display",serif;
+letter-spacing:1px;
+}
+
+/* ==================== CONTAINER ==================== */
+.container{
+width:min(1050px,calc(100% - 28px));
+margin:auto;
+}
+
+/* ================ INTRODUCTION PHOTO STACK ================= */
+.photo-stack{
+display:grid;
+gap:20px;
+max-width:880px;
+margin:30px auto 42px;
+}
+.photo-card{
+overflow:hidden;
+border-radius:0;
+background:transparent;
+box-shadow:none;
+}
+.photo-card img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* ==================== QUOTES ==================== */
+.quote-section{
+width:min(800px,100%);
+margin:50px auto;
+padding:45px 30px;
+background:rgba(255,255,255,.65);
+border-radius:24px;
+text-align:center;
+position:relative;
+box-shadow:0 15px 40px rgba(100,45,60,.08);
+}
+.quote-section p{
+margin:0;
+color:#542536;
+font:500 clamp(20px,4vw,28px) "Playfair Display",serif;
+line-height:1.7;
+}
+.quote-mark{
+position:absolute;
+top:5px;
+left:25px;
+font:600 60px "Playfair Display",serif;
+color:#d94f70;
+opacity:.55;
+}
+.quote-mark.bottom{
+top:auto;
+left:auto;
+right:25px;
+bottom:-20px;
+}
+
+/* ================= 1. கதை — OUR STORY ================= */
+.story-puzzle-section{
+width:min(850px,92%);
+margin:60px auto 80px;
+text-align:center;
+}
+.story-puzzle-section h2{
+margin-bottom:8px;
+font:500 clamp(32px,6vw,48px) "Playfair Display",serif;
+color:#8f2948;
+}
+.puzzle-subtitle{
+margin-bottom:28px;
+color:#8f2948;
+font:italic 18px "Playfair Display",serif;
+}
+.story-puzzle{
+width:min(700px,100%);
+aspect-ratio:1;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:7px;
+}
+.story-tile{
+position:relative;
+overflow:hidden;
+cursor:grab;
+user-select:none;
+-webkit-user-select:none;
+border-radius:14px;
+transition:.3s;
+}
+.story-tile:active{
+cursor:grabbing;
+transform:scale(.97);
+}
+.story-tile img{
+width:100%;
+height:100%;
+display:block;
+object-fit:cover;
+pointer-events:none;
+}
+.story-tile.dragging{
+opacity:.45;
+transform:scale(.95);
+}
+.story-tile.drag-over{
+transform:scale(1.03);
+box-shadow:0 0 0 3px rgba(217,79,112,.35);
+}
+@media (max-width:600px){
+.story-puzzle-section{
+width:100%;
+margin:45px auto 65px;
+}
+.story-puzzle{
+width:calc(100%);
+margin:0 auto;
+aspect-ratio:auto;
+grid-template-columns:repeat(3,1fr);
+grid-auto-rows:auto;
+gap:5px;
+}
+.story-tile{
+aspect-ratio:2.5/4;
+border-radius:10px;
+}
+}
+.story-complete{
+display:none;
+text-align:center;
+margin:28px auto 0;
+}
+.story-complete.show{
+display:block;
+animation:storyReveal .6s ease;
+}
+.story-button{
+display:inline-block;
+padding:14px 34px;
+color:#8f2948;
+text-decoration:none;
+font:500 20px "Playfair Display",serif;
+letter-spacing:.04em;
+background:rgba(255,255,255,.38);
+border:1px solid rgba(217,79,112,.22);
+border-radius:30px;
+box-shadow:0 10px 30px rgba(110,31,58,.10);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+transition:.35s ease;
+}
+.story-button::before{
+content:"♡ ";
+color:#d94f70;
+}
+.story-button:hover{
+transform:translateY(-4px);
+background:rgba(255,255,255,.65);
+box-shadow:0 15px 35px rgba(110,31,58,.16);
+}
+@keyframes storyReveal{
+from{
+opacity:0;
+transform:translateY(12px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+.story-puzzle.shuffling{
+animation:puzzleShuffle .55s ease;
+}
+@keyframes puzzleShuffle{
+0%{
+opacity:1;
+transform:scale(1);
+}
+35%{
+opacity:.45;
+transform:scale(.97);
+}
+70%{
+opacity:.75;
+transform:scale(1.02);
+}
+100%{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* ==================== LYRICS / SPOTIFY ==================== */
+.lyrics-section{
+width:min(700px,100%);
+margin:45px auto;
+text-align:center;
+}
+.lyrics-image{
+width:100%;
+display:block;
+border-radius:0;
+margin-bottom:20px;
+}
+.spotify-player{
+width:100%;
+}
+.spotify-player iframe{
+display:block;
+width:100%;
+}
+
+/* ============= 2. காதல் — REASONS TO LOVE YOU ============= */
+.game-section{
+margin:0 auto 70px;
+scroll-margin-top:70px;
+}
+.section-heading{
+text-align:center;
+margin-bottom:22px;
+}
+.section-heading h2{
+color:var(--wine);
+margin:7px 0;
+font:500 clamp(2rem,5vw,2.8rem) "Playfair Display",serif;
+}
+.section-heading p{
+margin:0;
+line-height:1.6;
+font-size:1.08rem;
+}
+.game-card{
+padding:28px;
+border-radius:26px;
+background:rgba(255,250,252,.9);
+box-shadow:var(--shadow);
+}
+.option-grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:18px;
+}
+.anime-option{
+border:2px solid transparent;
+border-radius:18px;
+overflow:hidden;
+background:white;
+cursor:pointer;
+padding:0;
+color:var(--text);
+font-weight:bold;
+box-shadow:0 8px 22px rgba(110,31,58,.1);
+transition:.25s ease;
+}
+.anime-option:hover{
+border-color:var(--pink);
+transform:translateY(-4px);
+}
+.anime-option img{
+display:block;
+width:100%;
+aspect-ratio:1/1;
+object-fit:cover;
+}
+.anime-option span{
+display:block;
+padding:12px;
+}
+
+/* =============== 3. கசப்பு — REASONS TO HATE YOU =============== */
+.game-status{
+min-height:26px;
+margin:18px 0 8px;
+text-align:center;
+font-weight:bold;
+color:var(--pink);
+}
+.number-card{
+max-width:650px;
+margin:auto;
+text-align:center;
+}
+.number-card input[type="number"],
+.number-card input[type="text"]{
+width:100%;
+padding:14px;
+border:1px solid rgba(110,31,58,.18);
+border-radius:14px;
+background:white;
+outline:none;
+font:16px Georgia,"Times New Roman",serif;
+color:var(--text);
+}
+.number-card input:focus{
+border-color:rgba(217,79,112,.55);
+box-shadow:0 0 0 3px rgba(217,79,112,.1);
+}
+.primary-button{
+display:inline-block;
+margin-top:14px;
+padding:13px 21px;
+border:1px solid rgba(217,79,112,.25);
+border-radius:999px;
+background:rgba(217,79,112,.13);
+color:#8f2948;
+font:500 15px "Playfair Display",serif;
+cursor:pointer;
+box-shadow:0 8px 25px rgba(217,79,112,.1);
+transition:.25s ease;
+}
+.primary-button:hover{
+background:rgba(217,79,112,.23);
+transform:translateY(-3px);
+box-shadow:0 12px 30px rgba(217,79,112,.17);
+}
+
+/* =============== 4. WHY EVERYONE LOVES YOU =============== */
+.mcq-card{
+max-width:800px;
+margin:auto;
+}
+.question{
+padding:18px 0;
+border-bottom:1px solid rgba(110,31,58,.1);
+}
+.question h3{
+color:var(--wine);
+margin:0 0 8px;
+}
+.question label{
+display:block;
+padding:8px 0;
+cursor:pointer;
+}
+.question input{
+accent-color:var(--pink);
+margin-right:8px;
+}
+.mcq-card .primary-button{
+display:block;
+margin:25px auto 0;
+}
+
+/* ================= 5. WHY I'M LUCKY ================= */
+.matching-game{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+max-width:800px;
+margin:auto;
+}
+.match-column{
+display:grid;
+gap:12px;
+}
+.match-item{
+width:100%;
+padding:13px;
+border:2px solid transparent;
+border-radius:14px;
+background:white;
+color:var(--text);
+cursor:pointer;
+font:15px Georgia,"Times New Roman",serif;
+transition:.2s ease;
+}
+.match-item:hover{
+border-color:rgba(217,79,112,.4);
+transform:translateY(-2px);
+}
+.match-item.selected{
+border-color:var(--pink);
+background:var(--pink-light);
+}
+.match-item.matched{
+border-color:#79a86b;
+background:#eaf5e7;
+cursor:default;
+}
+
+/* ==================== SUCCESS POPUP ==================== */
+.success-overlay{
+position:fixed;
+inset:0;
+z-index:9999;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:rgba(80,30,45,.25);
+backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+}
+.success-overlay.show{
+display:flex;
+animation:overlayIn .35s ease;
+}
+.success-card{
+position:relative;
+width:min(390px,90%);
+padding:42px 30px 34px;
+text-align:center;
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.8);
+border-radius:30px;
+box-shadow:0 25px 80px rgba(100,45,60,.2);
+animation:cardPop .5s cubic-bezier(.17,.67,.3,1.3);
+overflow:hidden;
+}
+.success-sparkles{
+position:absolute;
+top:14px;
+left:0;
+right:0;
+color:#d94f70;
+font-size:17px;
+letter-spacing:18px;
+animation:sparkle 2s ease-in-out infinite;
+}
+.success-icon{
+width:62px;
+height:62px;
+margin:0 auto 18px;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:rgba(217,79,112,.12);
+color:#d94f70;
+font-size:30px;
+}
+.success-card h2{
+margin:0;
+color:#8f2948;
+font:500 27px "Playfair Display",serif;
+}
+.success-card p{
+margin:12px 0 25px;
+color:#7d5360;
+font:16px "Playfair Display",serif;
+line-height:1.5;
+}
+.success-button{
+padding:13px 28px;
+border:1px solid rgba(217,79,112,.25);
+border-radius:20px;
+background:rgba(217,79,112,.12);
+color:#8f2948;
+font:500 15px "Playfair Display",serif;
+cursor:pointer;
+box-shadow:0 8px 25px rgba(217,79,112,.12);
+transition:.3s;
+}
+.success-button:hover{
+background:rgba(217,79,112,.22);
+transform:translateY(-3px);
+box-shadow:0 12px 30px rgba(217,79,112,.18);
+}
+
+/* ==================== FOOTER ==================== */
+footer{
+min-height:420px;
+margin:100px 0 0;
+padding:100px 24px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+background:
+linear-gradient(rgba(70,25,40,.48),rgba(70,25,40,.58)),
+url("assets/images/photo3.jpg") center/cover no-repeat;
+color:white;
+}
+footer p{
+margin:0;
+font:500 clamp(30px,7vw,58px) "Playfair Display",serif;
+line-height:1.3;
+text-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+footer span{
+margin-top:18px;
+font:italic 18px "Playfair Display",serif;
+opacity:.9;
+}
+
+/* ==================== REVEAL ==================== */
+.reveal{
+opacity:0;
+transform:translateY(30px);
+transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes cardPop{
+from{opacity:0;transform:scale(.75) translateY(20px)}
+to{opacity:1;transform:scale(1) translateY(0)}
+}
+@keyframes overlayIn{
+from{opacity:0}
+to{opacity:1}
+}
+@keyframes sparkle{
+0%,100%{opacity:.45;transform:translateY(0)}
+50%{opacity:1;transform:translateY(-3px)}
+}
+
+/* ==================== MOBILE ==================== */
+@media(max-width:700px){
+.navbar{
+padding:10px 18px;
+}
+.container{
+width:min(100% - 20px,1050px);
+}
+.photo-stack{
+gap:20px;
+margin-top:20px;
+}
+.quote-section{
+margin:38px auto;
+padding:38px 22px;
+}
+.quote-section p{
+font-size:20px;
+line-height:1.6;
+}
+.quote-mark{
+left:15px;
+font-size:50px;
+}
+.quote-mark.bottom{
+right:15px;
+}
+.story-puzzle-section{
+width:100%;
+margin:45px auto 65px;
+}
+.story-puzzle{
+gap:5px;
+}
+.story-tile{
+border-radius:10px;
+}
+.game-card{
+padding:19px;
+}
+.option-grid{
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:12px;
+}
+.anime-option{
+border-radius:14px;
+}
+.anime-option span{
+padding:9px 5px;
+font-size:14px;
+}
+.matching-game{
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:9px;
+}
+.match-item{
+padding:12px 7px;
+font-size:13px;
+min-height:52px;
+}
+.success-card{
+padding:38px 24px 30px;
+}
+.lyrics-section{
+margin:35px auto;
+}
+footer{
+margin-top:60px;
+padding:70px 20px;
+}
+}
