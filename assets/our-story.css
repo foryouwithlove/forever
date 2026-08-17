@@ -16,7 +16,9 @@ body{
 margin:0;
 color:var(--text);
 font-family:Georgia,"Times New Roman",serif;
-background:#F6DCE4;
+background:
+radial-gradient(circle at top left,rgba(255,255,255,.9),transparent 32%),
+linear-gradient(135deg,#fff1f5,#ffdce7);
 overflow-x:hidden;
 }
 
@@ -143,7 +145,17 @@ opacity:.75;
 /* ==================== STORY READY IMAGE ==================== */
 .story-image{
 width:min(100%,700px);
-margin:0 auto 50px;
+margin:0 auto 30px;
+text-align:center;
+}
+.story-image h2{
+margin:0 0 40px;
+color:var(--wine);
+font-family:"Special Elite",monospace;
+font-size:clamp(1.5rem,4vw,2.5rem);
+font-weight:400;
+letter-spacing:1px;
+min-height:1.3em;
 }
 .story-image img{
 display:block;
@@ -156,7 +168,7 @@ height:auto;
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:30px;
+gap:25px;
 }
 .chapter{
 display:block;
@@ -202,7 +214,7 @@ transform:translateY(0);
 width:90%;
 padding:65px 0 30px;
 }
-.story-intro{margin-bottom:80px}
+.story-intro{margin-bottom:70px}
 .story-intro h1{
 font-size:1.75rem;
 letter-spacing:1.2px;
@@ -212,11 +224,12 @@ padding:22px 20px;
 font-size:1.1rem;
 line-height:1.8;
 }
-.memory-image{
-margin-bottom:45px;
+.story-image h2{
+font-size:1.35rem;
+margin-bottom:30px;
 }
 .end-note{
-margin-top:70px;
+margin-top:40px;
 }
 .end-main{
 margin-bottom:35px;
