@@ -64,6 +64,21 @@ setTimeout(typeTitle,70);
 }
 typeTitle();
 
+/* ============= STORY TIME LOOP ================ */
+const storyText="So, story time... Ready?";
+const storyTitle=document.getElementById("story-typewriter");
+let storyIndex=0;
+
+function typeStory(){
+if(storyIndex<storyText.length){
+storyTitle.textContent+=storyText.charAt(storyIndex);
+storyIndex++;
+setTimeout(typeStory,100);
+}
+}
+
+typeStory();
+
 /* ============= REVEAL ================ */
 const revealElements=document.querySelectorAll(".reveal");
 
