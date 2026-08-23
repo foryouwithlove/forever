@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
 /* ==================== GLOBAL ==================== */
 *{box-sizing:border-box}
 :root{
@@ -173,7 +175,7 @@ margin-bottom:18px
 .quote-paper p{
 margin:0;
 color:#542536;
-font:500 clamp(20px,4vw,28px) "Playfair Display",serif;
+font:500 clamp(20px,4vw,28px) "Italianno",serif;
 line-height:1.7
 }
 .quote-paper p+p{
