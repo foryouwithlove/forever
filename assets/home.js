@@ -58,7 +58,7 @@ function checkStoryPuzzle() {
         showSuccess(
             "YAY! YOU GOT IT ♡",
             "You really do know our story.",
-            "our-story.html"
+            "kadhai.html"
         );
     }
 }
@@ -175,7 +175,7 @@ animeStatus.textContent="Correct! You actually know me. ❤️";
 showSuccess(
 "YAY! YOU GOT IT ♡",
 "You really do know me.",
-"reasons-to-love-you.html"
+"kadhal.html"
 );
 }else{
 animeStatus.textContent="Nope 😭 Try again!";
@@ -210,7 +210,7 @@ numberStatus.textContent="You got it! ❤️";
 showSuccess(
 "YAY! YOU GOT IT ♡",
 "That was the number I had in mind.",
-"reasons-to-hate-you.html"
+"kasappu.html"
 );
 }
 }
@@ -270,7 +270,7 @@ mcqStatus.textContent="All correct! ✨";
 showSuccess(
 "YAY! ALL CORRECT ♡",
 "You know exactly why everyone loves me.",
-"why-everyone-loves-you.html"
+"kaandham.html"
 );
 });
 }
@@ -328,7 +328,7 @@ matchStatus.textContent="You matched everything! 🫶";
 showSuccess(
 "PERFECT MATCH ♡",
 "You really know me.",
-"why-im-lucky.html"
+"lucky.html"
 );
 }else{
 matchStatus.textContent=
