@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Felipa&display=swap');
 
 /* ==================== GLOBAL ==================== */
 *{box-sizing:border-box}
@@ -175,7 +175,7 @@ margin-bottom:18px
 .quote-paper p{
 margin:0;
 color:#542536;
-font:500 clamp(20px,4vw,28px) "Italianno",serif;
+font:500 clamp(20px,4vw,28px) "Playfair Display",serif;
 line-height:1.7
 }
 .quote-paper p+p{
@@ -232,12 +232,7 @@ clip-path:polygon(
 );
 }
 
-/* ================= 1. கதை — OUR STORY ================= */
-.story-puzzle-section{
-width:min(850px,92%);
-margin:60px auto 80px;
-text-align:center;
-}
+/* ================= CREATOR NOTE ================= */
 .instruction-film{
 width:100%;
 margin:50px auto 50px;
@@ -267,7 +262,8 @@ color:#6e1f3a;
 }
 .instruction-film p{
 color:#6e4653;
-font:clamp(15px,1.8vw,17px)/1.7 Georgia,"Times New Roman",serif;
+font:clamp(18px,1.8vw,17px)/1.7 "Felipa",cursive;
+font-weight:550;
 }
 .film-scene{
 display:block;
@@ -301,12 +297,19 @@ font-size:12px;
 letter-spacing:2px
 }
 .instruction-film p{
-font-size:18px;
-line-height:1.6
+font-size:22px;
+line-height:1.8
 }
 .film-scene{
 font-size:10px
 }
+}
+
+/* ================= 1. கதை — OUR STORY ================= */
+.story-puzzle-section{
+width:min(850px,92%);
+margin:60px auto 80px;
+text-align:center;
 }
 .story-puzzle{
 width:min(700px,100%);
@@ -388,11 +391,10 @@ box-shadow:0 10px 25px rgba(80,35,45,.12),inset 0 0 25px rgba(110,31,58,.05);
 overflow:hidden;
 transition:.35s ease;
 }
-
 .story-button::after{
-    content:"";
-    position:absolute;
-    top:0;
+content:"";
+position:absolute;
+top:0;
     bottom:0;
     right:115px;
     width:1px;
@@ -410,8 +412,6 @@ transition:.35s ease;
     letter-spacing:3px;
     color:#8f304d;
 }
-
-/* little ticket image */
 .story-button .ticket-image{
     position:absolute;
     right:25px;
@@ -422,7 +422,6 @@ transition:.35s ease;
     object-fit:cover;
     filter:saturate(.75);
 }
-
 .story-button .ticket-title{
     position:relative;
     z-index:2;
@@ -437,23 +436,19 @@ transition:.35s ease;
         min-height:75px;
         padding:20px;
     }
-
     .story-button::after{
         right:92px;
     }
-
     .story-button .ticket-image{
         right:15px;
         width:58px;
         height:58px;
     }
-
     .story-button .ticket-scene{
         left:20px;
         top:13px;
         font-size:8px;
     }
-
     .story-button .ticket-title{
         font-size:20px;
         margin-top:14px;
@@ -564,8 +559,27 @@ object-fit:cover;
 display:block;
 padding:12px;
 }
+.number-lives{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+}
 
-/* =============== 3. கசப்பு — REASONS TO HATE YOU =============== */
+.heart{
+    font-family:Arial,sans-serif;
+    font-size:26px;
+    line-height:1;
+    color:#d94f70;
+    transition:color .25s ease,transform .25s ease;
+}
+
+.heart.empty{
+    color:transparent;
+    -webkit-text-stroke:1.5px #d94f70;
+}
+/* =============== 3. கசப்பு — REASONS TO HATE YOU ============ */
 .game-status{
 min-height:26px;
 margin:18px 0 8px;
