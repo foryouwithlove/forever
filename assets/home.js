@@ -178,9 +178,19 @@ showSuccess(
 "kadhal.html"
 );
 }else{
-animeStatus.textContent="Nope 😭 Try again!";
+sessionStorage.setItem("wrongReturnPage","home.html");
+sessionStorage.setItem("restoreScrollPosition",window.scrollY);
+window.location.href="wrong.html";
 }
 });
+});
+
+window.addEventListener("load",()=>{
+const position=sessionStorage.getItem("restoreScrollPosition");
+if(position){
+window.scrollTo(0,Number(position));
+sessionStorage.removeItem("restoreScrollPosition");
+}
 });
 
 
@@ -191,36 +201,78 @@ animeStatus.textContent="Nope 😭 Try again!";
 const numberInput=document.getElementById("number-input");
 const numberCheck=document.getElementById("number-check");
 const numberStatus=document.getElementById("number-status");
+const numberHearts=document.getElementById("number-hearts");
 const correctNumber=3;
 
+let numberLives=Number(sessionStorage.getItem("numberLives"));
+
+if(!numberLives){
+    numberLives=3;
+    sessionStorage.setItem("numberLives",numberLives);
+}
+
+function updateHearts(){
+    const hearts=numberHearts.querySelectorAll(".heart");
+
+    hearts.forEach((heart,index)=>{
+        if(index<numberLives){
+            heart.classList.remove("empty");
+        }else{
+            heart.classList.add("empty");
+        }
+    });
+}
+updateHearts();
+
 function checkNumber(){
-if(!numberInput.value.trim()){
-numberStatus.textContent="Enter a number first 😭";
-return;
+    if(!numberInput.value.trim()){
+        numberStatus.textContent="Enter a number first 😭";
+        return;
+    }
+
+    const guess=Number(numberInput.value);
+
+    if(guess===correctNumber){
+        numberStatus.textContent="You got it! ❤️";
+        showSuccess(
+            "YAY! YOU GOT IT ♡",
+            "That was the number I had in mind.",
+            "kasappu.html"
+        );
+        return;
+    }
+
+    numberLives--;
+    sessionStorage.setItem("numberLives",numberLives);
+    updateHearts();
+
+    if(guess>correctNumber){
+        numberStatus.textContent="Too high! The number is lower. ↓";
+    }else{
+        numberStatus.textContent="Too low! The number is higher. ↑";
+    }
+
+if(numberLives<=0){
+    sessionStorage.removeItem("numberLives");
+
+    sessionStorage.setItem("wrongReturnPage","home.html#hate");
+
+    setTimeout(()=>{
+        window.location.href="wrong.html";
+    },900);
+}
 }
 
-const guess=Number(numberInput.value);
-
-if(guess>correctNumber){
-numberStatus.textContent="Too high! The number is lower. ↓";
-}else if(guess<correctNumber){
-numberStatus.textContent="Too low! The number is higher. ↑";
-}else{
-numberStatus.textContent="You got it! ❤️";
-showSuccess(
-"YAY! YOU GOT IT ♡",
-"That was the number I had in mind.",
-"kasappu.html"
-);
+if(numberCheck){
+    numberCheck.addEventListener("click",checkNumber);
 }
-}
-
-if(numberCheck)numberCheck.addEventListener("click",checkNumber);
 
 if(numberInput){
-numberInput.addEventListener("keydown",event=>{
-if(event.key==="Enter")checkNumber();
-});
+    numberInput.addEventListener("keydown",event=>{
+        if(event.key==="Enter"){
+            checkNumber();
+        }
+    });
 }
 
 
