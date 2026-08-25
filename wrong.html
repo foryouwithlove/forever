@@ -4,313 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Excuse Me?!</title>
-
 <style>
 *{box-sizing:border-box}
-
-:root{
---pink:#d94f70;
---pink-light:#ffe1e9;
---wine:#6e1f3a;
---text:#4b2633;
---white:#fffafd;
---shadow:0 16px 40px rgba(110,31,58,.13);
-}
-
+:root{--pink:#d94f70;--pink-light:#ffe1e9;--wine:#6e1f3a;--text:#4b2633;--white:#fffafd;--shadow:0 16px 40px rgba(110,31,58,.13)}
 html{scroll-behavior:smooth}
-
-body{
-margin:0;
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-color:var(--text);
-font-family:Georgia,"Times New Roman",serif;
-background:
-radial-gradient(circle at top left,rgba(255,255,255,.9),transparent 32%),
-linear-gradient(135deg,#fff1f5,#ffdce7);
-position:relative;
-}
-
-body:before{
-content:"";
-position:absolute;
-inset:0;
-pointer-events:none;
-background:
-radial-gradient(circle at 85% 15%,rgba(217,79,112,.08),transparent 25%),
-radial-gradient(circle at 15% 85%,rgba(110,31,58,.05),transparent 25%);
-}
-
-.floating{
-position:absolute;
-color:var(--pink);
-font-size:18px;
-opacity:.3;
-animation:float 9s linear infinite;
-pointer-events:none;
-}
-
-.f1{left:8%;animation-delay:0s}
-.f2{left:20%;animation-delay:2s}
-.f3{left:78%;animation-delay:4s}
-.f4{left:90%;animation-delay:1s}
-.f5{left:55%;animation-delay:6s}
-.f6{left:38%;animation-delay:3s}
-
-@keyframes float{
-0%{transform:translateY(110vh) rotate(0);opacity:0}
-15%{opacity:.3}
-85%{opacity:.3}
-100%{transform:translateY(-15vh) rotate(25deg);opacity:0}
-}
-
-.card{
-width:min(600px,90%);
-padding:38px 35px 42px;
-background:rgba(255,250,253,.78);
-border:1px solid rgba(110,31,58,.09);
-border-radius:28px;
-box-shadow:var(--shadow);
-backdrop-filter:blur(8px);
--webkit-backdrop-filter:blur(8px);
-text-align:center;
-position:relative;
-z-index:2;
-animation:cardIn .7s ease both;
-}
-
-@keyframes cardIn{
-from{
-opacity:0;
-transform:translateY(25px) scale(.97);
-}
-to{
-opacity:1;
-transform:translateY(0) scale(1);
-}
-}
-
-.corner{
-position:absolute;
-font-size:17px;
-color:var(--pink);
-opacity:.6;
-}
-
-.c1{top:18px;left:22px}
-.c2{top:18px;right:22px}
-.c3{bottom:18px;left:22px}
-.c4{bottom:18px;right:22px}
-
-.gif-wrap{
-width:220px;
-height:220px;
-margin:0 auto 22px;
-border-radius:24px;
-overflow:hidden;
-background:var(--pink-light);
-box-shadow:
-0 10px 28px rgba(110,31,58,.12),
-0 0 0 7px rgba(255,255,255,.5);
-}
-
-.gif-wrap iframe{
-width:100%;
-height:100%;
-border:0;
-display:block;
-}
-
-.eyebrow{
-font-size:12px;
-font-weight:bold;
-letter-spacing:2.5px;
-text-transform:uppercase;
-color:var(--pink);
-margin-bottom:8px;
-}
-
-h1{
-margin:0 0 13px;
-font-size:clamp(40px,9vw,58px);
-font-weight:normal;
-font-family:Georgia,"Times New Roman",serif;
-font-style:italic;
-color:var(--wine);
-line-height:1.05;
-}
-
-.message{
-margin:0 auto;
-max-width:460px;
-font-size:18px;
-line-height:1.65;
-color:var(--text);
-}
-
-.message strong{
-color:var(--wine);
-}
-
-.message em{
-color:var(--pink);
-}
-
-.divider{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-margin:23px 0;
-color:var(--pink);
-font-size:13px;
-}
-
-.divider:before,
-.divider:after{
-content:"";
-height:1px;
-width:70px;
-background:rgba(110,31,58,.18);
-}
-
-.hint{
-margin:0 auto 23px;
-font-size:13px;
-line-height:1.6;
-font-style:italic;
-color:#805061;
-min-height:21px;
-}
-
-button{
-border:0;
-padding:14px 28px;
-border-radius:30px;
-background:var(--wine);
-color:var(--white);
-font-family:Georgia,"Times New Roman",serif;
-font-size:14px;
-cursor:pointer;
-box-shadow:0 8px 20px rgba(110,31,58,.2);
-transition:all .3s ease;
-}
-
-button:hover{
-background:#812847;
-transform:translateY(-3px);
-box-shadow:0 12px 25px rgba(110,31,58,.25);
-}
-
-button:active{
-transform:translateY(0) scale(.98);
-}
-
-.note{
-margin:18px 0 0;
-font-size:11px;
-font-style:italic;
-color:#a06a78;
-}
-
-@media(max-width:600px){
-.card{
-width:90%;
-padding:34px 23px 35px;
-}
-
-.gif-wrap{
-width:185px;
-height:185px;
-}
-
-.message{
-font-size:16px;
-}
-
-button{
-width:100%;
-max-width:280px;
-}
-
-.divider:before,
-.divider:after{
-width:45px;
-}
-}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at top left,rgba(255,255,255,.9),transparent 32%),linear-gradient(135deg,#fff1f5,#ffdce7);position:relative;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 85% 15%,rgba(217,79,112,.08),transparent 25%),radial-gradient(circle at 15% 85%,rgba(110,31,58,.05),transparent 25%);z-index:-1}
+.page{width:min(900px,94%);margin:0 auto;padding:55px 0 70px;text-align:center}
+.gif-title{font-size:clamp(13px,2vw,16px);letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:bold;margin-bottom:18px}
+.tenor-wrap{width:100%;overflow:hidden;border-radius:20px;margin:0 auto 45px;box-shadow:var(--shadow)}
+.tenor-gif-embed{width:100%!important}
+.tenor-gif-embed iframe{width:100%!important}
+.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:25px auto;color:var(--pink);font-size:14px}
+.divider:before,.divider:after{content:"";width:90px;height:1px;background:rgba(110,31,58,.2)}
+.wrong-title{font-size:clamp(42px,9vw,72px);font-weight:900;color:var(--wine);line-height:1;margin:0 0 16px;letter-spacing:-1px}
+.wrong-title span{color:var(--pink)}
+.subtext{font-size:clamp(17px,3vw,21px);line-height:1.6;max-width:650px;margin:0 auto 35px;color:var(--text)}
+.subtext strong{color:var(--wine)}
+.angry-gif{width:100%;max-width:600px;height:auto;min-height:280px;object-fit:cover;border-radius:22px;display:block;margin:0 auto 38px;box-shadow:var(--shadow);background:var(--pink-light)}
+.you-dont{font-size:clamp(30px,7vw,55px);font-weight:bold;color:var(--wine);line-height:1.15;margin:0 auto 12px}
+.you-dont span{color:var(--pink)}
+.small-message{font-size:17px;font-style:italic;line-height:1.6;color:#805061;max-width:600px;margin:0 auto 28px}
+.button-wrap{margin-top:25px}
+button{border:0;padding:15px 30px;border-radius:30px;background:var(--wine);color:var(--white);font-family:Georgia,"Times New Roman",serif;font-size:15px;cursor:pointer;box-shadow:0 8px 20px rgba(110,31,58,.2);transition:all .3s ease}
+button:hover{background:#812847;transform:translateY(-3px);box-shadow:0 12px 25px rgba(110,31,58,.25)}
+button:active{transform:scale(.97)}
+.final-note{margin:19px auto 0;font-size:12px;font-style:italic;color:#a06a78}
+.floating{position:fixed;color:var(--pink);font-size:18px;opacity:.25;animation:float 10s linear infinite;pointer-events:none;z-index:0}
+.f1{left:7%;animation-delay:0s}.f2{left:18%;animation-delay:2s}.f3{left:82%;animation-delay:4s}.f4{left:91%;animation-delay:1s}.f5{left:57%;animation-delay:6s}.f6{left:38%;animation-delay:3s}
+@keyframes float{0%{transform:translateY(110vh) rotate(0);opacity:0}15%{opacity:.25}85%{opacity:.25}100%{transform:translateY(-15vh) rotate(25deg);opacity:0}}
+@media(max-width:600px){.page{width:92%;padding:35px 0 55px}.tenor-wrap{border-radius:14px;margin-bottom:35px}.wrong-title{font-size:clamp(40px,12vw,58px)}.subtext{font-size:16px}.angry-gif{min-height:220px;border-radius:16px}.you-dont{font-size:clamp(31px,10vw,45px)}.small-message{font-size:15px}button{width:100%;max-width:300px}.divider:before,.divider:after{width:50px}}
 </style>
 </head>
-
 <body>
-
 <div class="floating f1">♡</div>
 <div class="floating f2">✦</div>
 <div class="floating f3">♡</div>
 <div class="floating f4">✧</div>
 <div class="floating f5">♡</div>
 <div class="floating f6">✦</div>
-
-<main class="card">
-
-<div class="corner c1">✦</div>
-<div class="corner c2">♡</div>
-<div class="corner c3">♡</div>
-<div class="corner c4">✦</div>
-
-<div class="gif-wrap">
-<iframe src="https://giphy.com/embed/THIIcydPEMFGTvWjnR" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<main class="page">
+<div class="gif-title">well well well...</div>
+<div class="tenor-wrap">
+<div class="tenor-gif-embed" data-postid="26603722" data-share-method="host" data-aspect-ratio="2.35294" data-width="100%"><a href="https://tenor.com/view/tamil-actress-gif-tamil-heroin-gif-tamil-hero-gif-dance-gif-tamil-gif-gif-26603722">Tamil Actress Gif Tamil Heroin Gif GIF</a>from <a href="https://tenor.com/search/tamil+actress+gif-gifs">Tamil Actress Gif GIFs</a></div>
 </div>
-
-<div class="eyebrow">hold on a minute...</div>
-
-<h1>Excuse me?! 😤</h1>
-
-<p class="message">
-That answer was <strong>WRONG.</strong>
-<br>
-Like... <em>how did you even get that?</em> 😭
-<br><br>
-I know you know the answer.
-<br>
-So don't make me angry. ♡
-</p>
-
 <div class="divider">✦ ♡ ✦</div>
-
-<p class="hint" id="hint"></p>
-
+<h1 class="wrong-title"><span>WRONG</span> ANSWER!! 😤</h1>
+<p class="subtext">Excuse me?! How did you possibly manage to get that wrong? 😭<br><strong>I literally made this whole website for you.</strong></p>
+<img class="angry-gif" src="https://media.giphy.com/media/THIIcydPEMFGTvWjnR/giphy.gif" alt="Angry reaction">
+<h2 class="you-dont">YOU DON'T EVEN <span>KNOW ME?!</span> 😭</h2>
+<p class="small-message">Wow. I'm actually offended now.<br>Go back, think about your answer, and try not to disappoint me again. ♡</p>
+<div class="button-wrap">
 <button onclick="goBack()">Fine. I'll give you another chance.</button>
-
-<p class="note">choose wisely this time. i'm watching. 👀</p>
-
+<p class="final-note">or do your best and never come back. 😌</p>
+</div>
 </main>
-
+<script src="https://tenor.com/embed.js"></script>
 <script>
-const messages=[
-"Think properly before you embarrass yourself again. 😤",
-"I know you know this one. Don't test my patience. ♡",
-"That answer? Seriously? 😭",
-"You had ONE job. ONE.",
-"I'm giving you another chance because I'm nice. Don't waste it.",
-"Go back and reconsider your life choices. ✦"
-];
-
-document.getElementById("hint").innerHTML=
-messages[Math.floor(Math.random()*messages.length)];
-
-function goBack(){
-const returnPage=sessionStorage.getItem("wrongReturnPage");
-
-if(returnPage){
-window.location.href=returnPage;
-}else{
-window.location.href="home.html";
-}
-}
+function goBack(){const returnPage=sessionStorage.getItem("wrongReturnPage");if(returnPage){window.location.href=returnPage}else{window.location.href="home.html"}}
 </script>
-
 </body>
 </html>
