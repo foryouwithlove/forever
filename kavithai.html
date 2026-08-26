@@ -4,945 +4,270 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>KAVITHAI</title>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
-:root{
---pink:#d94f70;
---wine:#6e1f3a;
---paper:#fffaf4;
-}
-
-html,body{
-width:100%;
-height:100%;
-overflow:hidden;
-}
-
-body{
-font-family:Georgia,"Times New Roman",serif;
-background:
-radial-gradient(circle at 20% 10%,rgba(255,255,255,.45),transparent 30%),
-linear-gradient(145deg,#f8dfe5,#edc3cd 50%,#dba8b6);
-color:#4b2633;
-}
-
-/* HOME */
-
-.back{
-position:fixed;
-top:18px;
-left:18px;
-z-index:1000;
-padding:7px 13px;
-border:1px solid rgba(110,31,58,.2);
-border-radius:30px;
-background:rgba(255,250,244,.6);
-color:var(--wine);
-text-decoration:none;
-font-size:11px;
-letter-spacing:1px;
-backdrop-filter:blur(8px);
-}
-
-/* TITLE */
-
-.title{
-position:fixed;
-top:19px;
-left:50%;
-transform:translateX(-50%);
-z-index:1000;
-font-size:10px;
-letter-spacing:5px;
-color:var(--wine);
-opacity:.65;
-}
-
-/* BOOK AREA */
-
-.book-area{
-position:absolute;
-inset:0;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:55px 10px 60px;
-perspective:1800px;
-}
-
-/* BOOK */
-
-.book{
-position:relative;
-width:min(1100px,96vw);
-height:min(760px,calc(100vh - 115px));
-display:flex;
-transform-style:preserve-3d;
-box-shadow:0 18px 45px rgba(70,25,40,.28);
-}
-
-/* PAGES */
-
-.book-pages{
-position:absolute;
-inset:0;
-display:flex;
-transform-style:preserve-3d;
-}
-
-.left-page,
-.right-page{
-position:absolute;
-top:0;
-width:50%;
-height:100%;
-overflow:hidden;
-background:var(--paper);
-box-shadow:0 3px 15px rgba(70,25,40,.18);
-}
-
-.left-page{
-left:0;
-border-radius:5px 0 0 5px;
-}
-
-.right-page{
-right:0;
-border-radius:0 5px 5px 0;
-}
-
-.page-canvas{
-display:block;
-width:100%;
-height:100%;
-background:var(--paper);
-}
-
-/* SPINE */
-
-.spine{
-position:absolute;
-top:0;
-left:50%;
-width:5px;
-height:100%;
-z-index:60;
-transform:translateX(-50%);
-background:linear-gradient(
-90deg,
-rgba(50,15,30,.2),
-rgba(255,255,255,.7),
-rgba(50,15,30,.12)
-);
-box-shadow:0 0 8px rgba(60,20,40,.15);
-pointer-events:none;
-}
-
-/* FLIPPING PAGE */
-
-.flip-page{
-position:absolute;
-top:0;
-left:50%;
-width:50%;
-height:100%;
-z-index:100;
-display:none;
-transform-style:preserve-3d;
-transform-origin:left center;
-}
-
-.flip-page.active{
-display:block;
-}
-
-.flip-front,
-.flip-back{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-overflow:hidden;
-background:var(--paper);
-backface-visibility:hidden;
--webkit-backface-visibility:hidden;
-box-shadow:0 4px 18px rgba(70,25,40,.22);
-}
-
-.flip-front{
-border-radius:0 5px 5px 0;
-}
-
-.flip-back{
-border-radius:5px 0 0 5px;
-transform:rotateY(180deg);
-}
-
-.flip-next{
-animation:flipNext .78s cubic-bezier(.55,.1,.25,1) forwards;
-}
-
-.flip-prev{
-animation:flipPrev .78s cubic-bezier(.55,.1,.25,1) forwards;
-}
-
-@keyframes flipNext{
-from{transform:rotateY(0)}
-to{transform:rotateY(-180deg)}
-}
-
-@keyframes flipPrev{
-from{transform:rotateY(-180deg)}
-to{transform:rotateY(0)}
-}
-
-/* CONTROLS */
-
-.controls{
-position:fixed;
-bottom:18px;
-left:50%;
-transform:translateX(-50%);
-z-index:500;
-display:flex;
-align-items:center;
-gap:14px;
-}
-
-.nav-btn{
-width:38px;
-height:38px;
-border:1px solid rgba(110,31,58,.2);
-border-radius:50%;
-background:rgba(255,250,244,.7);
-color:var(--wine);
-font-size:20px;
-cursor:pointer;
-backdrop-filter:blur(8px);
-transition:.25s;
-}
-
-.nav-btn:active{
-transform:scale(.9);
-}
-
-.nav-btn:disabled{
-opacity:.3;
-}
-
-.page-count{
-min-width:60px;
-text-align:center;
-font-size:10px;
-letter-spacing:2px;
-color:var(--wine);
-}
-
-.hint{
-position:fixed;
-bottom:65px;
-left:50%;
-transform:translateX(-50%);
-z-index:400;
-font-size:9px;
-letter-spacing:1.5px;
-color:var(--wine);
-opacity:.5;
-white-space:nowrap;
-transition:opacity 1s;
-}
-
-.hint.hide{
-opacity:0;
-}
-
-/* LOADING */
-
-.loading{
-position:fixed;
-inset:0;
-z-index:2000;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-background:#f5d8df;
-color:var(--wine);
-transition:opacity .5s;
-}
-
-.loading.hidden{
-opacity:0;
-pointer-events:none;
-}
-
-.loader{
-width:32px;
-height:32px;
-border:2px solid rgba(110,31,58,.15);
-border-top-color:var(--wine);
-border-radius:50%;
-animation:spin .8s linear infinite;
-margin-bottom:15px;
-}
-
-@keyframes spin{
-to{transform:rotate(360deg)}
-}
-
-.loading-text{
-font-size:10px;
-letter-spacing:3px;
-}
-
-/* ERROR */
-
-.error{
-position:fixed;
-inset:0;
-z-index:3000;
-display:none;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:25px;
-background:#f5d8df;
-color:var(--wine);
-}
-
-.error.show{
-display:flex;
-}
-
-.error-box{
-max-width:450px;
-}
-
-.error h2{
-font-weight:normal;
-font-size:25px;
-margin-bottom:12px;
-}
-
-.error p{
-font-family:Arial,sans-serif;
-font-size:12px;
-line-height:1.7;
-opacity:.8;
-}
-
-/* MOBILE */
-
+:root{--wine:#6e1f3a;--paper:#fffaf4}
+html,body{width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.45),transparent 30%),linear-gradient(145deg,#f8dfe5,#edc3cd 50%,#dba8b6);color:#4b2633}
+.back{position:fixed;top:15px;left:15px;z-index:500;padding:6px 12px;border:1px solid rgba(110,31,58,.2);border-radius:30px;background:rgba(255,250,244,.65);color:var(--wine);text-decoration:none;font-size:10px;letter-spacing:1px;backdrop-filter:blur(7px)}
+.title{position:fixed;top:17px;left:50%;transform:translateX(-50%);z-index:500;font-size:9px;letter-spacing:5px;color:var(--wine);opacity:.65}
+.book-area{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:45px 8px 48px;perspective:1800px}
+.book{position:relative;width:min(900px,94vw);height:min(760px,calc(100vh - 100px));transform-style:preserve-3d;filter:drop-shadow(0 15px 30px rgba(70,25,40,.25))}
+.page{position:absolute;inset:0;background:var(--paper);border-radius:5px 8px 8px 5px;overflow:hidden;box-shadow:inset -4px 0 10px rgba(70,25,40,.07),0 2px 12px rgba(70,25,40,.18)}
+.page canvas{display:block;width:100%;height:100%;background:var(--paper)}
+.page-shadow{position:absolute;right:0;top:0;width:18px;height:100%;background:linear-gradient(90deg,transparent,rgba(70,25,40,.1));pointer-events:none}
+.flip{position:absolute;inset:0;z-index:20;display:none;transform-style:preserve-3d;transform-origin:left center}
+.flip.active{display:block}
+.flip-front,.flip-back{position:absolute;inset:0;background:var(--paper);overflow:hidden;border-radius:5px 8px 8px 5px;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 4px 18px rgba(70,25,40,.25)}
+.flip-back{transform:rotateY(180deg)}
+.flip-next{animation:next .48s cubic-bezier(.45,.05,.25,1) forwards}
+.flip-prev{transform-origin:right center;animation:prev .48s cubic-bezier(.45,.05,.25,1) forwards}
+.flip canvas{display:block;width:100%;height:100%;background:var(--paper)}
+@keyframes next{from{transform:rotateY(0)}to{transform:rotateY(-180deg)}}
+@keyframes prev{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}
+.controls{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;gap:10px}
+.nav-btn{width:34px;height:34px;border:1px solid rgba(110,31,58,.2);border-radius:50%;background:rgba(255,250,244,.72);color:var(--wine);font-size:19px;cursor:pointer;backdrop-filter:blur(6px)}
+.nav-btn:disabled{opacity:.25}
+.page-count{min-width:38px;text-align:center;font-size:9px;letter-spacing:1px;color:var(--wine)}
+.hint{position:fixed;bottom:55px;left:50%;transform:translateX(-50%);z-index:100;font-size:8px;letter-spacing:1.5px;color:var(--wine);opacity:.5;white-space:nowrap;transition:opacity .5s}
+.hint.hide{opacity:0}
+.loading{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5d8df;color:var(--wine);transition:opacity .25s}
+.loading.hidden{opacity:0;pointer-events:none}
+.loader{width:28px;height:28px;border:2px solid rgba(110,31,58,.15);border-top-color:var(--wine);border-radius:50%;animation:spin .55s linear infinite;margin-bottom:13px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:9px;letter-spacing:2.5px}
+.error{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;text-align:center;padding:25px;background:#f5d8df;color:var(--wine)}
+.error.show{display:flex}
+.error h2{font-weight:normal;font-size:24px;margin-bottom:10px}
+.error p{font-family:Arial,sans-serif;font-size:12px;line-height:1.6;opacity:.8}
 @media(max-width:700px){
-
-.book-area{
-padding:48px 4px 52px;
+.book-area{padding:43px 3px 43px}
+.book{width:98vw;height:calc(100vh - 92px);filter:drop-shadow(0 10px 20px rgba(70,25,40,.24))}
+.back{top:10px;left:10px;font-size:9px;padding:6px 10px}
+.title{top:13px;font-size:8px;letter-spacing:4px}
+.controls{bottom:7px}
+.nav-btn{width:32px;height:32px;font-size:17px}
+.page-count{font-size:8px}
+.hint{bottom:45px;font-size:7px}
 }
-
-/*
-   Almost FULL mobile screen.
-*/
-
-.book{
-width:98vw;
-height:calc(100vh - 110px);
-max-height:none;
-}
-
-/*
-   Keep the page proportions visually natural.
-*/
-
-.left-page,
-.right-page,
-.flip-front,
-.flip-back{
-box-shadow:0 2px 10px rgba(70,25,40,.18);
-}
-
-.spine{
-width:3px;
-}
-
-.back{
-top:12px;
-left:12px;
-font-size:9px;
-padding:6px 11px;
-}
-
-.title{
-top:14px;
-font-size:8px;
-letter-spacing:4px;
-}
-
-.controls{
-bottom:10px;
-gap:10px;
-}
-
-.nav-btn{
-width:34px;
-height:34px;
-font-size:17px;
-}
-
-.page-count{
-font-size:9px;
-min-width:52px;
-}
-
-.hint{
-bottom:52px;
-font-size:8px;
-}
-
-}
-
-/* VERY SMALL PHONES */
-
 @media(max-width:380px){
-
-.book{
-width:99vw;
-height:calc(100vh - 105px);
+.book{width:99vw;height:calc(100vh - 88px)}
+.book-area{padding-left:2px;padding-right:2px}
 }
-
-.book-area{
-padding-left:2px;
-padding-right:2px;
-}
-
-.back{
-left:9px;
-}
-
-}
-
 </style>
 </head>
-
 <body>
 
 <a href="index.html" class="back">← HOME</a>
-
 <div class="title">KAVITHAI</div>
 
 <div class="loading" id="loading">
 <div class="loader"></div>
-<div class="loading-text">OPENING YOUR BOOK...</div>
+<div class="loading-text">OPENING...</div>
 </div>
 
 <div class="error" id="error">
-<div class="error-box">
+<div>
 <h2>Something went wrong ♡</h2>
-<p id="errorText">
-Please make sure kavithai.pdf is inside the assets folder.
-</p>
+<p id="errorText">Please make sure <b>assets/kavithai.pdf</b> exists.</p>
 </div>
 </div>
 
 <div class="book-area">
-
 <div class="book" id="book">
 
-<div class="book-pages">
-
-<div class="left-page">
-<canvas class="page-canvas" id="leftCanvas"></canvas>
+<div class="page">
+<canvas id="currentCanvas"></canvas>
+<div class="page-shadow"></div>
 </div>
 
-<div class="right-page">
-<canvas class="page-canvas" id="rightCanvas"></canvas>
-</div>
-
-</div>
-
-<div class="spine"></div>
-
-<div class="flip-page" id="flipPage">
-
+<div class="flip" id="flip">
 <div class="flip-front">
-<canvas class="page-canvas" id="flipFront"></canvas>
+<canvas id="frontCanvas"></canvas>
 </div>
-
 <div class="flip-back">
-<canvas class="page-canvas" id="flipBack"></canvas>
+<canvas id="backCanvas"></canvas>
+</div>
 </div>
 
 </div>
-
-</div>
-
 </div>
 
 <div class="controls">
-
 <button class="nav-btn" id="prevBtn">‹</button>
-
-<div class="page-count" id="pageCount">
-1
-</div>
-
+<div class="page-count" id="pageCount">1 / 1</div>
 <button class="nav-btn" id="nextBtn">›</button>
-
 </div>
 
-<div class="hint" id="hint">
-SWIPE OR TAP THE PAGE TO TURN
-</div>
+<div class="hint" id="hint">SWIPE OR TAP THE PAGE</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-
 <script>
-
-/* =====================================================
-   KAVITHAI BOOK
-   ===================================================== */
-
-/* YOUR PDF */
-
 const PDF_PATH="assets/kavithai.pdf";
+pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-
-/* PDF WORKER */
-
-pdfjsLib.GlobalWorkerOptions.workerSrc=
-"https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-
-
-/* VARIABLES */
-
-let pdf=null;
-let totalPages=0;
-let currentSpread=1;
-let isAnimating=false;
-
-
-/* ELEMENTS */
+let pdf=null,totalPages=0,currentPage=1,busy=false;
+const cache=new Map();
 
 const loading=document.getElementById("loading");
 const error=document.getElementById("error");
-const errorText=document.getElementById("errorText");
-
 const book=document.getElementById("book");
-
-const leftCanvas=document.getElementById("leftCanvas");
-const rightCanvas=document.getElementById("rightCanvas");
-
-const flipPage=document.getElementById("flipPage");
-const flipFront=document.getElementById("flipFront");
-const flipBack=document.getElementById("flipBack");
-
+const currentCanvas=document.getElementById("currentCanvas");
+const frontCanvas=document.getElementById("frontCanvas");
+const backCanvas=document.getElementById("backCanvas");
+const flip=document.getElementById("flip");
 const prevBtn=document.getElementById("prevBtn");
 const nextBtn=document.getElementById("nextBtn");
-
 const pageCount=document.getElementById("pageCount");
 const hint=document.getElementById("hint");
 
+async function getPageCanvas(pageNumber){
+if(!pageNumber||pageNumber<1||pageNumber>totalPages)return null;
+if(cache.has(pageNumber))return cache.get(pageNumber);
 
-/* LOAD PDF */
+const page=await pdf.getPage(pageNumber);
+const temp=document.createElement("canvas");
+const box=book.getBoundingClientRect();
+const base=page.getViewport({scale:1});
+const scale=Math.min(box.width/base.width,box.height/base.height);
+const viewport=page.getViewport({scale});
+const dpr=Math.min(window.devicePixelRatio||1,2);
+
+temp.width=Math.ceil(viewport.width*dpr);
+temp.height=Math.ceil(viewport.height*dpr);
+
+const ctx=temp.getContext("2d");
+ctx.setTransform(dpr,0,0,dpr,0,0);
+
+await page.render({canvasContext:ctx,viewport}).promise;
+cache.set(pageNumber,temp);
+return temp;
+}
+
+function putCanvas(source,target){
+target.width=source.width;
+target.height=source.height;
+target.style.width="100%";
+target.style.height="100%";
+const ctx=target.getContext("2d");
+ctx.clearRect(0,0,target.width,target.height);
+ctx.drawImage(source,0,0);
+}
+
+async function showPage(pageNumber){
+const source=await getPageCanvas(pageNumber);
+if(source)putCanvas(source,currentCanvas);
+pageCount.textContent=currentPage+" / "+totalPages;
+prevBtn.disabled=currentPage===1;
+nextBtn.disabled=currentPage===totalPages;
+}
+
+async function preload(pageNumber){
+try{
+if(pageNumber>=1&&pageNumber<=totalPages)await getPageCanvas(pageNumber);
+}catch(e){}
+}
+
+async function turnNext(){
+if(busy||currentPage>=totalPages)return;
+busy=true;
+const next=currentPage+1;
+const oldCanvas=await getPageCanvas(currentPage);
+const newCanvas=await getPageCanvas(next);
+putCanvas(oldCanvas,frontCanvas);
+putCanvas(newCanvas,backCanvas);
+flip.className="flip active flip-next";
+await new Promise(r=>setTimeout(r,490));
+currentPage=next;
+flip.className="flip";
+putCanvas(newCanvas,currentCanvas);
+pageCount.textContent=currentPage+" / "+totalPages;
+prevBtn.disabled=false;
+nextBtn.disabled=currentPage===totalPages;
+busy=false;
+preload(currentPage+1);
+hint.classList.add("hide");
+}
+
+async function turnPrev(){
+if(busy||currentPage<=1)return;
+busy=true;
+const oldCanvas=await getPageCanvas(currentPage);
+const previousCanvas=await getPageCanvas(currentPage-1);
+putCanvas(oldCanvas,frontCanvas);
+putCanvas(previousCanvas,backCanvas);
+flip.className="flip active flip-prev";
+await new Promise(r=>setTimeout(r,490));
+currentPage--;
+flip.className="flip";
+putCanvas(previousCanvas,currentCanvas);
+pageCount.textContent=currentPage+" / "+totalPages;
+prevBtn.disabled=currentPage===1;
+nextBtn.disabled=false;
+busy=false;
+preload(currentPage-1);
+hint.classList.add("hide");
+}
 
 async function loadPDF(){
-
 try{
-
-pdf=await pdfjsLib
-.getDocument(PDF_PATH)
-.promise;
-
+pdf=await pdfjsLib.getDocument({url:PDF_PATH}).promise;
 totalPages=pdf.numPages;
-
-if(!totalPages)
-throw new Error("Empty PDF");
-
+await getPageCanvas(1);
+await showPage(1);
 loading.classList.add("hidden");
-
-await showSpread();
-
-updateButtons();
-
-}catch(err){
-
-console.error(err);
-
+preload(2);
+}catch(e){
+console.error(e);
 loading.classList.add("hidden");
-
 error.classList.add("show");
-
-errorText.innerHTML=
-"Make sure your file is here:<br><br>"+
-"<b>assets/kavithai.pdf</b>";
-
+}
 }
 
-}
-
-
-/* RENDER PAGE */
-
-async function renderPage(pageNumber,canvas){
-
-if(
-!pageNumber||
-pageNumber<1||
-pageNumber>totalPages
-){
-
-canvas.width=1;
-canvas.height=1;
-
-return;
-
-}
-
-const page=
-await pdf.getPage(pageNumber);
-
-const parent=
-canvas.parentElement;
-
-const box=
-parent.getBoundingClientRect();
-
-const original=
-page.getViewport({scale:1});
-
-const scale=
-Math.min(
-box.width/original.width,
-box.height/original.height
-);
-
-const viewport=
-page.getViewport({scale});
-
-const dpr=
-window.devicePixelRatio||1;
-
-canvas.width=
-viewport.width*dpr;
-
-canvas.height=
-viewport.height*dpr;
-
-canvas.style.width=
-viewport.width+"px";
-
-canvas.style.height=
-viewport.height+"px";
-
-const ctx=
-canvas.getContext("2d");
-
-ctx.setTransform(
-dpr,0,0,dpr,0,0
-);
-
-await page.render({
-canvasContext:ctx,
-viewport:viewport
-}).promise;
-
-}
-
-
-/* CURRENT SPREAD */
-
-async function showSpread(){
-
-const leftPage=
-(currentSpread-1)*2+1;
-
-const rightPage=
-leftPage+1;
-
-await Promise.all([
-
-renderPage(
-leftPage,
-leftCanvas
-),
-
-renderPage(
-rightPage,
-rightCanvas
-)
-
-]);
-
-updateCounter();
-
-}
-
-
-/* COUNTER */
-
-function updateCounter(){
-
-const left=
-(currentSpread-1)*2+1;
-
-const right=
-left+1;
-
-if(right<=totalPages){
-
-pageCount.textContent=
-left+" — "+right;
-
-}else{
-
-pageCount.textContent=
-left;
-
-}
-
-}
-
-
-/* NEXT */
-
-async function nextPage(){
-
-if(isAnimating)return;
-
-const maxSpread=
-Math.ceil(totalPages/2);
-
-if(currentSpread>=maxSpread)return;
-
-isAnimating=true;
-
-const oldRight=
-currentSpread*2;
-
-const newLeft=
-oldRight+1;
-
-await renderPage(
-oldRight,
-flipFront
-);
-
-await renderPage(
-newLeft,
-flipBack
-);
-
-flipPage.className=
-"flip-page active flip-next";
-
-await new Promise(
-resolve=>setTimeout(resolve,780)
-);
-
-currentSpread++;
-
-flipPage.className=
-"flip-page";
-
-await showSpread();
-
-isAnimating=false;
-
-updateButtons();
-
-hint.classList.add("hide");
-
-}
-
-
-/* PREVIOUS */
-
-async function prevPage(){
-
-if(isAnimating)return;
-
-if(currentSpread<=1)return;
-
-isAnimating=true;
-
-const currentLeft=
-(currentSpread-1)*2+1;
-
-const previousRight=
-currentLeft-1;
-
-await renderPage(
-currentLeft,
-flipFront
-);
-
-await renderPage(
-previousRight,
-flipBack
-);
-
-flipPage.className=
-"flip-page active flip-prev";
-
-await new Promise(
-resolve=>setTimeout(resolve,780)
-);
-
-currentSpread--;
-
-flipPage.className=
-"flip-page";
-
-await showSpread();
-
-isAnimating=false;
-
-updateButtons();
-
-hint.classList.add("hide");
-
-}
-
-
-/* BUTTONS */
-
-function updateButtons(){
-
-prevBtn.disabled=
-currentSpread<=1;
-
-nextBtn.disabled=
-currentSpread>=Math.ceil(totalPages/2);
-
-}
-
-
-/* BUTTON EVENTS */
-
-nextBtn.addEventListener(
-"click",
-nextPage
-);
-
-prevBtn.addEventListener(
-"click",
-prevPage
-);
-
-
-/* TAP PAGE */
-
-book.addEventListener(
-"click",
-function(e){
-
-if(isAnimating)return;
-
-const rect=
-book.getBoundingClientRect();
-
-const x=
-e.clientX-rect.left;
-
-if(x>rect.width/2){
-
-nextPage();
-
-}else{
-
-prevPage();
-
-}
-
-}
-);
-
-
-/* KEYBOARD */
-
-document.addEventListener(
-"keydown",
-function(e){
-
-if(e.key==="ArrowRight")
-nextPage();
-
-if(e.key==="ArrowLeft")
-prevPage();
-
-}
-);
-
-
-/* SWIPE */
-
-let startX=0;
-let endX=0;
-
-book.addEventListener(
-"touchstart",
-function(e){
-
-startX=
-e.changedTouches[0].screenX;
-
-},
-{passive:true}
-);
-
-book.addEventListener(
-"touchend",
-function(e){
-
-endX=
-e.changedTouches[0].screenX;
-
-const difference=
-endX-startX;
-
-if(Math.abs(difference)<35)
-return;
-
-if(difference<0)
-nextPage();
-else
-prevPage();
-
-},
-{passive:true}
-);
-
-
-/* RESIZE */
-
-let resizeTimer;
-
-window.addEventListener(
-"resize",
-function(){
-
-clearTimeout(resizeTimer);
-
-resizeTimer=
-setTimeout(
-function(){
-
-if(pdf)
-showSpread();
-
-},
-200
-);
-
+nextBtn.onclick=turnNext;
+prevBtn.onclick=turnPrev;
+
+book.addEventListener("click",e=>{
+if(busy)return;
+const rect=book.getBoundingClientRect();
+if(e.clientX-rect.left>rect.width/2)turnNext();
+else turnPrev();
 });
 
+document.addEventListener("keydown",e=>{
+if(e.key==="ArrowRight")turnNext();
+if(e.key==="ArrowLeft")turnPrev();
+});
 
-/* START */
+let startX=0;
+
+book.addEventListener("touchstart",e=>{
+startX=e.changedTouches[0].screenX;
+},{passive:true});
+
+book.addEventListener("touchend",e=>{
+const diff=e.changedTouches[0].screenX-startX;
+if(Math.abs(diff)>35){
+if(diff<0)turnNext();
+else turnPrev();
+}
+},{passive:true});
+
+window.addEventListener("resize",()=>{
+clearTimeout(window.resizeTimer);
+window.resizeTimer=setTimeout(async()=>{
+cache.clear();
+if(pdf){
+const old=currentPage;
+await getPageCanvas(old);
+await showPage(old);
+preload(old+1);
+preload(old-1);
+}
+},150);
+});
 
 loadPDF();
-
 </script>
-
 </body>
 </html>
