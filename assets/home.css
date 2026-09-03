@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Felipa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&display=swap');
+
 
 /* ==================== GLOBAL ==================== */
 *{box-sizing:border-box}
@@ -379,80 +381,111 @@ position:relative;
 display:flex;
 align-items:center;
 width:min(450px,80%);
-min-height:110px;
+height:90px;
 margin:0 auto;
-padding:22px 30px;
-background:#ead0d5;
+padding:0 125px 0 28px;
+background:#f5d6dc;
 color:#6e1f3a;
 text-decoration:none;
 border:1px solid rgba(110,31,58,.25);
 border-radius:6px;
-box-shadow:0 10px 25px rgba(80,35,45,.12),inset 0 0 25px rgba(110,31,58,.05);
+box-shadow:
+0 10px 25px rgba(80,35,45,.12),
+inset 0 0 25px rgba(110,31,58,.05);
 overflow:hidden;
 transition:.35s ease;
 }
+
+/* dotted divider */
 .story-button::after{
 content:"";
 position:absolute;
-top:0;
-    bottom:0;
-    right:115px;
-    width:1px;
-    border-left:2px dotted rgba(110,31,58,.25);
+top:10px;
+bottom:10px;
+right:115px;
+border-left:2px dotted rgba(110,31,58,.28);
+z-index:3;
 }
-.story-button{
-    font:500 25px "Playfair Display",serif;
-    letter-spacing:.04em;
+.story-button::before{
+content:"♡  ✦\A  ✧ ♥ ✧\A♡    ♡";
+white-space:pre;
+position:absolute;
+right:18px;
+top:50%;
+transform:translateY(-50%) rotate(-4deg);
+width:75px;
+font:19px Georgia,serif;
+line-height:1.25;
+letter-spacing:3px;
+text-align:center;
+color:#8f304d;
+opacity:.62;
+z-index:2;
 }
 .story-button .ticket-scene{
-    position:absolute;
-    left:28px;
-    top:16px;
-    font:9px Georgia,"Times New Roman",serif;
-    letter-spacing:3px;
-    color:#8f304d;
-}
-.story-button .ticket-image{
-    position:absolute;
-    right:25px;
-    top:50%;
-    transform:translateY(-50%);
-    width:72px;
-    height:72px;
-    object-fit:cover;
-    filter:saturate(.75);
+position:absolute;
+left:28px;
+top:15px;
+font:600 8px Georgia,"Times New Roman",serif;
+letter-spacing:2.5px;
+color:#8f304d;
+z-index:4;
 }
 .story-button .ticket-title{
-    position:relative;
-    z-index:2;
-    margin-top:15px;
+position:relative;
+z-index:5;
+display:block;
+width:220px;
+margin-top:15px;
+font:700 21px "Arbutus",serif;
+letter-spacing:.07em;
+text-transform:uppercase;
+color:#6e1f3a;
+white-space:nowrap;
 }
 
-/* mobile */
+/* hover */
+.story-button:hover{
+transform:translateY(-3px);
+box-shadow:0 13px 28px rgba(80,35,45,.16);
+}
+
+
+/* MOBILE */
 @media(max-width:600px){
 
-    .story-button{
-        width:65%;
-        min-height:75px;
-        padding:20px;
-    }
-    .story-button::after{
-        right:92px;
-    }
-    .story-button .ticket-image{
-        right:15px;
-        width:58px;
-        height:58px;
-    }
-    .story-button .ticket-scene{
-        left:20px;
-        top:13px;
-        font-size:8px;
-    }
-    .story-button .ticket-title{
-        font-size:20px;
-        margin-top:14px;
-    }
+.story-button{
+width:70%;
+height:72px;
+padding:0 85px 0 9px;
+}
+
+.story-button::after{
+right:82px;
+top:8px;
+bottom:8px;
+}
+
+.story-button::before{
+right:5px;
+width:65px;
+font-size:15px;
+letter-spacing:1px;
+}
+
+.story-button .ticket-scene{
+left:20px;
+top:13px;
+font-size:7px;
+}
+
+.story-button .ticket-title{
+width:140px;
+font-size:17px;
+margin-top:12px;
+letter-spacing:.05em;
+}
+
 }
 @keyframes storyReveal{
 from{
