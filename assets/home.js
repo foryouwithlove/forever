@@ -181,16 +181,23 @@ const animeStatus=document.getElementById("anime-status");
 animeOptions.forEach(option=>{
 option.addEventListener("click",()=>{
 if(option.dataset.correct==="true"){
+
 animeStatus.textContent="Correct! You actually know me. ❤️";
+
 showSuccess(
 "YAY! YOU GOT IT ♡",
 "You really do know me.",
 "kadhal.html"
 );
+
+document.getElementById("loveComplete").classList.add("show");
+
 }else{
+
 sessionStorage.setItem("wrongReturnPage","home.html");
 sessionStorage.setItem("restoreScrollPosition",window.scrollY);
 window.location.href="wrong.html";
+
 }
 });
 });
@@ -256,6 +263,8 @@ showSuccess(
 "That was the number I had in mind.",
 "kasappu.html"
 );
+
+document.getElementById("hateComplete").classList.add("show");
 
 return;
 }
@@ -350,6 +359,8 @@ showSuccess(
 "You know exactly why everyone loves me.",
 "kaandham.html"
 );
+
+document.getElementById("everyoneComplete").classList.add("show");
 });
 }
 
@@ -408,6 +419,7 @@ showSuccess(
 "You really know me.",
 "lucky.html"
 );
+document.getElementById("luckyComplete").classList.add("show");
 }else{
 matchStatus.textContent=
 `Correct! ${4-matchedCount} pair(s) left.`;
@@ -457,6 +469,8 @@ showSuccess(
 "Of course you remembered Pogathe.",
 "kavithai.html"
 );
+
+document.getElementById("kavithaiComplete").classList.add("show");
 }else{
 songStatus.textContent="Not that one 😭 Try again!";
 }
