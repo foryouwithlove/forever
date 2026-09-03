@@ -5,26 +5,36 @@ const successTitle=document.getElementById("successTitle");
 const successMessage=document.getElementById("successMessage");
 const successButton=document.getElementById("successButton");
 
+if(successOverlay){
+successOverlay.classList.remove("show");
+}
+
 function showSuccess(title,message,page){
 if(!successOverlay)return;
+
 successTitle.textContent=title;
 successMessage.textContent=message;
 successOverlay.classList.add("show");
+
 successButton.onclick=()=>{
+successOverlay.classList.remove("show");
 if(page)window.location.href=page;
 };
 }
 
-successOverlay.addEventListener("click",event=>{
-if(event.target===successOverlay){
+function hideSuccess(){
+if(successOverlay){
 successOverlay.classList.remove("show");
 }
-});
-
-function hideSuccess(){
-successOverlay?.classList.remove("show");
 }
 
+if(successOverlay){
+successOverlay.addEventListener("click",event=>{
+if(event.target===successOverlay){
+hideSuccess();
+}
+});
+}
 
 /* =========================================================
 1. KADHAI - OUR STORY
@@ -207,74 +217,90 @@ const correctNumber=3;
 let numberLives=Number(sessionStorage.getItem("numberLives"));
 
 if(!numberLives){
-    numberLives=3;
-    sessionStorage.setItem("numberLives",numberLives);
+numberLives=3;
+sessionStorage.setItem("numberLives",numberLives);
 }
 
 function updateHearts(){
-    const hearts=numberHearts.querySelectorAll(".heart");
+const hearts=numberHearts.querySelectorAll(".heart");
 
-    hearts.forEach((heart,index)=>{
-        if(index<numberLives){
-            heart.classList.remove("empty");
-        }else{
-            heart.classList.add("empty");
-        }
-    });
+hearts.forEach((heart,index)=>{
+if(index<numberLives){
+heart.classList.remove("empty");
+}else{
+heart.classList.add("empty");
 }
+});
+}
+
 updateHearts();
 
 function checkNumber(){
-    if(!numberInput.value.trim()){
-        numberStatus.textContent="Enter a number first 😭";
-        return;
-    }
 
-    const guess=Number(numberInput.value);
+if(!numberInput.value.trim()){
+numberStatus.textContent="Enter a number first 😭";
+return;
+}
 
-    if(guess===correctNumber){
-        numberStatus.textContent="You got it! ❤️";
-        showSuccess(
-            "YAY! YOU GOT IT ♡",
-            "That was the number I had in mind.",
-            "kasappu.html"
-        );
-        return;
-    }
+const guess=Number(numberInput.value);
 
-    numberLives--;
-    sessionStorage.setItem("numberLives",numberLives);
-    updateHearts();
+if(guess===correctNumber){
 
-    if(guess>correctNumber){
-        numberStatus.textContent="Too high! The number is lower. ↓";
-    }else{
-        numberStatus.textContent="Too low! The number is higher. ↑";
-    }
+sessionStorage.removeItem("numberLives");
+
+numberInput.value="";
+numberStatus.textContent="";
+
+showSuccess(
+"YAY! YOU GOT IT ♡",
+"That was the number I had in mind.",
+"kasappu.html"
+);
+
+return;
+}
+
+numberLives--;
+
+sessionStorage.setItem("numberLives",numberLives);
+
+if(guess>correctNumber){
+numberStatus.textContent="Too high! The number is lower. ↓";
+}else{
+numberStatus.textContent="Too low! The number is higher. ↑";
+}
+
+/* CLEAR THE OLD NUMBER */
+numberInput.value="";
+
+updateHearts();
 
 if(numberLives<=0){
-    sessionStorage.removeItem("numberLives");
 
-    sessionStorage.setItem("wrongReturnPage","home.html#hate");
+sessionStorage.removeItem("numberLives");
 
-    setTimeout(()=>{
-        window.location.href="wrong.html";
-    },900);
+sessionStorage.setItem(
+"wrongReturnPage",
+"home.html#hate"
+);
+
+setTimeout(()=>{
+window.location.href="wrong.html";
+},700);
 }
 }
 
 if(numberCheck){
-    numberCheck.addEventListener("click",checkNumber);
+numberCheck.addEventListener("click",checkNumber);
 }
 
 if(numberInput){
-    numberInput.addEventListener("keydown",event=>{
-        if(event.key==="Enter"){
-            checkNumber();
-        }
-    });
+numberInput.addEventListener("keydown",event=>{
+if(event.key==="Enter"){
+checkNumber();
 }
-
+});
+}
 
 /* =========================================================
 4. WHY EVERYONE LOVES YOU
