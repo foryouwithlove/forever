@@ -3,58 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Story 1</title>
+<title>The Heroine ❤️</title>
+
 <style>
+/* ==================================================
+   ✏️ CHANGE THESE SETTINGS
+   ================================================== */
+
+:root{
+--background:#edfaff;       /* Page background */
+
+--image-width:100%;         /* Image width on laptop */
+--image-gap:20px;           /* Gap between images */
+
+--page-width:900px;        /* Maximum page width */
+--page-padding:40px 0;     /* Top & bottom page spacing */
+
+--gif-width:600px;         /* GIF width */
+--gif-gap:15px;            /* Space above/below GIF */
+
+--mobile-image-width:92%;  /* Image width on phone */
+--mobile-image-gap:12px;   /* Gap between images on phone */
+
+--mobile-page-padding:20px 0; /* Top/bottom spacing on phone */
+
+--mobile-gif-width:92%;    /* GIF width on phone */
+--mobile-gif-gap:12px;     /* Space above/below GIF on phone */
+}
+
+
+/* ==================================================
+   MAIN CSS
+   ================================================== */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
+
 html{
 scroll-behavior:smooth;
 }
+
 body{
-background:#e2f8ff;
+background:var(--background);
 font-family:Arial,sans-serif;
 overflow-x:hidden;
 }
+
 .story-container{
-width:min(900px,92%);
+width:min(var(--page-width),92%);
 margin:0 auto;
-padding:40px 0;
+padding:var(--page-padding);
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:20px;
+gap:var(--image-gap);
 }
+
 .story-image{
-width:100%;
+width:var(--image-width);
 height:auto;
 display:block;
 object-fit:contain;
 }
+
 .gif-container{
-width:min(600px,92%);
-margin:15px auto;
+width:min(var(--gif-width),92%);
+margin:var(--gif-gap) auto;
 }
+
+
+/* ==================================================
+   📱 MOBILE
+   ================================================== */
+
 @media(max-width:600px){
+
 .story-container{
 width:100%;
-padding:20px 0;
-gap:12px;
+padding:var(--mobile-page-padding);
+gap:var(--mobile-image-gap);
 }
+
 .story-image{
-width:min(650px,92%);
+width:var(--mobile-image-width);
 height:auto;
 display:block;
 }
+
 .gif-container{
-width:92%;
-margin:12px auto;
+width:var(--mobile-gif-width);
+margin:var(--mobile-gif-gap) auto;
 }
+
 }
 </style>
 </head>
+
 <body>
 
 <main class="story-container">
@@ -116,7 +163,6 @@ margin:12px auto;
 </main>
 
 <script async src="https://tenor.com/embed.js"></script>
-<script>
-</script>
+
 </body>
 </html>
