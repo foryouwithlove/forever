@@ -67,7 +67,7 @@ function checkStoryPuzzle() {
 
         showSuccess(
             "YAY! YOU GOT IT ♡",
-            "Paravala nyabagam irukku, Good job!🥳",
+            "Paravalaiye nyabagam irukku, Good job! 🥳",
             "kadhai.html"
         );
     }
@@ -178,8 +178,22 @@ Array.from(storyPuzzle.children).forEach(tile => {
 const animeOptions=document.querySelectorAll(".anime-option");
 const animeStatus=document.getElementById("anime-status");
 
-animeOptions.forEach(option=>{
+const savedAnime=sessionStorage.getItem("selectedAnime");
+
+if(savedAnime){
+const savedOption=document.querySelector(`.anime-option[data-option="${savedAnime}"]`);
+if(savedOption)savedOption.classList.add("selected");
+}
+
+animeOptions.forEach((option,index)=>{
+option.dataset.option=index;
+
 option.addEventListener("click",()=>{
+animeOptions.forEach(item=>item.classList.remove("selected"));
+option.classList.add("selected");
+
+sessionStorage.setItem("selectedAnime",index);
+
 if(option.dataset.correct==="true"){
 
 showSuccess(
@@ -203,16 +217,21 @@ window.location.href="wrong.html";
 
 if(sessionStorage.getItem("loveSolved")==="true"){
 document.getElementById("loveComplete").classList.add("show");
+
+const solvedOption=document.querySelector('.anime-option[data-correct="true"]');
+if(solvedOption)solvedOption.classList.add("selected");
 }
 
 window.addEventListener("load",()=>{
 const position=sessionStorage.getItem("restoreScrollPosition");
-if(position){
+
+if(position!==null){
+setTimeout(()=>{
 window.scrollTo(0,Number(position));
 sessionStorage.removeItem("restoreScrollPosition");
+},100);
 }
 });
-
 
 /* =========================================================
 3. KASAPPU - REASONS TO HATE YOU
@@ -263,7 +282,7 @@ numberStatus.textContent="";
 
 showSuccess(
 "YAY! YOU GOT IT ♡",
-"Ippo othukura ni enna true ah love panra nu!😁",
+"Ippo othukura, ni enna true ah love panra nu!😁",
 "kasappu.html"
 );
 
@@ -277,11 +296,25 @@ numberLives--;
 
 sessionStorage.setItem("numberLives",numberLives);
 
+let hintText="";
+
 if(guess>correctNumber){
-numberStatus.textContent="Too high! The number is lower. ↓";
+hintText="Too high! The number is lower. ↓";
 }else{
-numberStatus.textContent="Too low! The number is higher. ↑";
+hintText="Too low! The number is higher. ↑";
 }
+
+let chanceText="";
+
+if(numberLives===2){
+chanceText="You have 2 chances left ♡";
+}else if(numberLives===1){
+chanceText="You have 1 chance left ♡";
+}else{
+chanceText="You have 0 chances left ♡";
+}
+
+numberStatus.innerHTML=`${hintText}<br><span class="chance-text">${chanceText}</span>`;
 
 /* CLEAR THE OLD NUMBER */
 numberInput.value="";
@@ -326,11 +359,28 @@ const mcqSubmit=document.getElementById("mcq-submit");
 const mcqStatus=document.getElementById("mcq-status");
 
 const mcqAnswers={
-q1:"c",
+q1:"b",
 q2:"c",
-q3:"c",
+q3:"b",
 q4:"a"
 };
+
+const savedAnswers=JSON.parse(sessionStorage.getItem("everyoneAnswers")||"{}");
+
+Object.entries(savedAnswers).forEach(([question,answer])=>{
+const input=document.querySelector(`input[name="${question}"][value="${answer}"]`);
+if(input) input.checked=true;
+});
+
+document.querySelectorAll('.mcq-card input[type="radio"]').forEach(input=>{
+input.addEventListener("change",()=>{
+const answers={};
+document.querySelectorAll('.mcq-card input[type="radio"]:checked').forEach(selected=>{
+answers[selected.name]=selected.value;
+});
+sessionStorage.setItem("everyoneAnswers",JSON.stringify(answers));
+});
+});
 
 if(mcqSubmit){
 mcqSubmit.addEventListener("click",()=>{
@@ -338,9 +388,7 @@ let allAnswered=true;
 let allCorrect=true;
 
 Object.entries(mcqAnswers).forEach(([question,answer])=>{
-const selected=document.querySelector(
-`input[name="${question}"]:checked`
-);
+const selected=document.querySelector(`input[name="${question}"]:checked`);
 
 if(!selected){
 allAnswered=false;
@@ -355,21 +403,24 @@ return;
 }
 
 if(!allCorrect){
-mcqStatus.textContent="Hmm... not all of those are right. Try again! 😭";
+mcqStatus.textContent="Wrong answer! Try again. 😭";
 return;
 }
 
-mcqStatus.textContent="All correct! ✨";
+mcqStatus.textContent="";
+
+sessionStorage.setItem("everyoneSolved","true");
 
 showSuccess(
-"YAY! ALL CORRECT ♡",
-"You know exactly why everyone loves me.",
+"YAY! YOU KNOW ME ♡",
+"You understand me ⊹₊⟡⋆",
 "kaandham.html"
 );
 
 document.getElementById("everyoneComplete").classList.add("show");
 });
 }
+
 if(sessionStorage.getItem("everyoneSolved")==="true"){
 document.getElementById("everyoneComplete").classList.add("show");
 }
@@ -394,13 +445,11 @@ const columns=document.querySelectorAll(".match-column");
 const isLeft=parent===columns[0];
 
 if(isLeft){
-columns[0].querySelectorAll(".match-item")
-.forEach(btn=>btn.classList.remove("selected"));
+columns[0].querySelectorAll(".match-item").forEach(btn=>btn.classList.remove("selected"));
 selectedLeft=item;
 item.classList.add("selected");
 }else{
-columns[1].querySelectorAll(".match-item")
-.forEach(btn=>btn.classList.remove("selected"));
+columns[1].querySelectorAll(".match-item").forEach(btn=>btn.classList.remove("selected"));
 selectedRight=item;
 item.classList.add("selected");
 }
@@ -421,84 +470,105 @@ selectedLeft=null;
 selectedRight=null;
 
 if(matchedCount===4){
-matchStatus.textContent="You matched everything! 🫶";
+matchStatus.textContent="";
 
 showSuccess(
 "PERFECT MATCH ♡",
-"You really know me.",
+"Lucky to have you in my life!",
 "lucky.html"
 );
+
 sessionStorage.setItem("luckySolved","true");
 document.getElementById("luckyComplete").classList.add("show");
-}else{
-matchStatus.textContent=
-`Correct! ${4-matchedCount} pair(s) left.`;
 }
 
 }else{
 
-matchStatus.textContent="Not a match. Try again! ❤️";
+selectedLeft.classList.remove("selected");
+selectedRight.classList.remove("selected");
+
+selectedLeft.classList.add("wrong");
+selectedRight.classList.add("wrong");
 
 setTimeout(()=>{
-selectedLeft?.classList.remove("selected");
-selectedRight?.classList.remove("selected");
+selectedLeft?.classList.remove("wrong");
+selectedRight?.classList.remove("wrong");
 selectedLeft=null;
 selectedRight=null;
-},500);
+},600);
 }
 }
 });
 });
+
 if(sessionStorage.getItem("luckySolved")==="true"){
+matchItems.forEach(item=>{
+item.classList.add("matched");
+});
+matchedCount=4;
 document.getElementById("luckyComplete").classList.add("show");
 }
 
 /* =========================================================
 6. KAVITHAI - SONG GUESSING
 ========================================================= */
-
-const songInput=document.getElementById("song-input");
-const songCheck=document.getElementById("song-check");
+const songOptions=document.querySelectorAll('input[name="song-choice"]');
 const songStatus=document.getElementById("song-status");
 
-const correctSong="pogathe";
+const savedSong=sessionStorage.getItem("selectedSong");
 
-function normalizeSong(value){
-return value.trim().toLowerCase().replace(/\s+/g," ");
+if(savedSong){
+const savedInput=document.querySelector(`input[name="song-choice"][value="${savedSong}"]`);
+if(savedInput)savedInput.checked=true;
 }
 
-function checkSong(){
-if(!songInput.value.trim()){
-songStatus.textContent="Tell me the song first. 🎵";
+songOptions.forEach(input=>{
+input.addEventListener("change",()=>{
+sessionStorage.setItem("selectedSong",input.value);
+
+if(input.value!=="pogathe"){
+sessionStorage.setItem("returnToKavithai","true");
+sessionStorage.setItem("kavithaiScroll",window.scrollY);
+window.location.href="wrong.html";
 return;
 }
 
-if(normalizeSong(songInput.value)===correctSong){
-songStatus.textContent="Correct! 🎵❤️";
+sessionStorage.setItem("kavithaiSolved","true");
 
 showSuccess(
 "YOU GOT IT ♡",
-"True souldmates! ◝(ᵔᗜᵔ)◜",
+"True soulmates! ◝(ᵔᗜᵔ)◜",
 "kavithai.html"
 );
 
-sessionStorage.setItem("kavithaiSolved","true");
 document.getElementById("kavithaiComplete").classList.add("show");
-}else{
-songStatus.textContent="Not that one 😭 Try again!";
-}
-}
-
-if(songCheck)songCheck.addEventListener("click",checkSong);
-
-if(songInput){
-songInput.addEventListener("keydown",event=>{
-if(event.key==="Enter")checkSong();
 });
-}
+});
+
 if(sessionStorage.getItem("kavithaiSolved")==="true"){
+songOptions.forEach(input=>{
+input.disabled=true;
+});
 document.getElementById("kavithaiComplete").classList.add("show");
 }
+
+window.addEventListener("load",()=>{
+if(sessionStorage.getItem("returnToKavithai")==="true"){
+const savedScroll=sessionStorage.getItem("kavithaiScroll");
+
+sessionStorage.removeItem("returnToKavithai");
+sessionStorage.removeItem("kavithaiScroll");
+
+if(savedScroll){
+setTimeout(()=>{
+window.scrollTo({
+top:Number(savedScroll),
+behavior:"instant"
+});
+},100);
+}
+}
+});
 
 /* =========================================================
 SECTION COUNTER
