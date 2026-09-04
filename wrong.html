@@ -3,65 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Excuse Me?!</title>
+<title>Wrong 💔</title>
 <style>
 *{box-sizing:border-box}
-:root{--pink:#d94f70;--pink-light:#ffe1e9;--wine:#6e1f3a;--text:#4b2633;--white:#fffafd;--shadow:0 16px 40px rgba(110,31,58,.13)}
+:root{--wine:#b85b7b;--white:#fffafd}
 html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;color:var(--text);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at top left,rgba(255,255,255,.9),transparent 32%),linear-gradient(135deg,#fff1f5,#ffdce7);position:relative;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 85% 15%,rgba(217,79,112,.08),transparent 25%),radial-gradient(circle at 15% 85%,rgba(110,31,58,.05),transparent 25%);z-index:-1}
-.page{width:min(900px,94%);margin:0 auto;padding:55px 0 70px;text-align:center}
-.gif-title{font-size:clamp(13px,2vw,16px);letter-spacing:2px;text-transform:uppercase;color:var(--pink);font-weight:bold;margin-bottom:18px}
-.tenor-wrap{width:100%;overflow:hidden;border-radius:20px;margin:0 auto 45px;box-shadow:var(--shadow)}
-.tenor-gif-embed{width:100%!important}
-.tenor-gif-embed iframe{width:100%!important}
-.divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:25px auto;color:var(--pink);font-size:14px}
-.divider:before,.divider:after{content:"";width:90px;height:1px;background:rgba(110,31,58,.2)}
-.wrong-title{font-size:clamp(42px,9vw,72px);font-weight:900;color:var(--wine);line-height:1;margin:0 0 16px;letter-spacing:-1px}
-.wrong-title span{color:var(--pink)}
-.subtext{font-size:clamp(17px,3vw,21px);line-height:1.6;max-width:650px;margin:0 auto 35px;color:var(--text)}
-.subtext strong{color:var(--wine)}
-.angry-gif{width:100%;max-width:600px;height:auto;min-height:280px;object-fit:cover;border-radius:22px;display:block;margin:0 auto 38px;box-shadow:var(--shadow);background:var(--pink-light)}
-.you-dont{font-size:clamp(30px,7vw,55px);font-weight:bold;color:var(--wine);line-height:1.15;margin:0 auto 12px}
-.you-dont span{color:var(--pink)}
-.small-message{font-size:17px;font-style:italic;line-height:1.6;color:#805061;max-width:600px;margin:0 auto 28px}
-.button-wrap{margin-top:25px}
-button{border:0;padding:15px 30px;border-radius:30px;background:var(--wine);color:var(--white);font-family:Georgia,"Times New Roman",serif;font-size:15px;cursor:pointer;box-shadow:0 8px 20px rgba(110,31,58,.2);transition:all .3s ease}
-button:hover{background:#812847;transform:translateY(-3px);box-shadow:0 12px 25px rgba(110,31,58,.25)}
-button:active{transform:scale(.97)}
-.final-note{margin:19px auto 0;font-size:12px;font-style:italic;color:#a06a78}
-.floating{position:fixed;color:var(--pink);font-size:18px;opacity:.25;animation:float 10s linear infinite;pointer-events:none;z-index:0}
-.f1{left:7%;animation-delay:0s}.f2{left:18%;animation-delay:2s}.f3{left:82%;animation-delay:4s}.f4{left:91%;animation-delay:1s}.f5{left:57%;animation-delay:6s}.f6{left:38%;animation-delay:3s}
-@keyframes float{0%{transform:translateY(110vh) rotate(0);opacity:0}15%{opacity:.25}85%{opacity:.25}100%{transform:translateY(-15vh) rotate(25deg);opacity:0}}
-@media(max-width:600px){.page{width:92%;padding:35px 0 55px}.tenor-wrap{border-radius:14px;margin-bottom:35px}.wrong-title{font-size:clamp(40px,12vw,58px)}.subtext{font-size:16px}.angry-gif{min-height:220px;border-radius:16px}.you-dont{font-size:clamp(31px,10vw,45px)}.small-message{font-size:15px}button{width:100%;max-width:300px}.divider:before,.divider:after{width:50px}}
+body{
+margin:0;
+min-height:100vh;
+font-family:Georgia,"Times New Roman",serif;
+background:radial-gradient(circle at top left,rgba(255,255,255,.9),transparent 32%),linear-gradient(135deg,#fff1f5,#ffdce7);
+overflow-x:hidden;
+}
+.page{
+width:min(700px,92%);
+margin:auto;
+padding:80px 0 70px;
+}
+.gif{
+width:100%;
+margin:0 auto 25px;
+}
+.tenor-gif-embed{
+width:100%!important;
+max-width:100%!important;
+}
+.giphy{
+width:100%;
+margin:0 auto 25px;
+}
+.giphy iframe{
+width:100%;
+height:auto;
+aspect-ratio:480/271;
+display:block;
+border:0;
+}
+.back{
+display:flex;
+justify-content:center;
+margin-top:35px;
+}
+button{
+border:0;
+background:#b85b7b;
+color:var(--white);
+padding:13px 22px;
+border-radius:30px;
+font-family:Georgia,"Times New Roman",serif;
+font-size:17px;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(110,31,58,.14);
+transition:.3s;
+}
+button:hover{
+transform:translateY(-3px);
+background:#c66b89;
+box-shadow:0 12px 25px rgba(110,31,58,.18);
+}
+button:active{
+transform:scale(.95);
+}
+@media(max-width:600px){
+.page{
+width:92%;
+padding:50px 0 50px;
+}
+.gif{
+margin-bottom:25px;
+}
+.giphy{
+margin-bottom:25px;
+}
+.back{
+margin-top:30px;
+}
+button{
+font-size:16px;
+padding:12px 20px;
+}
+}
 </style>
 </head>
 <body>
-<div class="floating f1">♡</div>
-<div class="floating f2">✦</div>
-<div class="floating f3">♡</div>
-<div class="floating f4">✧</div>
-<div class="floating f5">♡</div>
-<div class="floating f6">✦</div>
+
 <main class="page">
-<div class="gif-title">well well well...</div>
-<div class="tenor-wrap">
-<div class="tenor-gif-embed" data-postid="26603722" data-share-method="host" data-aspect-ratio="2.35294" data-width="100%"><a href="https://tenor.com/view/tamil-actress-gif-tamil-heroin-gif-tamil-hero-gif-dance-gif-tamil-gif-gif-26603722">Tamil Actress Gif Tamil Heroin Gif GIF</a>from <a href="https://tenor.com/search/tamil+actress+gif-gifs">Tamil Actress Gif GIFs</a></div>
+
+<div class="gif">
+<div class="tenor-gif-embed" data-postid="26603722" data-share-method="host" data-aspect-ratio="2.35294" data-width="100%">
+<a href="https://tenor.com/view/tamil-actress-gif-tamil-heroin-gif-tamil-hero-gif-dance-gif-tamil-gif-gif-26603722">Tamil Actress Gif Tamil Heroin Gif GIF</a>from <a href="https://tenor.com/search/tamil+actress+gif-gifs">Tamil Actress Gif GIFs</a>
 </div>
-<div class="divider">✦ ♡ ✦</div>
-<h1 class="wrong-title"><span>WRONG</span> ANSWER!! 😤</h1>
-<p class="subtext">Excuse me?! How did you possibly manage to get that wrong? 😭<br><strong>I literally made this whole website for you.</strong></p>
-<img class="angry-gif" src="https://media.giphy.com/media/THIIcydPEMFGTvWjnR/giphy.gif" alt="Angry reaction">
-<h2 class="you-dont">YOU DON'T EVEN <span>KNOW ME?!</span> 😭</h2>
-<p class="small-message">Wow. I'm actually offended now.<br>Go back, think about your answer, and try not to disappoint me again. ♡</p>
-<div class="button-wrap">
-<button onclick="goBack()">Fine. I'll give you another chance.</button>
-<p class="final-note">or do your best and never come back. 😌</p>
 </div>
+
+<div class="gif">
+<div class="tenor-gif-embed" data-postid="22946183" data-share-method="host" data-aspect-ratio="1.25984" data-width="100%">
+<a href="https://tenor.com/view/angry-panda-rage-mad-gif-22946183">Angry Panda GIF</a>
+</div>
+</div>
+
+<div class="giphy">
+<iframe src="https://giphy.com/embed/KCfpWuNnTcLbc3aLvZ" width="480" height="271" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
+
+<div class="back">
+<button onclick="goBack()">Go Back ⬅️</button>
+</div>
+
 </main>
-<script src="https://tenor.com/embed.js"></script>
+
+<script async src="https://tenor.com/embed.js"></script>
+<script async src="https://giphy.com/embed.js"></script>
+
 <script>
-function goBack(){const returnPage=sessionStorage.getItem("wrongReturnPage");if(returnPage){window.location.href=returnPage}else{window.location.href="home.html"}}
+function goBack(){
+const returnPage=sessionStorage.getItem("wrongReturnPage");
+if(returnPage)window.location.href=returnPage;
+else window.location.href="home.html";
+}
 </script>
+
 </body>
 </html>
