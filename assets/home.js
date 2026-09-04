@@ -67,7 +67,7 @@ function checkStoryPuzzle() {
 
         showSuccess(
             "YAY! YOU GOT IT ♡",
-            "Paravala kadha nyabagam irukku, Good job!🥳",
+            "Paravala nyabagam irukku, Good job!🥳",
             "kadhai.html"
         );
     }
