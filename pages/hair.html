@@ -3,27 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Your Kisses❤️</title>
+<title>Your Hair❤️</title>
 
 <style>
 *{box-sizing:border-box}
 
-html{scroll-behavior:smooth}
-
 body{
 margin:0;
-padding:0;
-background:#f7f3f5;
-color:#4b2633;
+background:#eeeeee;
 font-family:Georgia,"Times New Roman",serif;
-overflow-x:hidden;
+color:#d4d4d4;
 }
 
 .page{
-width:100%;
-max-width:900px;
-margin:0 auto;
-padding:28px 18px 45px;
+width:min(900px,100%);
+margin:auto;
+padding:45px 20px;
 }
 
 .gallery{
@@ -33,48 +28,10 @@ align-items:center;
 gap:0;
 }
 
-/* =================================================
-   SPACING CONTROL
-   Change ONLY these numbers to adjust spaces.
-   ================================================= */
-
-/* IMAGES */
-.kiss1{margin-bottom:25px}
-
-.kiss2{margin-bottom:15px}
-.kiss3{margin-bottom:25px}
-
-.kiss4{margin-bottom:15px}
-.kiss5{margin-bottom:15px}
-.kiss6{margin-bottom:15px}
-.kiss7{margin-bottom:15px}
-.kiss8{margin-bottom:15px}
-.kiss9{margin-bottom:25px}
-
-.kiss10{margin-bottom:15px}
-.kiss11{margin-bottom:15px}
-.kiss12{margin-bottom:15px}
-.kiss13{margin-bottom:15px}
-.kiss14{margin-bottom:15px}
-.kiss15{margin-bottom:25px}
-
-.kiss16{margin-bottom:25px}
-
-/* GIF */
-.tenor1{margin-bottom:25px}
-
-/* SPOTIFY */
-.spotify1{margin-bottom:25px}
-.spotify2{margin-bottom:25px}
-.spotify3{margin-bottom:25px}
-.spotify4{margin-bottom:0}
-
-/* IMAGES */
-.kiss-image{
-display:block;
+.hair-image{
 width:min(650px,100%);
 height:auto;
-object-fit:contain;
+display:block;
 border-radius:0;
 box-shadow:none;
 opacity:0;
@@ -82,45 +39,77 @@ transform:translateY(20px);
 animation:appear .7s ease forwards;
 }
 
-/* TENOR */
-.tenor-box{
+.tenor-wrapper{
 width:min(650px,100%);
-margin-left:auto;
-margin-right:auto;
-background:transparent!important;
-overflow:hidden;
-}
-
-.tenor-gif-embed{
-width:100%!important;
-margin:0!important;
-background:transparent!important;
-}
-
-/* SPOTIFY */
-.spotify-player{
-width:100%;
 display:flex;
 justify-content:center;
-margin-left:auto;
-margin-right:auto;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
 }
 
-.spotify-player iframe{
-display:block;
+.tenor-wrapper .tenor-gif-embed{
+width:100%;
+}
+
+.spotify-wrapper{
 width:min(350px,92%);
 height:152px;
-border:0;
+margin-left:auto;
+margin-right:auto;
 border-radius:12px;
+overflow:hidden;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
 }
 
-/* FINAL BREAKER */
+.spotify-wrapper iframe{
+width:100%;
+height:152px;
+border:0;
+}
+
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* INDIVIDUAL SPACING — CHANGE THESE FREELY */
+
+.hair1{margin-bottom:25px}
+
+.tenor1{margin-bottom:25px}
+
+.hair2{margin-bottom:15px}
+.hair3{margin-bottom:25px}
+
+.spotify1{margin-bottom:25px}
+
+.hair4{margin-bottom:15px}
+.hair5{margin-bottom:15px}
+.hair6{margin-bottom:15px}
+.hair7{margin-bottom:25px}
+
+.spotify2{margin-bottom:25px}
+
+.hair4-again{margin-bottom:20px}
+.hair8{margin-bottom:20px}
+.hair5-again{margin-bottom:20px}
+.hair9{margin-bottom:25px}
+
+.spotify3{margin-bottom:0}
+
+/* FINAL DIVIDER */
+
 .finish{
 width:400px;
 max-width:70%;
 height:1px;
 margin:35px auto 0;
-background:#d9a7b8;
+background:#d4d4d4;
 position:relative;
 }
 
@@ -129,39 +118,24 @@ position:absolute;
 left:50%;
 top:50%;
 transform:translate(-50%,-50%);
-background:#f7f3f5;
+background:#eeeeee;
 padding:0 10px;
-color:#d9a7b8;
+color:#d4d4d4;
 font-size:18px;
 line-height:1;
 }
 
-/* ANIMATION */
-@keyframes appear{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* MOBILE */
 @media(max-width:600px){
-
 .page{
-padding:20px 12px 35px;
+padding:35px 15px;
 }
 
-.kiss-image{
+.hair-image{
 width:100%;
 }
 
-.tenor-box{
+.tenor-wrapper{
 width:100%;
-}
-
-.spotify-player iframe{
-width:min(350px,92%);
-height:152px;
 }
 
 .finish{
@@ -170,178 +144,105 @@ max-width:75%;
 margin:35px auto 0;
 height:1px;
 }
-
 }
 </style>
 </head>
 
 <body>
 
-<main class="page">
+<div class="page">
+<div class="gallery">
 
-<section class="gallery">
-
-<!-- 1 IMAGE -->
-<img class="kiss-image kiss1"
-src="../assets/images/kisses/kiss1.jpg"
-alt="Your kisses">
+<!-- IMAGE 1 -->
+<img class="hair-image hair1" src="../assets/images/hair/hair1.jpg" alt="">
 
 <!-- TENOR GIF -->
-<div class="tenor-box tenor1">
+<div class="tenor-wrapper tenor1">
 <div class="tenor-gif-embed"
-data-postid="25497957"
+data-postid="25480326"
 data-share-method="host"
-data-aspect-ratio="1.66667"
+data-aspect-ratio="1"
 data-width="100%">
-<a href="https://tenor.com/view/tessa-hardin-after-kiss-gif-25497957">
-Tessa Hardin GIF
+<a href="https://tenor.com/view/your-hair-is-so-beautiful-vishal-buzzfeed-india-your-hair-is-stunning-what-a-pretty-hair-gif-25480326">
+Your Hair Is So Beautiful Vishal GIF
 </a>
 from
-<a href="https://tenor.com/search/tessa-gifs">
-Tessa GIFs
+<a href="https://tenor.com/search/your+hair+is+so+beautiful-gifs">
+Your Hair Is So Beautiful GIFs
 </a>
 </div>
 </div>
 
-<!-- 2 IMAGES -->
-<img class="kiss-image kiss2"
-src="../assets/images/kisses/kiss2.jpg"
-alt="Your kisses">
+<!-- IMAGE 2 -->
+<img class="hair-image hair2" src="../assets/images/hair/hair2.jpg" alt="">
 
-<img class="kiss-image kiss3"
-src="../assets/images/kisses/kiss3.jpg"
-alt="Your kisses">
+<!-- IMAGE 3 -->
+<img class="hair-image hair3" src="../assets/images/hair/hair3.jpg" alt="">
 
 <!-- SPOTIFY 1 -->
-<div class="spotify-player spotify1">
+<div class="spotify-wrapper spotify1">
 <iframe
-src="https://open.spotify.com/embed/track/2mo1jyrYHdyiekQHNKXx1C?utm_source=generator"
-allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
+src="https://open.spotify.com/embed/track/3eeUvZTgP5uJfOMqI3sUVq"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 loading="lazy">
 </iframe>
 </div>
 
-<!-- 6 IMAGES -->
-<img class="kiss-image kiss4"
-src="../assets/images/kisses/kiss4.jpg"
-alt="Your kisses">
+<!-- IMAGE 4 -->
+<img class="hair-image hair4" src="../assets/images/hair/hair4.jpg" alt="">
 
-<img class="kiss-image kiss5"
-src="../assets/images/kisses/kiss5.jpg"
-alt="Your kisses">
+<!-- IMAGE 5 -->
+<img class="hair-image hair5" src="../assets/images/hair/hair5.jpg" alt="">
 
-<img class="kiss-image kiss6"
-src="../assets/images/kisses/kiss6.jpg"
-alt="Your kisses">
+<!-- IMAGE 6 -->
+<img class="hair-image hair6" src="../assets/images/hair/hair6.jpg" alt="">
 
-<img class="kiss-image kiss4"
-src="../assets/images/kisses/kiss4.jpg"
-alt="Your kisses">
-
-<img class="kiss-image kiss7"
-src="../assets/images/kisses/kiss7.jpg"
-alt="Your kisses">
-
-<img class="kiss-image kiss8"
-src="../assets/images/kisses/kiss8.jpg"
-alt="Your kisses">
-
-<img class="kiss-image kiss9"
-src="../assets/images/kisses/kiss9.jpg"
-alt="Your kisses">
+<!-- IMAGE 7 -->
+<img class="hair-image hair7" src="../assets/images/hair/hair7.jpg" alt="">
 
 <!-- SPOTIFY 2 -->
-<div class="spotify-player spotify2">
+<div class="spotify-wrapper spotify2">
 <iframe
-src="https://open.spotify.com/embed/track/5KhN3YNA4JZxxb3aNzhTfi?utm_source=generator"
-allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
+src="https://open.spotify.com/embed/track/4oGe5mXMcbtz2Xuxy7eFVZ"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 loading="lazy">
 </iframe>
 </div>
 
-<!-- 6 IMAGES -->
-<img class="kiss-image kiss4"
-src="../assets/images/kisses/kiss4.jpg"
-alt="Your kisses">
-   
-<img class="kiss-image kiss10"
-src="../assets/images/kisses/kiss10.jpg"
-alt="Your kisses">
+<!-- IMAGE 4 AGAIN -->
+<img class="hair-image hair4-again" src="../assets/images/hair/hair4.jpg" alt="">
 
-<img class="kiss-image kiss11"
-src="../assets/images/kisses/kiss11.jpg"
-alt="Your kisses">
+<!-- IMAGE 8 -->
+<img class="hair-image hair8" src="../assets/images/hair/hair8.jpg" alt="">
 
-<img class="kiss-image kiss4"
-src="../assets/images/kisses/kiss4.jpg"
-alt="Your kisses">
+<!-- IMAGE 5 AGAIN -->
+<img class="hair-image hair5-again" src="../assets/images/hair/hair5.jpg" alt="">
 
-<img class="kiss-image kiss12"
-src="../assets/images/kisses/kiss12.jpg"
-alt="Your kisses">
-
-<img class="kiss-image kiss13"
-src="../assets/images/kisses/kiss13.jpg"
-alt="Your kisses">
-
-<img class="kiss-image kiss4"
-src="../assets/images/kisses/kiss4.jpg"
-alt="Your kisses">
-   
-<img class="kiss-image kiss14"
-src="../assets/images/kisses/kiss14.jpg"
-alt="Your kisses">
-
-<img class="kiss-image kiss15"
-src="../assets/images/kisses/kiss15.jpg"
-alt="Your kisses">
+<!-- IMAGE 9 -->
+<img class="hair-image hair9" src="../assets/images/hair/hair9.jpg" alt="">
 
 <!-- SPOTIFY 3 -->
-<div class="spotify-player spotify3">
+<div class="spotify-wrapper spotify3">
 <iframe
-src="https://open.spotify.com/embed/track/786zTT1pptWVOMCtAvTctr?utm_source=generator"
-allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
+src="https://open.spotify.com/embed/track/1ICtKrR6YnTMa9G6Ob8VMe"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 loading="lazy">
 </iframe>
 </div>
 
-<!-- 1 IMAGE -->
-<img class="kiss-image kiss4"
-src="../assets/images/kisses/kiss4.jpg"
-alt="Your kisses">
-   
-<img class="kiss-image kiss16"
-src="../assets/images/kisses/kiss16.jpg"
-alt="Your kisses">
-
-<!-- SPOTIFY 4 -->
-<div class="spotify-player spotify4">
-<iframe
-src="https://open.spotify.com/embed/track/5QoCBy9eUHYkeWpEpzAud9?utm_source=generator"
-allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
-loading="lazy">
-</iframe>
-</div>
-
-</section>
-
-<!-- FINAL BREAKER -->
+<!-- FINAL DIVIDER -->
 <div class="finish">
 <span class="finish-heart">♡</span>
 </div>
 
-</main>
+</div>
+</div>
 
-<script
-type="text/javascript"
-async
-src="https://tenor.com/embed.js">
-</script>
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded",()=>{
-
-const images=document.querySelectorAll(".kiss-image");
+const items=document.querySelectorAll(".hair-image,.tenor-wrapper,.spotify-wrapper");
 
 const observer=new IntersectionObserver((entries)=>{
 entries.forEach(entry=>{
@@ -354,8 +255,7 @@ observer.unobserve(entry.target);
 });
 },{threshold:.08});
 
-images.forEach(image=>observer.observe(image));
-
+items.forEach(item=>observer.observe(item));
 });
 </script>
 
