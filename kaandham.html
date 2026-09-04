@@ -1,32 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reasons to Love You 💗</title>
-  <link rel="stylesheet" href="assets/reasons-to-love-you.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>காந்தம் ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#fff1f1;
+font-family:Georgia,"Times New Roman",serif;
+color:#fed4d4;
+}
+
+.page{
+width:min(900px,100%);
+margin:auto;
+padding:45px 20px;
+}
+
+.gallery{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:0;
+}
+
+.magnet-image{
+width:min(650px,100%);
+height:auto;
+display:block;
+border-radius:0;
+box-shadow:none;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+.spotify-wrapper{
+width:min(350px,92%);
+height:152px;
+margin-left:auto;
+margin-right:auto;
+border-radius:12px;
+overflow:hidden;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+.spotify-wrapper iframe{
+width:100%;
+height:152px;
+border:0;
+}
+
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* INDIVIDUAL SPACING — CHANGE THESE FREELY */
+
+.magnet1{margin-bottom:15px}
+.magnet2{margin-bottom:15px}
+.magnet3{margin-bottom:15px}
+.magnet4{margin-bottom:15px}
+.magnet5{margin-bottom:15px}
+.magnet6{margin-bottom:15px}
+.magnet7{margin-bottom:15px}
+.magnet8{margin-bottom:15px}
+.magnet9{margin-bottom:25px}
+
+.spotify1{margin-bottom:25px}
+
+.magnet10{margin-bottom:15px}
+.magnet11{margin-bottom:0}
+
+@media(max-width:600px){
+
+.page{
+padding:35px 15px;
+}
+
+.magnet-image{
+width:100%;
+}
+}
+</style>
 </head>
+
 <body>
-<nav class="navbar">
-  <a class="brand" href="home.html">For You ❤️</a>
-  <div class="nav-links">
-    <a href="our-story.html">Our Story</a>
-    <a href="reasons-to-love-you.html">Love You</a>
-    <a href="reasons-to-hate-you.html">Hate You</a>
-    <a href="why-everyone-loves-you.html">Everyone Loves You</a>
-    <a href="why-i-admire-you.html">I Admire You</a>
-    <a href="kavithai.html">Kavithai</a>
-  </div>
-</nav>
 
-<main>
-  <section class="card">
-    <h1>Reasons to Love You 💗</h1>
-    <p>Add your lyric images, Spotify song embeds, and reasons here.</p>
-    <a class="back" href="home.html">← Back to Home</a>
-  </section>
-</main>
+<div class="page">
+<div class="gallery">
 
-<script src="assets/reasons-to-love-you.js"></script>
+<!-- IMAGE 1 -->
+<img class="magnet-image magnet1"
+src="assets/images/magnet/magnet1.jpg"
+alt="">
+
+<!-- IMAGE 2 -->
+<img class="magnet-image magnet2"
+src="assets/images/magnet/magnet2.jpg"
+alt="">
+
+<!-- IMAGE 3 -->
+<img class="magnet-image magnet3"
+src="assets/images/magnet/magnet3.jpg"
+alt="">
+
+<!-- IMAGE 4 -->
+<img class="magnet-image magnet4"
+src="assets/images/magnet/magnet4.jpg"
+alt="">
+
+<!-- IMAGE 5 -->
+<img class="magnet-image magnet5"
+src="assets/images/magnet/magnet5.jpg"
+alt="">
+
+<!-- IMAGE 6 -->
+<img class="magnet-image magnet6"
+src="assets/images/magnet/magnet6.jpg"
+alt="">
+
+<!-- IMAGE 7 -->
+<img class="magnet-image magnet7"
+src="assets/images/magnet/magnet7.jpg"
+alt="">
+
+<!-- IMAGE 8 -->
+<img class="magnet-image magnet8"
+src="assets/images/magnet/magnet8.jpg"
+alt="">
+
+<!-- IMAGE 9 -->
+<img class="magnet-image magnet9"
+src="assets/images/magnet/magnet9.jpg"
+alt="">
+
+<!-- SPOTIFY -->
+<div class="spotify-wrapper spotify1">
+<iframe
+data-testid="embed-iframe"
+src="https://open.spotify.com/embed/track/1hhLL2eWsnPtYCdDjbiRIU?utm_source=generator&si=173aba4bb3b04be9"
+width="100%"
+height="152"
+frameborder="0"
+allowfullscreen
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<!-- IMAGE 10 -->
+<img class="magnet-image magnet10"
+src="assets/images/magnet/magnet10.jpg"
+alt="">
+
+<!-- IMAGE 11 -->
+<img class="magnet-image magnet11"
+src="assets/images/magnet/magnet11.jpg"
+alt="">
+
+</div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+const items=document.querySelectorAll(".magnet-image,.spotify-wrapper");
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.animationDelay="0s";
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.08});
+
+items.forEach(item=>observer.observe(item));
+});
+</script>
+
 </body>
 </html>
