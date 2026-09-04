@@ -67,7 +67,7 @@ function checkStoryPuzzle() {
 
         showSuccess(
             "YAY! YOU GOT IT ♡",
-            "You really do know our story.",
+            "Paravala kadha nyabagam irukku, Good job!🥳",
             "kadhai.html"
         );
     }
@@ -182,14 +182,13 @@ animeOptions.forEach(option=>{
 option.addEventListener("click",()=>{
 if(option.dataset.correct==="true"){
 
-animeStatus.textContent="Correct! You actually know me. ❤️";
-
 showSuccess(
 "YAY! YOU GOT IT ♡",
-"You really do know me.",
+"Correct answer! You found the love of my life 😊",
 "kadhal.html"
 );
 
+sessionStorage.setItem("loveSolved","true");
 document.getElementById("loveComplete").classList.add("show");
 
 }else{
@@ -201,6 +200,10 @@ window.location.href="wrong.html";
 }
 });
 });
+
+if(sessionStorage.getItem("loveSolved")==="true"){
+document.getElementById("loveComplete").classList.add("show");
+}
 
 window.addEventListener("load",()=>{
 const position=sessionStorage.getItem("restoreScrollPosition");
@@ -260,10 +263,11 @@ numberStatus.textContent="";
 
 showSuccess(
 "YAY! YOU GOT IT ♡",
-"That was the number I had in mind.",
+"Ippo othukura ni enna true ah love panra nu!😁",
 "kasappu.html"
 );
 
+sessionStorage.setItem("hateSolved","true");
 document.getElementById("hateComplete").classList.add("show");
 
 return;
@@ -309,6 +313,9 @@ if(event.key==="Enter"){
 checkNumber();
 }
 });
+}
+if(sessionStorage.getItem("hateSolved")==="true"){
+document.getElementById("hateComplete").classList.add("show");
 }
 
 /* =========================================================
@@ -363,7 +370,9 @@ showSuccess(
 document.getElementById("everyoneComplete").classList.add("show");
 });
 }
-
+if(sessionStorage.getItem("everyoneSolved")==="true"){
+document.getElementById("everyoneComplete").classList.add("show");
+}
 
 /* =========================================================
 5. WHY I'M LUCKY - MATCHING
@@ -419,6 +428,7 @@ showSuccess(
 "You really know me.",
 "lucky.html"
 );
+sessionStorage.setItem("luckySolved","true");
 document.getElementById("luckyComplete").classList.add("show");
 }else{
 matchStatus.textContent=
@@ -439,7 +449,9 @@ selectedRight=null;
 }
 });
 });
-
+if(sessionStorage.getItem("luckySolved")==="true"){
+document.getElementById("luckyComplete").classList.add("show");
+}
 
 /* =========================================================
 6. KAVITHAI - SONG GUESSING
@@ -466,10 +478,11 @@ songStatus.textContent="Correct! 🎵❤️";
 
 showSuccess(
 "YOU GOT IT ♡",
-"Of course you remembered Pogathe.",
+"True souldmates! ◝(ᵔᗜᵔ)◜",
 "kavithai.html"
 );
 
+sessionStorage.setItem("kavithaiSolved","true");
 document.getElementById("kavithaiComplete").classList.add("show");
 }else{
 songStatus.textContent="Not that one 😭 Try again!";
@@ -483,7 +496,9 @@ songInput.addEventListener("keydown",event=>{
 if(event.key==="Enter")checkSong();
 });
 }
-
+if(sessionStorage.getItem("kavithaiSolved")==="true"){
+document.getElementById("kavithaiComplete").classList.add("show");
+}
 
 /* =========================================================
 SECTION COUNTER
