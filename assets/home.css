@@ -427,7 +427,7 @@ z-index:2;
 position:absolute;
 left:28px;
 top:15px;
-font:600 8px Georgia,"Times New Roman",serif;
+font:600 10px Georgia,"Times New Roman",serif;
 letter-spacing:2.5px;
 color:#8f304d;
 z-index:4;
@@ -475,9 +475,9 @@ letter-spacing:1px;
 }
 
 .story-button .ticket-scene{
-left:20px;
+left:23px;
 top:13px;
-font-size:7px;
+font-size:9px;
 }
 
 .story-button .ticket-title{
@@ -613,13 +613,19 @@ padding:12px;
     color:transparent;
     -webkit-text-stroke:1.5px #d94f70;
 }
+.anime-option.selected{
+border-color:var(--pink);
+background:var(--pink-light);
+transform:translateY(-2px);
+}
+
 /* =============== 3. கசப்பு — REASONS TO HATE YOU ============ */
 .game-status{
-min-height:26px;
-margin:18px 0 8px;
-text-align:center;
-font-weight:bold;
-color:var(--pink);
+    min-height:26px;
+    margin:45px 0 8px;
+    text-align:center;
+    font-weight:bold;
+    color:var(--pink);
 }
 .number-card{
 max-width:650px;
@@ -643,7 +649,8 @@ box-shadow:0 0 0 3px rgba(217,79,112,.1);
 }
 .primary-button{
 display:inline-block;
-margin-top:14px;
+margin-top:25px;
+margin-bottom:25px;
 padding:13px 21px;
 border:1px solid rgba(217,79,112,.25);
 border-radius:999px;
@@ -658,6 +665,13 @@ transition:.25s ease;
 background:rgba(217,79,112,.23);
 transform:translateY(-3px);
 box-shadow:0 12px 30px rgba(217,79,112,.17);
+}
+.chance-text{
+    display:inline-block;
+    margin-top:5px;
+    color:var(--pink);
+    font:600 18px "Playfair Display",serif;
+    line-height:1.6;
 }
 
 /* =============== 4. WHY EVERYONE LOVES YOU =============== */
@@ -684,7 +698,7 @@ margin-right:8px;
 }
 .mcq-card .primary-button{
 display:block;
-margin:25px auto 0;
+margin:25px auto 10px;
 }
 
 /* ================= 5. WHY I'M LUCKY ================= */
@@ -722,6 +736,89 @@ background:var(--pink-light);
 border-color:#79a86b;
 background:#eaf5e7;
 cursor:default;
+}
+.match-item.wrong{
+border-color:#c94b5c;
+background:#f9dfe3;
+}
+
+/* ==================== 6.KAVITHAI ==================== */
+.song-card{
+max-width:800px;
+margin:auto;
+}
+.song-options{
+display:grid;
+gap:15px;
+}
+.song-option{
+display:block;
+cursor:pointer;
+}
+.song-option input{
+display:none;
+}
+.song-info{
+display:flex;
+align-items:center;
+gap:18px;
+padding:12px;
+border:2px solid transparent;
+border-radius:14px;
+background:white;
+transition:.2s ease;
+}
+.song-option:hover .song-info{
+border-color:rgba(217,79,112,.4);
+transform:translateY(-2px);
+}
+.song-option input:checked+.song-info{
+border-color:var(--pink);
+background:var(--pink-light);
+}
+.song-cover{
+width:90px;
+height:90px;
+flex-shrink:0;
+object-fit:cover;
+border-radius:8px;
+display:block;
+}
+.song-details{
+text-align:left;
+}
+.song-number{
+display:block;
+margin-bottom:5px;
+color:#8f304d;
+font:10px Georgia,"Times New Roman",serif;
+letter-spacing:2px;
+}
+.song-details h3{
+margin:0;
+color:var(--wine);
+font:600 19px "Playfair Display",Georgia,serif;
+}
+.song-details p{
+margin:5px 0 0;
+color:#6e4653;
+font:14px Georgia,"Times New Roman",serif;
+}
+@media(max-width:600px){
+.song-info{
+gap:12px;
+padding:9px;
+}
+.song-cover{
+width:78px;
+height:78px;
+}
+.song-details h3{
+font-size:17px;
+}
+.song-details p{
+font-size:13px;
+}
 }
 
 /* ==================== SUCCESS POPUP ==================== */
@@ -804,31 +901,64 @@ transform:translateY(-3px);
 box-shadow:0 12px 30px rgba(217,79,112,.18);
 }
 
+/* ==================== SCROLL ==================== */
+.final-scroll{
+width:min(850px,94%);
+margin:-25px auto 60px !important;
+}
+.final-scroll img{
+width:100%;
+height:auto;
+display:block;
+}
+@media(max-width:600px){
+.final-scroll{
+width:96%;
+margin:-30px auto 5px !important;
+}
+}
+
 /* ==================== FOOTER ==================== */
 footer{
-min-height:420px;
-margin:100px 0 0;
-padding:100px 24px;
+width:100%;
+min-height:220px;
+margin:80px 0 0;
+padding:55px 24px;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:
-linear-gradient(rgba(70,25,40,.48),rgba(70,25,40,.58)),
-url("assets/images/photo3.jpg") center/cover no-repeat;
+background:linear-gradient(rgba(70,25,40,.48),rgba(70,25,40,.58));
 color:white;
 }
 footer p{
 margin:0;
-font:500 clamp(30px,7vw,58px) "Playfair Display",serif;
+font:400 clamp(28px,6vw,52px) "Felipa",cursive;
 line-height:1.3;
-text-shadow:0 4px 20px rgba(0,0,0,.18);
+text-shadow:0 3px 12px rgba(0,0,0,.15);
 }
 footer span{
-margin-top:18px;
-font:italic 18px "Playfair Display",serif;
+margin-top:14px;
+font:italic 16px "Playfair Display",serif;
+letter-spacing:1px;
 opacity:.9;
+}
+
+@media(max-width:600px){
+footer{
+min-height:30px;
+margin-top:25px;
+padding:15px 15px;
+}
+footer p{
+font-size:18px;
+line-height:1.25;
+}
+footer span{
+margin-top:5px;
+font-size:13px;
+}
 }
 
 /* ==================== REVEAL ==================== */
@@ -906,10 +1036,5 @@ padding:38px 24px 30px;
 }
 .lyrics-section{
 margin:35px auto;
-}
-footer{
-min-height:10px;
-margin-top:60px;
-padding:70px 20px;
 }
 }
