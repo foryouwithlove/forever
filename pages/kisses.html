@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Eyes❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+padding:0;
+background:#fff4ee;
+color:#4b2633;
+font-family:Georgia,"Times New Roman",serif;
+overflow-x:hidden;
+}
+
+.page{
+width:100%;
+max-width:900px;
+margin:0 auto;
+padding:28px 18px 45px;
+}
+
+.gallery{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:0;
+}
+
+/* =================================================
+   SPACING CONTROL
+   Change ONLY these numbers to adjust spaces.
+   ================================================= */
+
+/* IMAGES */
+.eye1{margin-bottom:20px}
+.eye2{margin-top:20px}
+.eye2{margin-bottom:10px}
+.eye3{margin-bottom:10px}
+.eye4{margin-bottom:10px}
+.eye5{margin-bottom:10px}
+.eye6{margin-bottom:10px}
+.eye7{margin-bottom:25px}
+
+.eye8{margin-bottom:10px}
+.eye9{margin-bottom:25px}
+
+.eye10{margin-bottom:3px}
+.eye11{margin-bottom:25px}
+.eye12{margin-top:20px}
+.eye12{margin-bottom:10px}
+.eye13{margin-bottom:10px}
+.eye14{margin-bottom:10px}
+.eye15{margin-bottom:20px}
+.eye16{margin-bottom:25px}
+
+.eye17{margin-bottom:10px}
+.eye18{margin-bottom:25px}
+
+.eye19{margin-bottom:10px}
+.eye20{margin-bottom:25px}
+
+
+/* GIFS */
+.gif1{margin-bottom:25px}
+.tenor1{margin-bottom:25px}
+.gif2{margin-bottom:25px}
+
+
+/* SPOTIFY */
+.spotify1{margin-bottom:25px}
+.spotify2{margin-bottom:25px}
+.spotify3{margin-bottom:25px}
+.spotify4{margin-bottom:0}
+
+
+/* FINAL DIVIDER */
+.finish{margin-top:35px}
+
+
+/* =================================================
+   TITLE
+   ================================================= */
+
+.title{
+text-align:center;
+margin:5px 0 22px;
+color:#6e1f3a;
+font-family:"Playfair Display",Georgia,serif;
+font-size:clamp(30px,7vw,52px);
+font-weight:600;
+letter-spacing:1px;
+}
+
+.subtitle{
+text-align:center;
+margin:-12px auto 25px;
+font-size:15px;
+font-style:italic;
+color:#8b5364;
+}
+
+
+/* =================================================
+   IMAGES
+   ================================================= */
+
+.eye-image{
+display:block;
+width:min(650px,100%);
+height:auto;
+object-fit:contain;
+border-radius:0;
+box-shadow:none;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+
+/* =================================================
+   GIPHY
+   ================================================= */
+
+.gif-box{
+width:min(650px,100%);
+margin:0 auto;
+display:flex;
+justify-content:center;
+overflow:hidden;
+background:transparent;
+}
+
+.gif-box iframe{
+display:block;
+width:100%;
+height:auto;
+aspect-ratio:16 / 9;
+border:0;
+background:transparent;
+}
+
+/* =================================================
+   TENOR
+   ================================================= */
+
+.tenor-box{
+width:min(650px,100%);
+margin-left:auto;
+margin-right:auto;
+background:transparent!important;
+overflow:hidden;
+}
+
+.tenor-gif-embed{
+width:100%!important;
+margin:0!important;
+background:transparent!important;
+}
+
+
+/* =================================================
+   SPOTIFY
+   ================================================= */
+
+.spotify-player{
+width:100%;
+display:flex;
+justify-content:center;
+margin-left:auto;
+margin-right:auto;
+}
+
+.spotify-player iframe{
+display:block;
+width:min(350px,92%);
+height:152px;
+border:0;
+border-radius:12px;
+}
+
+
+/* =================================================
+   FINAL BREAKER
+   ================================================= */
+
+.finish{
+width:400px;
+max-width:70%;
+height:1px;
+margin:35px auto 0;
+background:#7d4835;
+position:relative;
+}
+
+.finish-heart{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+background:#fff4ee;
+padding:0 10px;
+color:#7d4835;
+font-size:18px;
+line-height:1;
+}
+
+@media(max-width:600px){
+
+.finish{
+width:250px;
+max-width:75%;
+margin:30px auto 0;
+height:1px;
+}
+
+}
+/* =================================================
+   ANIMATION
+   ================================================= */
+
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+
+/* =================================================
+   MOBILE
+   ================================================= */
+
+@media(max-width:600px){
+
+.page{
+padding:20px 12px 35px;
+}
+
+.eye-image{
+width:100%;
+}
+
+.gif-box{
+width:100%;
+}
+
+.tenor-box{
+width:100%;
+}
+
+.spotify-player iframe{
+width:min(350px,92%);
+height:152px;
+}
+
+.finish{
+width:88%;
+margin-top:35px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<section class="gallery">
+
+<!-- 1 IMAGE -->
+<img class="eye-image eye1"
+src="../assets/images/eyes/eyes1.jpg"
+alt="Our eyes">
+
+<!-- GIPHY 1 -->
+<div class="gif-box gif1">
+<iframe
+src="https://giphy.com/embed/3oszQQrNDPQ1Jd9hUt"
+frameBorder="0"
+class="giphy-embed"
+allowFullScreen>
+</iframe>
+</div>
+
+<!-- 6 IMAGES -->
+<img class="eye-image eye2"
+src="../assets/images/eyes/eyes2.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye3"
+src="../assets/images/eyes/eyes3.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye4"
+src="../assets/images/eyes/eyes4.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye5"
+src="../assets/images/eyes/eyes5.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye6"
+src="../assets/images/eyes/eyes6.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye7"
+src="../assets/images/eyes/eyes7.jpg"
+alt="Our eyes">
+
+<!-- TENOR GIF -->
+<div class="tenor-box tenor1">
+<div class="tenor-gif-embed"
+data-postid="5367063754957458079"
+data-share-method="host"
+data-aspect-ratio="2.4"
+data-width="100%">
+<a href="https://tenor.com/view/eyes-shruthi-dhanush-love-at-first-sight-kadhal-gif-5367063754957458079">
+Eyes.Gif GIF
+</a>
+from
+<a href="https://tenor.com/search/eyes-gifs">
+Eyes GIFs
+</a>
+</div>
+</div>
+
+<!-- 2 IMAGES -->
+<img class="eye-image eye8"
+src="../assets/images/eyes/eyes8.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye9"
+src="../assets/images/eyes/eyes9.jpg"
+alt="Our eyes">
+
+<!-- SPOTIFY 1 -->
+<div class="spotify-player spotify1">
+<iframe
+src="https://open.spotify.com/embed/track/668ZUFIUNRyIqOORiCfFY3?utm_source=generator"
+allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<!-- 2 IMAGES -->
+<img class="eye-image eye10"
+src="../assets/images/eyes/eyes10.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye11"
+src="../assets/images/eyes/eyes11.jpg"
+alt="Our eyes">
+
+<!-- GIPHY 2 -->
+<div class="gif-box gif2">
+<iframe
+src="https://giphy.com/embed/l3vRbgCJxtSXS9jFe"
+frameBorder="0"
+class="giphy-embed"
+allowFullScreen>
+</iframe>
+</div>
+
+<!-- 5 IMAGES -->
+<img class="eye-image eye12"
+src="../assets/images/eyes/eyes12.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye13"
+src="../assets/images/eyes/eyes13.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye14"
+src="../assets/images/eyes/eyes14.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye15"
+src="../assets/images/eyes/eyes15.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye16"
+src="../assets/images/eyes/eyes16.jpg"
+alt="Our eyes">
+
+<!-- SPOTIFY 2 -->
+<div class="spotify-player spotify2">
+<iframe
+src="https://open.spotify.com/embed/track/5pebgx4IJ5YvZH2sYOHDRf?utm_source=generator"
+allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<!-- 2 IMAGES -->
+<img class="eye-image eye17"
+src="../assets/images/eyes/eyes17.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye18"
+src="../assets/images/eyes/eyes18.jpg"
+alt="Our eyes">
+
+<!-- SPOTIFY 3 -->
+<div class="spotify-player spotify3">
+<iframe
+src="https://open.spotify.com/embed/track/3IpEJ86hrMfUcoXCk9U4h3?utm_source=generator"
+allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<!-- 2 IMAGES -->
+<img class="eye-image eye19"
+src="../assets/images/eyes/eyes19.jpg"
+alt="Our eyes">
+
+<img class="eye-image eye20"
+src="../assets/images/eyes/eyes20.jpg"
+alt="Our eyes">
+
+<!-- SPOTIFY 4 -->
+<div class="spotify-player spotify4">
+<iframe
+src="https://open.spotify.com/embed/track/6wdyJnmcSeBXUyR6H5gGKd?utm_source=generator"
+allow="autoplay;clipboard-write;encrypted-media;fullscreen;picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+</section>
+
+<!-- FINAL BREAKER -->
+<div class="finish">
+<span class="finish-heart">♡</span>
+</div>
+
+</main>
+
+<script
+type="text/javascript"
+async
+src="https://tenor.com/embed.js">
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+const images=document.querySelectorAll(".eye-image");
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.animationDelay="0s";
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.08});
+
+images.forEach(image=>observer.observe(image));
+
+});
+</script>
+
+</body>
+</html>
