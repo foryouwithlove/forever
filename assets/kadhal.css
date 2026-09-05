@@ -2,7 +2,7 @@
 --brown:#70401f;
 --wine:#6e1f3a;
 --pink:#d94f70;
---cream:#fffafd;
+--cream:#f7f0e8;
 --text:#542536;
 }
 
@@ -41,7 +41,7 @@ filter:drop-shadow(0 12px 20px rgba(80,35,45,.13));
 
 .quote-envelope{
 height:65px;
-background:#ead0d5;
+background:#e5d5c5;
 border-radius:8px 8px 4px 4px;
 position:relative;
 margin:0 18px -18px;
@@ -55,7 +55,7 @@ top:0;
 left:0;
 width:100%;
 height:55px;
-background:#e3c2c9;
+background:#d8c2ae;
 clip-path:polygon(0 0,50% 75%,100% 0);
 border-radius:7px 7px 0 0;
 }
@@ -68,8 +68,8 @@ transform:translateX(-50%);
 width:42px;
 height:42px;
 border-radius:50%;
-background:#8f304d;
-color:#ffe9ee;
+background:#70401f;
+color:#f7f0e8;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -91,7 +91,7 @@ box-shadow:0 8px 25px rgba(80,35,45,.08);
 
 .quote-title{
 display:inline-block;
-color:#6e1f3a;
+color:#70401f;
 font-family:Georgia,"Times New Roman",serif;
 font-size:13px;
 letter-spacing:3px;
@@ -104,7 +104,7 @@ margin-bottom:18px;
 
 .quote-paper p{
 margin:0;
-color:#542536;
+color:#70401f;
 font:500 clamp(20px,4vw,28px) "Playfair Display",serif;
 line-height:1.7;
 }
@@ -116,7 +116,7 @@ margin-top:4px;
 .quote-sign{
 display:block;
 margin-top:18px;
-color:#8f304d;
+color:#70401f;
 font-family:"Quintessential",cursive;
 font-size:16px;
 }
@@ -190,7 +190,7 @@ transform:scale(1.07) rotate(-2deg);
 
 .reason:hover::before,
 .reason:hover::after{
-border-color:var(--wine);
+border-color:var(--brown);
 }
 
 /* RANDOM TOP REASONS */
@@ -212,7 +212,7 @@ border-color:var(--wine);
 position:absolute;
 left:50%;
 top:525px;
-width:220px;
+width:210px;
 transform:translateX(-50%);
 display:flex;
 justify-content:center;
@@ -251,26 +251,6 @@ text-align:center;
 display:block;
 width:min(350px,92%);
 margin:auto;
-}
-/* FINAL DIVIDER */
-
-.love-divider{
-width:min(620px,85%);
-height:1px;
-margin:20px auto 5px;
-background:#e3c2c9;
-position:relative;
-}
-
-.love-divider span{
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-padding:0 16px;
-background:var(--cream);
-color:#8f304d;
-font-size:22px;
 }
 
 /* MOBILE */
@@ -379,18 +359,10 @@ width:400px;
 .r20{left:5%;top:1000px}
 .r21{left:43%;top:1040px}
 .r22{left:23%;top:1095px}
-
 .spotify{
 margin:20px auto;
 }
-
 .spotify iframe{
 width:min(350px,92%);
 }
-
-.love-divider{
-width:75%;
-margin:20px auto 0;
-}
-
 }
