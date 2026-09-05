@@ -412,8 +412,8 @@ mcqStatus.textContent="";
 sessionStorage.setItem("everyoneSolved","true");
 
 showSuccess(
-"YAY! YOU KNOW ME ♡",
-"You understand me ⊹₊⟡⋆",
+"YAY! YOU GOT IT ♡",
+"You understand me very well ⊹₊⟡⋆",
 "kaandham.html"
 );
 
@@ -536,7 +536,7 @@ return;
 sessionStorage.setItem("kavithaiSolved","true");
 
 showSuccess(
-"YOU GOT IT ♡",
+"YAY! YOU GOT IT ♡",
 "True soulmates! ◝(ᵔᗜᵔ)◜",
 "kavithai.html"
 );
