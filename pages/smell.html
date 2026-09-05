@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Smell❤️</title>
+
+<style>
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#fff1d9;
+font-family:Georgia,"Times New Roman",serif;
+}
+
+.page{
+width:min(900px,100%);
+margin:auto;
+padding:35px 20px;
+}
+
+.gallery{
+display:flex;
+flex-direction:column;
+gap:0;
+align-items:center;
+}
+
+.gallery img{
+width:min(650px,100%);
+height:auto;
+display:block;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+.tenor-wrapper,
+.spotify-wrapper{
+width:min(650px,100%);
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+.tenor-gif-embed{
+width:100%;
+}
+
+.spotify-wrapper iframe{
+display:block;
+width:100%;
+height:152px;
+border:0;
+border-radius:12px;
+}
+
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* individual spacing */
+.smell1{margin-bottom:25px}
+
+.tenor1{margin-bottom:25px}
+
+.smell2{margin-bottom:18px}
+.smell3{margin-bottom:18px}
+.smell4{margin-bottom:25px}
+
+.spotify1{margin-bottom:25px}
+
+.smell5{margin-bottom:15px}
+.smell6{margin-bottom:25px}
+
+.spotify2{margin-bottom:0}
+
+/* divider */
+.finish{
+width:400px;
+max-width:70%;
+height:1px;
+margin:35px auto 0;
+background:#fad28f;
+position:relative;
+}
+
+.finish-heart{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+background:#fff1d9;
+padding:0 10px;
+color:#fad28f;
+font-size:18px;
+line-height:1;
+}
+
+@media(max-width:600px){
+.page{
+padding:25px 12px;
+}
+
+.finish{
+width:250px;
+max-width:75%;
+margin:35px auto 0;
+height:1px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+<div class="gallery">
+
+<img src="../assets/images/smell/smell1.jpg" class="smell1">
+
+<div class="tenor-wrapper tenor1">
+<div class="tenor-gif-embed"
+data-postid="26598766"
+data-share-method="host"
+data-aspect-ratio="1.78771"
+data-width="100%">
+<a href="https://tenor.com/view/smelling-a-piece-of-clothing-kya-daisy-edgar-jones-where-the-crawdads-sing-scent-left-on-clothes-gif-26598766">
+Smelling A Piece Of Clothing Kya GIF
+</a>
+from
+<a href="https://tenor.com/search/smelling+a+piece+of+clothing-gifs">
+Smelling A Piece Of Clothing GIFs
+</a>
+</div>
+</div>
+
+<img src="../assets/images/smell/smell2.jpg" class="smell2">
+<img src="../assets/images/smell/smell3.jpg" class="smell3">
+<img src="../assets/images/smell/smell4.jpg" class="smell4">
+
+<div class="spotify-wrapper spotify1">
+<iframe
+data-testid="embed-iframe"
+src="https://open.spotify.com/embed/track/6XWQQoeqyHcQ0NlXt0iVDM?utm_source=generator&si=2ca4c8887d8740d8"
+height="152"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<img src="../assets/images/smell/smell5.jpg" class="smell5">
+<img src="../assets/images/smell/smell6.jpg" class="smell6">
+
+<div class="spotify-wrapper spotify2">
+<iframe
+data-testid="embed-iframe"
+src="https://open.spotify.com/embed/track/5jkH9Pgv28mW9ve6uGtohT?utm_source=generator&si=80ea4647e10e4828"
+height="152"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<div class="finish">
+<span class="finish-heart">♡</span>
+</div>
+
+</div>
+</div>
+
+<script async src="https://tenor.com/embed.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+const items=document.querySelectorAll(
+".gallery img,.tenor-wrapper,.spotify-wrapper"
+);
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.animationDelay="0s";
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.08});
+
+items.forEach(item=>observer.observe(item));
+});
+</script>
+
+</body>
+</html>
