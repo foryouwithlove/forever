@@ -527,10 +527,10 @@ margin:45px auto;
 text-align:center;
 }
 .lyrics-image{
-width:100%;
+width:95%;
 display:block;
 border-radius:0;
-margin-bottom:25px;
+margin:0 auto 25px;
 }
 .spotify-player{
 width:100%;
