@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Jim+Nightshade&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+--wine:#6e1f3a;
+--pink:#d94f70;
+--text:#4b2633;
+--paper:#fffaf6;
+--paper2:#fff4f1;
+--bg:#f4dce2
+}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+background:var(--bg);
+color:var(--text);
+font-family:"IM Fell English",serif;
+min-height:100vh
+}
+
+.page{
+width:min(900px,calc(100% - 28px));
+margin:auto;
+padding:45px 0 30px
+}
+
+/* INTRO */
+
+.intro{
+width:min(650px,100%);
+margin:auto;
+text-align:center
+}
+
+.intro img{
+width:92%;
+height:auto;
+display:block;
+margin:0 auto 26px;
+border-radius:0;
+box-shadow:none
+}
+/* GIF */
+
+.tenor-gif-embed{
+width:100%;
+margin:0 auto 26px
+}
+
+/* SPOTIFY */
+
+.spotify-player{
+width:100%;
+display:flex;
+justify-content:center;
+margin:0 auto 28px
+}
+
+.spotify-player iframe{
+display:block;
+width:min(350px,92%);
+height:152px
+}
+
+/* CONTINUE */
+
+.continue-wrap{
+text-align:center;
+margin:34px auto 0
+}
+
+.continue-button{
+padding:13px 30px;
+border:1px solid rgba(110,31,58,.22);
+border-radius:999px;
+background:rgba(255,250,246,.7);
+color:var(--wine);
+font:500 14px "Playfair Display",serif;
+letter-spacing:1.5px;
+cursor:pointer;
+box-shadow:0 7px 20px rgba(80,35,45,.07);
+transition:.3s ease
+}
+
+.continue-button:hover{
+transform:translateY(-3px);
+background:var(--paper);
+box-shadow:0 12px 28px rgba(80,35,45,.11)
+}
+
+/* MAIN */
+
+.things{
+display:none;
+width:min(780px,100%);
+margin:55px auto 0
+}
+
+.things.show{
+display:block;
+animation:fadeIn .8s ease forwards
+}
+
+/* HEADING */
+
+.heading{
+text-align:center;
+margin-bottom:45px
+}
+
+.heading h2{
+margin:0;
+color:var(--wine);
+font:700 clamp(29px,5vw,42px) "Playfair Display",serif;
+letter-spacing:.3px
+}
+
+.heading p{
+margin:9px 0 0;
+color:#916575;
+font:24px "Jim Nightshade",cursive
+}
+
+/* CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:27px 25px;
+padding:5px 10px
+}
+
+.card{
+position:relative;
+background:var(--paper);
+padding:28px 25px 25px;
+min-height:190px;
+box-shadow:0 12px 28px rgba(80,35,45,.1);
+border:1px solid rgba(110,31,58,.07);
+opacity:0;
+transform:translateY(20px) rotate(var(--angle));
+transition:opacity .6s ease,transform .6s ease
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0) rotate(var(--angle))
+}
+
+.card:nth-child(3n){
+background:var(--paper2)
+}
+
+.card:nth-child(4n){
+--angle:1.2deg
+}
+
+.card:nth-child(4n+1){
+--angle:-1.1deg
+}
+
+.card:nth-child(4n+2){
+--angle:.6deg
+}
+
+.card:nth-child(4n+3){
+--angle:-.5deg
+}
+
+/* TAPE */
+
+.card:before{
+content:"";
+position:absolute;
+top:10px;
+left:50%;
+width:38px;
+height:10px;
+background:rgba(217,79,112,.16);
+transform:translateX(-50%) rotate(-2deg)
+}
+
+/* NUMBER */
+
+.card-number{
+position:absolute;
+top:16px;
+right:17px;
+color:#bd7185;
+font:600 11px "Playfair Display",serif;
+letter-spacing:2px
+}
+
+/* CARD TEXT */
+
+.card-title{
+margin:14px 35px 9px 0;
+color:var(--wine);
+font:600 19px/1.3 "Playfair Display",serif
+}
+
+.card-text{
+margin:0;
+color:#542536;
+font:16px/1.65 "IM Fell English",serif
+}
+
+/* FONT VARIETY */
+
+.card:nth-child(3n) .card-title{
+font-family:"IM Fell English",serif;
+font-weight:700
+}
+
+.card:nth-child(3n+1) .card-title{
+font-family:"Playfair Display",serif;
+font-weight:700
+}
+
+.card:nth-child(3n+2) .card-title{
+font-family:Georgia,serif;
+font-weight:700
+}
+
+.card:nth-child(4n) .card-text{
+font-family:Georgia,serif
+}
+
+.card:nth-child(5n) .card-text{
+font-family:"IM Fell English",serif
+}
+
+/* SPECIAL CARDS */
+
+.card:nth-child(5n){
+padding-top:31px
+}
+
+.card:nth-child(7n){
+border-radius:2px 2px 2px 16px
+}
+
+.card:nth-child(11n){
+border-radius:2px 15px 2px 2px
+}
+
+/* LAST CARD */
+
+.card:last-child{
+grid-column:1/-1;
+width:min(500px,100%);
+margin:5px auto 0;
+text-align:center;
+padding:30px
+}
+
+.card:last-child .card-title{
+margin:13px auto 9px;
+font-size:22px
+}
+
+.card:last-child .card-text{
+font-size:17px
+}
+
+/* FINAL IMAGE + SONG */
+
+.after-things{
+width:min(650px,100%);
+margin:55px auto 10px;
+text-align:center
+}
+
+.after-things img{
+width:92%;
+height:auto;
+display:block;
+margin:0 auto 28px;
+border-radius:0;
+box-shadow:none
+}
+
+.after-things .spotify-player{
+margin-bottom:0
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(15px)
+}
+to{
+opacity:1;
+transform:translateY(0)
+}
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.page{
+width:calc(100% - 18px);
+padding:25px 0 20px
+}
+
+.intro img{
+margin-bottom:20px
+}
+
+.tenor-gif-embed{
+margin-bottom:20px
+}
+
+.spotify-player{
+margin-bottom:22px
+}
+
+.spotify-player iframe{
+width:min(350px,92%);
+height:152px
+}
+
+.continue-wrap{
+margin-top:27px
+}
+
+.things{
+margin-top:43px
+}
+
+.heading{
+margin-bottom:32px
+}
+
+.heading h2{
+font-size:28px
+}
+
+.heading p{
+font-size:21px
+}
+
+.cards{
+grid-template-columns:1fr;
+gap:20px;
+padding:3px 5px
+}
+
+.card{
+min-height:auto;
+padding:25px 19px 21px
+}
+
+.card-number{
+top:15px;
+right:14px
+}
+
+.card-title{
+font-size:18px;
+margin-top:13px;
+margin-right:30px
+}
+
+.card-text{
+font-size:15.5px;
+line-height:1.62
+}
+
+.card:last-child{
+grid-column:auto;
+width:100%;
+padding:25px 19px 21px
+}
+
+.card:last-child .card-title{
+font-size:21px
+}
+
+.card:last-child .card-text{
+font-size:16px
+}
+
+.after-things{
+width:100%;
+margin-top:43px
+}
+
+.after-things img{
+margin-bottom:22px
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<section class="intro">
+
+<!-- IMAGE 1 -->
+<img src="../assets/images/you/you1.jpg" alt="You">
+
+<!-- FLYING KISS GIF -->
+<div class="tenor-gif-embed"
+data-postid="15132602234931970084"
+data-share-method="host"
+data-aspect-ratio="1.46341"
+data-width="100%">
+<a href="https://tenor.com/view/flying-kiss-actor-vijay-katal-thuppaki-movie-tamil-gif-15132602234931970084">Flying Kiss.Gif GIF</a>
+from
+<a href="https://tenor.com/search/flying+kiss-gifs">Flying Kiss GIFs</a>
+</div>
+
+<!-- IMAGE 2 -->
+<img src="../assets/images/you/you2.jpg" alt="You">
+
+<!-- SPOTIFY 1 -->
+<div class="spotify-player">
+<iframe
+data-testid="embed-iframe"
+style="border-radius:12px"
+src="https://open.spotify.com/embed/track/7hMKAmUlUUYa5qEiHWK4bk?utm_source=generator&si=067758d4409a4c44"
+width="100%"
+height="152"
+frameBorder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<!-- IMAGE 3 -->
+<img src="../assets/images/you/you3.jpg" alt="You">
+
+<!-- IMAGE 4 -->
+<img src="../assets/images/you/you4.jpg" alt="You">
+
+<!-- SPOTIFY 2 -->
+<div class="spotify-player">
+<iframe
+data-testid="embed-iframe"
+style="border-radius:12px"
+src="https://open.spotify.com/embed/track/3TIeBL7HhoIzqMVKAic32P?utm_source=generator&si=aff3f412b2fc41ba"
+width="100%"
+height="152"
+frameBorder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+</section>
+
+<!-- CONTINUE -->
+<div class="continue-wrap" id="continueWrap">
+<button class="continue-button" id="continueButton">CONTINUE</button>
+</div>
+
+<!-- 40 THINGS -->
+<section class="things" id="things">
+
+<div class="heading">
+<h2>40 Things I Notice About You</h2>
+<p>The little things that mean a lot to me.</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div class="card-number">01</div>
+<h3 class="card-title">Your good morning messages</h3>
+<p class="card-text">Kalaila eppome marakama message anupiduva. You rarely forget to send that one.</p>
+</div>
+
+<div class="card">
+<div class="card-number">02</div>
+<h3 class="card-title">Saptiya?</h3>
+<p class="card-text">You always made sure that I ate something for breakfast. Enna pathone first na saptana nu tha kepa.</p>
+</div>
+
+<div class="card">
+<div class="card-number">03</div>
+<h3 class="card-title">Your messages even when you are busy</h3>
+<p class="card-text">Even if you can't message, you make time and text me that you are busy.</p>
+</div>
+
+<div class="card">
+<div class="card-number">04</div>
+<h3 class="card-title">Your little leg massages</h3>
+<p class="card-text">You do that when I'm on my periods or if I have leg pain or when you are saying sorry. It's cute.</p>
+</div>
+
+<div class="card">
+<div class="card-number">05</div>
+<h3 class="card-title">Xerox machine</h3>
+<p class="card-text">You always xerox me everything and ennaikume atha erichala pannathe illa.</p>
+</div>
+
+<div class="card">
+<div class="card-number">06</div>
+<h3 class="card-title">Veetuku poitiya da paiya?</h3>
+<p class="card-text">Eppome 5 clock ku indha message en inbox la irukum. It's not about your message that shows how much you care, it's the fact that you remember to send that message.</p>
+</div>
+
+<div class="card">
+<div class="card-number">07</div>
+<h3 class="card-title">Pathu bathurama po</h3>
+<p class="card-text">You always say that. Even na restroom ku po poren na kooda ni atha solluva and I love it. It's cute.</p>
+</div>
+
+<div class="card">
+<div class="card-number">08</div>
+<h3 class="card-title">Company</h3>
+<p class="card-text">Enna ennaikume ni thaniya vittathe illa, even na rendu adi nadanthu ponum na kooda, you kept me company and walked me there.</p>
+</div>
+
+<div class="card">
+<div class="card-number">09</div>
+<h3 class="card-title">Loneliness destroyer</h3>
+<p class="card-text">You never made me feel lonely. Even na mathavanga kittaiyu apdi feel panna koodathunu nenaipa.</p>
+</div>
+
+<div class="card">
+<div class="card-number">10</div>
+<h3 class="card-title">Happiness for me</h3>
+<p class="card-text">Na nalla mark edukura appo unnoda proud smile.</p>
+</div>
+
+<div class="card">
+<div class="card-number">11</div>
+<h3 class="card-title">Word wars</h3>
+<p class="card-text">Na edhachu achieve panra mari vishayam panna, enna appreciate panni pesurathu, na hard work panna encourage panrathu. You did all that perfectly.</p>
+</div>
+
+<div class="card">
+<div class="card-number">12</div>
+<h3 class="card-title">Waiter boy</h3>
+<p class="card-text">Na restroom pona velila na vara varaikum wait pannuva.</p>
+</div>
+
+<div class="card">
+<div class="card-number">13</div>
+<h3 class="card-title">Don't care king</h3>
+<p class="card-text">Mathavanga unna "mala" apdila kindle panrathu nala ni atha embarassing ah feel pannathu illa. Avanga apdi koopduranga so inneme na unkoodave iruka mata nu sonnathum illa.</p>
+</div>
+
+<div class="card">
+<div class="card-number">14</div>
+<h3 class="card-title">Genuine sadness</h3>
+<p class="card-text">Na azhara appo unnoda face la avlo pain, avlo sadness irukum. You look like a baby who's watching his favourite toy getting destroyed.</p>
+</div>
+
+<div class="card">
+<div class="card-number">15</div>
+<h3 class="card-title">Protector</h3>
+<p class="card-text">You always kept me safe. Eppome enna ni protect panni, bathurama bomma mari azhaga pathukura.</p>
+</div>
+
+<div class="card">
+<div class="card-number">16</div>
+<h3 class="card-title">Me before you</h3>
+<p class="card-text">Ennoda aasai, virupathuku eppome priority kudupa. Even athu unaku pidikala or hurt aguthu nalum.</p>
+</div>
+
+<div class="card">
+<div class="card-number">17</div>
+<h3 class="card-title">Beat box</h3>
+<p class="card-text">Na evlo adichalum vangikura, even mathavanga munnadi adichalum edhuvume sollama okay nu solra.</p>
+</div>
+
+<div class="card">
+<div class="card-number">18</div>
+<h3 class="card-title">Silencer</h3>
+<p class="card-text">Na kovathula unmela kathuna silent ah ketukura. Unaku thiruppi kathanum pola irunthalum ni silent ah purinji othungi pora.</p>
+</div>
+
+<div class="card">
+<div class="card-number">19</div>
+<h3 class="card-title">Listener</h3>
+<p class="card-text">Na edhachu mokka kadha illa gossip sonna kooda ketukura, just ketuka matu seiyama apro enna achu enna edhu nu attentive ah kekura. Always.</p>
+</div>
+
+<div class="card">
+<div class="card-number">20</div>
+<h3 class="card-title">Never forget</h3>
+<p class="card-text">Na solra chinna chinna vishayam la nyabagam vechikura. Ellame notice panni remember panra.</p>
+</div>
+
+<div class="card">
+<div class="card-number">21</div>
+<h3 class="card-title">Always the POV</h3>
+<p class="card-text">Eppome ennoda idathula irunthu purinjukira, sila times sudden ah, sila times late ah but at the end you can understand.</p>
+</div>
+
+<div class="card">
+<div class="card-number">22</div>
+<h3 class="card-title">Never hurt policy</h3>
+<p class="card-text">Unaku na pannathu edhachu hurt achu nalum solla mata. You will say "na sonna ni hurt ava". I hate it.</p>
+</div>
+
+<div class="card">
+<div class="card-number">23</div>
+<h3 class="card-title">Proud king</h3>
+<p class="card-text">You were always proud of me and proud to have me in your life as your girlfriend.</p>
+</div>
+
+<div class="card">
+<div class="card-number">24</div>
+<h3 class="card-title">Defender</h3>
+<p class="card-text">Enna eppome ni vittu kuduthu pesunathe illa, na illatha edama irunthalu seri enna defend panni pesuva.</p>
+</div>
+
+<div class="card">
+<div class="card-number">25</div>
+<h3 class="card-title">Blabber</h3>
+<p class="card-text">Edhu enna nadanthalum enaku tha first sollanum nu nenaipa and eppome evlo bad ana news nalum maraikama solluva.</p>
+</div>
+
+<div class="card">
+<div class="card-number">26</div>
+<h3 class="card-title">Me being me</h3>
+<p class="card-text">You let me be myself and na nana irukuratha you love that.</p>
+</div>
+
+<div class="card">
+<div class="card-number">27</div>
+<h3 class="card-title">Majestic patience</h3>
+<p class="card-text">Na attitude katna poruthukura, na thitna ketukura, kova patta thangikura, safe ah enna ni handle panra.</p>
+</div>
+
+<div class="card">
+<div class="card-number">28</div>
+<h3 class="card-title">Sorry</h3>
+<p class="card-text">You always say sorry. Ni thappu panna, na thappu panna, hurt panna, hurt ana, always, always sorry. Most guys don't even say sorry when they are wrong.</p>
+</div>
+
+<div class="card">
+<div class="card-number">29</div>
+<h3 class="card-title">Phone kiss</h3>
+<p class="card-text">Eppome ni ichuku ichuku nu kudupa pathiya phone la kiss. I absolutely love that. It's my favorite and it makes me blush everytime.</p>
+</div>
+
+<div class="card">
+<div class="card-number">30</div>
+<h3 class="card-title">Worrier</h3>
+<p class="card-text">Ennaku onnu na thudichu pora, even ennoda poruluku like water bottle, bag nalum thudichu pova.</p>
+</div>
+
+<div class="card">
+<div class="card-number">31</div>
+<h3 class="card-title">Physical touch</h3>
+<p class="card-text">Namma group ah ukandhu iruka appo hut la or somewhere ni touch pannuva, just a tiny touch tha but it means a lot to me.</p>
+</div>
+
+<div class="card">
+<div class="card-number">32</div>
+<h3 class="card-title">Believer</h3>
+<p class="card-text">Exam ku munnadi na nervous ah iruntha boost panrathu, you truly believe that I can do stuffs that i don't even believe myself.</p>
+</div>
+
+<div class="card">
+<div class="card-number">33</div>
+<h3 class="card-title">Thinker</h3>
+<p class="card-text">En vishayam ellame ni munnadiye think panniduva. Ippo ipdi irukum, athu nadakum, athuku enna pannalam, ellame munnadiye yosichu vechipa.</p>
+</div>
+
+<div class="card">
+<div class="card-number">34</div>
+<h3 class="card-title">Reminder</h3>
+<p class="card-text">Edhachu dress, place la pathu inga aaya va kootittu polam, indha dress or hair style nalla irukum nu nenaipa. I'm always in your thoughts.</p>
+</div>
+
+<div class="card">
+<div class="card-number">35</div>
+<h3 class="card-title">Brave advisor</h3>
+<p class="card-text">Na thappu panna open ah solra, na kova paduva or kochipa nu illama, ennoda nallathukaga eduthu solra enkitta.</p>
+</div>
+
+<div class="card">
+<div class="card-number">36</div>
+<h3 class="card-title">Never-the-forcer</h3>
+<p class="card-text">Enna eppome edhukume force panna mata. Venam nu sonna kooda edhachu reason irukum nu silent ah vittudura.</p>
+</div>
+
+<div class="card">
+<div class="card-number">37</div>
+<h3 class="card-title">Space giver</h3>
+<p class="card-text">Padikira appo kooda na tension ah iruntha unnoda doubt matum kettutu poiduva, ava calm ah thaniya padikatum nu.</p>
+</div>
+
+<div class="card">
+<div class="card-number">38</div>
+<h3 class="card-title">Phone attender</h3>
+<p class="card-text">Eppome na call pannuva nu silent ah podama thungurathu, busy ah irunthalu na pesuna time othuki pesurathu, na call panna eppome I know you will be there.</p>
+</div>
+
+<div class="card">
+<div class="card-number">39</div>
+<h3 class="card-title">Being myself</h3>
+<p class="card-text">Na oru sila vishayam time eduthu tha solluven nu sonnen and ni eppome atha purinjiku nadanthu iruka, enakana time ah ok avaluku time kudukanum nu kuduthuduva.</p>
+</div>
+
+<div class="card">
+<div class="card-number">40</div>
+<h3 class="card-title">Good night messages</h3>
+<p class="card-text">Always you would say good night and ni enna panna, na eppo thunga pora, unaku thookama irunchunalum you would spend time and text me.</p>
+</div>
+
+</div>
+
+<!-- IMAGE 5 + FINAL SONG -->
+<div class="after-things">
+
+<img src="../assets/images/you/you5.jpg" alt="You">
+
+<div class="spotify-player">
+<iframe
+data-testid="embed-iframe"
+style="border-radius:12px"
+src="https://open.spotify.com/embed/track/1n5gnI3Wue9WBpYFOIQNh1?utm_source=generator&si=5b491e777e464e77"
+width="100%"
+height="152"
+frameBorder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script async src="https://tenor.com/embed.js"></script>
+
+<script>
+const continueButton=document.getElementById("continueButton");
+const continueWrap=document.getElementById("continueWrap");
+const things=document.getElementById("things");
+const cards=document.querySelectorAll(".card");
+
+continueButton.addEventListener("click",()=>{
+continueWrap.style.display="none";
+things.classList.add("show");
+
+cards.forEach((card,index)=>{
+setTimeout(()=>{
+card.classList.add("show");
+},index*90);
+});
+
+setTimeout(()=>{
+things.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+},180);
+});
+</script>
+
+</body>
+</html>
