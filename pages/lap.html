@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Lap❤️</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#fff1d9;
+font-family:Georgia,"Times New Roman",serif;
+color:#fad28f;
+}
+
+.page{
+width:min(900px,100%);
+margin:auto;
+padding:45px 20px;
+}
+
+.gallery{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:0;
+}
+
+.lap-image{
+width:min(650px,100%);
+height:auto;
+display:block;
+border-radius:0;
+box-shadow:none;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+.tenor-wrapper{
+width:min(650px,100%);
+display:flex;
+justify-content:center;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+.tenor-wrapper .tenor-gif-embed{
+width:100%;
+}
+
+.spotify-wrapper{
+width:min(350px,92%);
+height:152px;
+margin-left:auto;
+margin-right:auto;
+border-radius:12px;
+overflow:hidden;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
+
+.spotify-wrapper iframe{
+width:100%;
+height:152px;
+border:0;
+}
+
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* INDIVIDUAL SPACING — CHANGE THESE FREELY */
+.lap1{margin-bottom:15px}
+.tenor1{margin-bottom:25px}
+
+.lap2{margin-bottom:15px}
+.lap3{margin-bottom:25px}
+
+.spotify1{margin-bottom:25px}
+
+.lap4{margin-bottom:15px}
+.lap5{margin-bottom:25px}
+
+.tenor2{margin-bottom:25px}
+
+.lap6{margin-bottom:15px}
+.lap7{margin-bottom:25px}
+
+.spotify2{margin-bottom:0}
+
+/* FINAL DIVIDER */
+
+.finish{
+width:400px;
+max-width:70%;
+height:1px;
+margin:35px auto 0;
+background:#fad28f;
+position:relative;
+}
+
+.finish-heart{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+background:#fff1d9;
+padding:0 10px;
+color:#fad28f;
+font-size:18px;
+line-height:1;
+}
+
+@media(max-width:600px){
+
+.page{
+padding:35px 15px;
+}
+
+.lap-image{
+width:100%;
+}
+
+.tenor-wrapper{
+width:100%;
+}
+
+.finish{
+width:250px;
+max-width:75%;
+margin:35px auto 0;
+height:1px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+<div class="gallery">
+
+<!-- IMAGE 2 -->
+<img class="lap-image lap1"
+src="../assets/images/lap/lap1.jpg"
+alt="">
+
+<!-- TENOR GIF 1 -->
+<div class="tenor-wrapper tenor1">
+<div class="tenor-gif-embed"
+data-postid="24563516"
+data-share-method="host"
+data-aspect-ratio="1.40969"
+data-width="100%">
+<a href="https://tenor.com/view/sit-on-top-az-bilisim-gif-24563516">
+Sit On Top Az Bilisim GIF
+</a>
+from
+<a href="https://tenor.com/search/sit+on+top-gifs">
+Sit On Top GIFs
+</a>
+</div>
+</div>
+
+<!-- IMAGE 2 -->
+<img class="lap-image lap2"
+src="../assets/images/lap/lap2.jpg"
+alt="">
+
+<!-- IMAGE 3 -->
+<img class="lap-image lap3"
+src="../assets/images/lap/lap3.jpg"
+alt="">
+
+<!-- SPOTIFY 1 -->
+<div class="spotify-wrapper spotify1">
+<iframe
+data-testid="embed-iframe"
+src="https://open.spotify.com/embed/track/6fGJY9dTvjOYbXSzwqRfs4"
+width="100%"
+height="152"
+frameborder="0"
+allowfullscreen
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<!-- IMAGE 4 -->
+<img class="lap-image lap4"
+src="../assets/images/lap/lap4.jpg"
+alt="">
+
+<!-- TENOR GIF 2 -->
+<div class="tenor-wrapper tenor2">
+<div class="tenor-gif-embed"
+data-postid="12105365130372623971"
+data-share-method="host"
+data-aspect-ratio="1.33333"
+data-width="100%">
+<a href="https://tenor.com/view/kiss-gif-12105365130372623971">
+Kiss GIF
+</a>
+from
+<a href="https://tenor.com/search/kiss-gifs">
+Kiss GIFs
+</a>
+</div>
+</div>
+
+<!-- IMAGE 5 -->
+<img class="lap-image lap5"
+src="../assets/images/lap/lap5.jpg"
+alt="">
+
+<!-- IMAGE 6 -->
+<img class="lap-image lap6"
+src="../assets/images/lap/lap6.jpg"
+alt="">
+
+<!-- IMAGE 7 -->
+<img class="lap-image lap7"
+src="../assets/images/lap/lap7.jpg"
+alt="">
+
+<!-- SPOTIFY 2 -->
+<div class="spotify-wrapper spotify2">
+<iframe
+data-testid="embed-iframe"
+src="https://open.spotify.com/embed/track/5jkH9Pgv28mW9ve6uGtohT"
+width="100%"
+height="152"
+frameborder="0"
+allowfullscreen
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div>
+
+<!-- FINAL DIVIDER -->
+<div class="finish">
+<span class="finish-heart">♡</span>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+const items=document.querySelectorAll(".lap-image,.tenor-wrapper,.spotify-wrapper");
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.animationDelay="0s";
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.08});
+
+items.forEach(item=>observer.observe(item));
+});
+</script>
+
+</body>
+</html>
