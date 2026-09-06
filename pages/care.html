@@ -1,163 +1,214 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The End? ❤️</title>
-
-<style>
-/* ==================================================
-   ✏️ CHANGE THESE SETTINGS
-   ================================================== */
-
-:root{
---background:#fff4f7;          /* Background colour */
-
---image-width:100%;            /* Image width */
---image-gap:20px;              /* Gap between images */
-
---page-width:900px;            /* Maximum page width */
---page-padding:40px 0;         /* Top & bottom page spacing */
-
---gif-width:600px;             /* GIF width */
---gif-gap:15px;                /* Space around GIF */
-
---mobile-image-width:92%;      /* Image width on phone */
---mobile-image-gap:12px;       /* Image gap on phone */
-
---mobile-page-padding:20px 0;  /* Page spacing on phone */
-
---mobile-gif-width:92%;        /* GIF width on phone */
---mobile-gif-gap:12px;         /* GIF spacing on phone */
-}
-
-
-/* ==================================================
-   MAIN CSS
-   ================================================== */
-
+<title>Care For This❤️</title><style>
 *{
-margin:0;
-padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
-background:var(--background);
-font-family:Arial,sans-serif;
-overflow-x:hidden;
+margin:0;
+background:#fff1f5;
+font-family:Georgia,"Times New Roman",serif;
 }
 
-.story-container{
-width:min(var(--page-width),92%);
-margin:0 auto;
-padding:var(--page-padding);
+.page{
+width:min(900px,100%);
+margin:auto;
+padding:35px 20px;
+}
+
+.gallery{
 display:flex;
 flex-direction:column;
+gap:0;
 align-items:center;
-gap:var(--image-gap);
 }
 
-.story-image{
-width:var(--image-width);
+.gallery img{
+width:min(650px,100%);
 height:auto;
 display:block;
-object-fit:contain;
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
 }
 
-.gif-container{
-width:min(var(--gif-width),92%);
-margin:var(--gif-gap) auto;
+.tenor-wrapper{
+width:min(650px,100%);
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
 }
 
+.spotify-wrapper{
+width:min(350px,92%);
+opacity:0;
+transform:translateY(20px);
+animation:appear .7s ease forwards;
+}
 
-/* ==================================================
-   📱 MOBILE
-   ================================================== */
+.spotify-wrapper iframe{
+display:block;
+width:100%;
+height:152px;
+border:0;
+border-radius:12px;
+}
+
+@keyframes appear{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* individual spacing */
+.tenor1{margin-bottom:25px}
+
+.image2{margin-bottom:18px}
+.image3{margin-bottom:18px}
+.image4{margin-bottom:18px}
+.image5{margin-bottom:18px}
+.image6{margin-bottom:25px}
+
+.spotify1{margin-bottom:25px}
+
+.image7{margin-bottom:18px}
+.image3-2{margin-bottom:25px}
+
+.image8{margin-bottom:25px}
+
+.spotify2{margin-bottom:25px}
+
+.image9{margin-bottom:25px}
+
+.spotify3{margin-bottom:0}
+
+/* divider */
+.finish{
+width:400px;
+max-width:70%;
+height:1px;
+margin:35px auto 0;
+background:#d94f70;
+position:relative;
+}
+
+.finish-heart{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+background:#fff1f5;
+padding:0 10px;
+color:#d94f70;
+font-size:18px;
+line-height:1;
+}
 
 @media(max-width:600px){
-
-.story-container{
-width:100%;
-padding:var(--mobile-page-padding);
-gap:var(--mobile-image-gap);
+.page{
+padding:25px 12px;
 }
 
-.story-image{
-width:var(--mobile-image-width);
-height:auto;
-display:block;
+.finish{
+width:250px;
+max-width:75%;
+margin:35px auto 0;
+height:1px;
 }
-
-.gif-container{
-width:var(--mobile-gif-width);
-margin:var(--mobile-gif-gap) auto;
 }
+</style></head><body><div class="page">
+<div class="gallery"><!-- GIF 1 --><div class="tenor-wrapper tenor1">
+<div class="tenor-gif-embed"
+data-postid="10876396"
+data-share-method="host"
+data-aspect-ratio="1.78218"
+data-width="100%">
+<a href="https://tenor.com/view/nazriya-dk14-dk88-asin-tamil-heroines-gif-10876396">
+Nazriya Dk14 GIF
+</a>
+from
+<a href="https://tenor.com/search/nazriya-gifs">
+Nazriya GIFs
+</a>
+</div>
+</div><!-- IMAGE 2 --><img src="../assets/images/care/care2.jpg"
+class="image2"
+alt="Image 2">
 
+<!-- IMAGE 3 --><img src="../assets/images/care/care3.jpg"
+class="image3"
+alt="Image 3">
+
+<!-- IMAGE 4 --><img src="../assets/images/care/care4.jpg"
+class="image4"
+alt="Image 4">
+
+<!-- IMAGE 5 --><img src="../assets/images/care/care5.jpg"
+class="image5"
+alt="Image 5">
+
+<!-- IMAGE 6 --><img src="../assets/images/care/care6.jpg"
+class="image6"
+alt="Image 6">
+
+<!-- SPOTIFY 1 --><div class="spotify-wrapper spotify1">
+<iframe
+src="https://open.spotify.com/embed/track/32T2HnYd8JCNQQvtEvYsX8"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div><!-- IMAGE 7 --><img src="../assets/images/care/care7.jpg"
+class="image7"
+alt="Image 7">
+
+<!-- IMAGE 3 AGAIN --><img src="../assets/images/care/care3.jpg"
+class="image3-2"
+alt="Image 3">
+
+<!-- IMAGE 8 --><img src="../assets/images/care/care8.jpg"
+class="image8"
+alt="Image 8">
+
+<!-- SPOTIFY 2 --><div class="spotify-wrapper spotify2">
+<iframe
+src="https://open.spotify.com/embed/track/2YoPh281gD3xPnTkojVSr3"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div><!-- IMAGE 9 --><img src="../assets/images/care/care9.jpg"
+class="image9"
+alt="Image 9">
+
+<!-- SPOTIFY 3 --><div class="spotify-wrapper spotify3">
+<iframe
+src="https://open.spotify.com/embed/track/0zsA45R0SQPfqC5TyDOqY8"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy">
+</iframe>
+</div><!-- DIVIDER --><div class="finish">
+<span class="finish-heart">♥</span>
+</div></div>
+</div><script async src="https://tenor.com/embed.js"></script><script>
+document.addEventListener("DOMContentLoaded",()=>{
+const items=document.querySelectorAll(
+".gallery img,.tenor-wrapper,.spotify-wrapper"
+);
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.style.opacity="1";
+entry.target.style.transform="translateY(0)";
+observer.unobserve(entry.target);
 }
-</style>
-</head>
+});
+},{threshold:.08});
 
-<body>
-
-<main class="story-container">
-
-<!-- image 1 -->
-<img src="../assets/images/story/end1.jpg" class="story-image" alt="">
-
-<!-- gif between image 1 and 2 -->
-<div class="gif-container">
-<div class="tenor-gif-embed" data-postid="3156747878755757137" data-share-method="host" data-aspect-ratio="2.20354" data-width="100%">
-<a href="https://tenor.com/view/rugby-yay-gif-3156747878755757137">Rugby Yay GIF</a>
-</div>
-</div>
-
-<!-- image 2 -->
-<img src="../assets/images/story/end2.jpg" class="story-image" alt="">
-
-<!-- images 3-4 -->
-<img src="../assets/images/story/end3.jpg" class="story-image" alt="">
-<img src="../assets/images/story/end4.jpg" class="story-image" alt="">
-
-<!-- gif between image 4 and 5 -->
-<div class="gif-container">
-<div class="tenor-gif-embed" data-postid="26058767" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%">
-<a href="https://tenor.com/view/pillow-pillow-fight-couple-gif-26058767">Pillow Pillow Fight GIF</a>
-</div>
-</div>
-
-<!-- image 5 -->
-<img src="../assets/images/story/end5.jpg" class="story-image" alt="">
-
-<!-- image 6 -->
-<img src="../assets/images/story/end6.jpg" class="story-image" alt="">
-
-<!-- gif between image 6 and 7 -->
-<div class="gif-container">
-<div class="tenor-gif-embed" data-postid="16356106285349646826" data-share-method="host" data-aspect-ratio="1.15814" data-width="100%">
-<a href="https://tenor.com/view/cat-no-nonono-noooo-cat-no-gif-16356106285349646826">Cat No GIF</a>
-</div>
-</div>
-
-<!-- images 7-9 -->
-<img src="../assets/images/story/end7.jpg" class="story-image" alt="">
-<img src="../assets/images/story/end8.jpg" class="story-image" alt="">
-<img src="../assets/images/story/end9.jpg" class="story-image" alt="">
-
-<!-- final gif -->
-<div class="gif-container">
-<div class="tenor-gif-embed" data-postid="3205895451106484105" data-share-method="host" data-aspect-ratio="1" data-width="100%">
-<a href="https://tenor.com/view/kiss-lip-kiss-hug-kiss-kiss-kiss-sending-kisses-gif-3205895451106484105">Kiss Lip Kiss GIF</a>
-</div>
-</div>
-
-</main>
-
-<script async src="https://tenor.com/embed.js"></script>
-
-</body>
+items.forEach(item=>observer.observe(item));
+});
+</script></body>
 </html>
