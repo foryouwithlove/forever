@@ -3,252 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The End❤️</title>
+<title>The End? ❤️</title>
 
 <style>
+/* ==================================================
+   ✏️ CHANGE THESE SETTINGS
+   ================================================== */
+
+:root{
+--background:#fff4f7;          /* Background colour */
+
+--image-width:100%;            /* Image width */
+--image-gap:20px;              /* Gap between images */
+
+--page-width:900px;            /* Maximum page width */
+--page-padding:40px 0;         /* Top & bottom page spacing */
+
+--gif-width:600px;             /* GIF width */
+--gif-gap:15px;                /* Space around GIF */
+
+--mobile-image-width:92%;      /* Image width on phone */
+--mobile-image-gap:12px;       /* Image gap on phone */
+
+--mobile-page-padding:20px 0;  /* Page spacing on phone */
+
+--mobile-gif-width:92%;        /* GIF width on phone */
+--mobile-gif-gap:12px;         /* GIF spacing on phone */
+}
+
+
+/* ==================================================
+   MAIN CSS
+   ================================================== */
+
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-margin:0;
-background:#fff1f5;
-font-family:Georgia,"Times New Roman",serif;
+background:var(--background);
+font-family:Arial,sans-serif;
+overflow-x:hidden;
 }
 
-.page{
-width:min(900px,100%);
-margin:auto;
-padding:35px 20px;
-}
-
-.gallery{
+.story-container{
+width:min(var(--page-width),92%);
+margin:0 auto;
+padding:var(--page-padding);
 display:flex;
 flex-direction:column;
-gap:0;
 align-items:center;
+gap:var(--image-gap);
 }
 
-.gallery img{
-width:min(650px,100%);
+.story-image{
+width:var(--image-width);
 height:auto;
 display:block;
-opacity:0;
-transform:translateY(20px);
-animation:appear .7s ease forwards;
+object-fit:contain;
 }
 
-.tenor-wrapper{
-width:min(650px,100%);
-opacity:0;
-transform:translateY(20px);
-animation:appear .7s ease forwards;
+.gif-container{
+width:min(var(--gif-width),92%);
+margin:var(--gif-gap) auto;
 }
 
-.tenor-gif-embed{
-width:100%;
-}
 
-@keyframes appear{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* individual spacing */
-.end1{margin-bottom:25px}
-
-.tenor1{margin-bottom:25px}
-
-.end2{margin-bottom:18px}
-.end3{margin-bottom:18px}
-.end4{margin-bottom:25px}
-
-.tenor2{margin-bottom:25px}
-
-.end5{margin-bottom:18px}
-.end6{margin-bottom:25px}
-
-.tenor3{margin-bottom:25px}
-
-.end7{margin-bottom:18px}
-.end8{margin-bottom:18px}
-.end9{margin-bottom:25px}
-
-.tenor4{margin-bottom:0}
-
-/* divider */
-.finish{
-width:400px;
-max-width:70%;
-height:1px;
-margin:35px auto 0;
-background:#d94f70;
-position:relative;
-}
-
-.finish-heart{
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
-background:#fff1f5;
-padding:0 10px;
-color:#d94f70;
-font-size:18px;
-line-height:1;
-}
+/* ==================================================
+   📱 MOBILE
+   ================================================== */
 
 @media(max-width:600px){
-.page{
-padding:25px 12px;
+
+.story-container{
+width:100%;
+padding:var(--mobile-page-padding);
+gap:var(--mobile-image-gap);
 }
 
-.finish{
-width:250px;
-max-width:75%;
-margin:35px auto 0;
-height:1px;
+.story-image{
+width:var(--mobile-image-width);
+height:auto;
+display:block;
 }
+
+.gif-container{
+width:var(--mobile-gif-width);
+margin:var(--mobile-gif-gap) auto;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="page">
-<div class="gallery">
+<main class="story-container">
 
-<img src="../assets/images/end/end1.jpg"
-class="end1"
-alt="Image 1">
+<!-- image 1 -->
+<img src="../assets/images/story/end1.jpg" class="story-image" alt="">
 
-<div class="tenor-wrapper tenor1">
-<div class="tenor-gif-embed"
-data-postid="3156747878755757137"
-data-share-method="host"
-data-aspect-ratio="2.20354"
-data-width="100%">
-<a href="https://tenor.com/view/rugby-yay-gif-3156747878755757137">
-Rugby Yay GIF
-</a>
-from
-<a href="https://tenor.com/search/rugby-gifs">
-Rugby GIFs
-</a>
+<!-- gif between image 1 and 2 -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="3156747878755757137" data-share-method="host" data-aspect-ratio="2.20354" data-width="100%">
+<a href="https://tenor.com/view/rugby-yay-gif-3156747878755757137">Rugby Yay GIF</a>
 </div>
 </div>
 
-<img src="../assets/images/end/end2.jpg"
-class="end2"
-alt="Image 2">
+<!-- image 2 -->
+<img src="../assets/images/story/end2.jpg" class="story-image" alt="">
 
-<img src="../assets/images/end/end3.jpg"
-class="end3"
-alt="Image 3">
+<!-- images 3-4 -->
+<img src="../assets/images/story/end3.jpg" class="story-image" alt="">
+<img src="../assets/images/story/end4.jpg" class="story-image" alt="">
 
-<img src="../assets/images/end/end4.jpg"
-class="end4"
-alt="Image 4">
-
-<div class="tenor-wrapper tenor2">
-<div class="tenor-gif-embed"
-data-postid="26058767"
-data-share-method="host"
-data-aspect-ratio="1.77778"
-data-width="100%">
-<a href="https://tenor.com/view/pillow-pillow-fight-couple-gif-26058767">
-Pillow Pillow Fight GIF
-</a>
-from
-<a href="https://tenor.com/search/pillow-gifs">
-Pillow GIFs
-</a>
+<!-- gif between image 4 and 5 -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="26058767" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%">
+<a href="https://tenor.com/view/pillow-pillow-fight-couple-gif-26058767">Pillow Pillow Fight GIF</a>
 </div>
 </div>
 
-<img src="../assets/images/end/end5.jpg"
-class="end5"
-alt="Image 5">
+<!-- image 5 -->
+<img src="../assets/images/story/end5.jpg" class="story-image" alt="">
 
-<img src="../assets/images/end/end6.jpg"
-class="end6"
-alt="Image 6">
+<!-- image 6 -->
+<img src="../assets/images/story/end6.jpg" class="story-image" alt="">
 
-<div class="tenor-wrapper tenor3">
-<div class="tenor-gif-embed"
-data-postid="16356106285349646826"
-data-share-method="host"
-data-aspect-ratio="1.15814"
-data-width="100%">
-<a href="https://tenor.com/view/cat-no-nonono-noooo-cat-no-gif-16356106285349646826">
-Cat No GIF
-</a>
-from
-<a href="https://tenor.com/search/cat-gifs">
-Cat GIFs
-</a>
+<!-- gif between image 6 and 7 -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="16356106285349646826" data-share-method="host" data-aspect-ratio="1.15814" data-width="100%">
+<a href="https://tenor.com/view/cat-no-nonono-noooo-cat-no-gif-16356106285349646826">Cat No GIF</a>
 </div>
 </div>
 
-<img src="../assets/images/end/end7.jpg"
-class="end7"
-alt="Image 7">
+<!-- images 7-9 -->
+<img src="../assets/images/story/end7.jpg" class="story-image" alt="">
+<img src="../assets/images/story/end8.jpg" class="story-image" alt="">
+<img src="../assets/images/story/end9.jpg" class="story-image" alt="">
 
-<img src="../assets/images/end/end8.jpg"
-class="end8"
-alt="Image 8">
-
-<img src="../assets/images/end/end9.jpg"
-class="end9"
-alt="Image 9">
-
-<div class="tenor-wrapper tenor4">
-<div class="tenor-gif-embed"
-data-postid="3205895451106484105"
-data-share-method="host"
-data-aspect-ratio="1"
-data-width="100%">
-<a href="https://tenor.com/view/kiss-lip-kiss-hug-kiss-kiss-kiss-sending-kisses-gif-3205895451106484105">
-Kiss Lip Kiss GIF
-</a>
-from
-<a href="https://tenor.com/search/kiss-gifs">
-Kiss GIFs
-</a>
+<!-- final gif -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="3205895451106484105" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+<a href="https://tenor.com/view/kiss-lip-kiss-hug-kiss-kiss-kiss-sending-kisses-gif-3205895451106484105">Kiss Lip Kiss GIF</a>
 </div>
 </div>
 
-<div class="finish">
-<span class="finish-heart">♡</span>
-</div>
-
-</div>
-</div>
+</main>
 
 <script async src="https://tenor.com/embed.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded",()=>{
-const items=document.querySelectorAll(
-".gallery img,.tenor-wrapper"
-);
-
-const observer=new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.style.animationDelay="0s";
-entry.target.style.opacity="1";
-entry.target.style.transform="translateY(0)";
-observer.unobserve(entry.target);
-}
-});
-},{threshold:.08});
-
-items.forEach(item=>observer.observe(item));
-});
-</script>
 
 </body>
 </html>
