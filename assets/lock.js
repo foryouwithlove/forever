@@ -9,7 +9,7 @@ const nextMonth=document.getElementById("nextMonth");
 const dateForm=document.getElementById("dateForm");
 const dateError=document.getElementById("dateError");
 
-const correctDate="2026-08-27";
+const correctDate="2023-06-27";
 const today=new Date();
 let currentDate=new Date(today.getFullYear(),today.getMonth(),1);
 let chosenDate="";
