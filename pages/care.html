@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>The End? ❤️</title>
+
+<style>
+/* ==================================================
+   ✏️ CHANGE THESE SETTINGS
+   ================================================== */
+
+:root{
+--background:#fff4f7;          /* Background colour */
+
+--image-width:100%;            /* Image width */
+--image-gap:20px;              /* Gap between images */
+
+--page-width:900px;            /* Maximum page width */
+--page-padding:40px 0;         /* Top & bottom page spacing */
+
+--gif-width:600px;             /* GIF width */
+--gif-gap:15px;                /* Space around GIF */
+
+--mobile-image-width:92%;      /* Image width on phone */
+--mobile-image-gap:12px;       /* Image gap on phone */
+
+--mobile-page-padding:20px 0;  /* Page spacing on phone */
+
+--mobile-gif-width:92%;        /* GIF width on phone */
+--mobile-gif-gap:12px;         /* GIF spacing on phone */
+}
+
+
+/* ==================================================
+   MAIN CSS
+   ================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--background);
+font-family:Arial,sans-serif;
+overflow-x:hidden;
+}
+
+.story-container{
+width:min(var(--page-width),92%);
+margin:0 auto;
+padding:var(--page-padding);
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:var(--image-gap);
+}
+
+.story-image{
+width:var(--image-width);
+height:auto;
+display:block;
+object-fit:contain;
+}
+
+.gif-container{
+width:min(var(--gif-width),92%);
+margin:var(--gif-gap) auto;
+}
+
+
+/* ==================================================
+   📱 MOBILE
+   ================================================== */
+
+@media(max-width:600px){
+
+.story-container{
+width:100%;
+padding:var(--mobile-page-padding);
+gap:var(--mobile-image-gap);
+}
+
+.story-image{
+width:var(--mobile-image-width);
+height:auto;
+display:block;
+}
+
+.gif-container{
+width:var(--mobile-gif-width);
+margin:var(--mobile-gif-gap) auto;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<main class="story-container">
+
+<!-- image 1 -->
+<img src="../assets/images/story/end1.jpg" class="story-image" alt="">
+
+<!-- gif between image 1 and 2 -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="3156747878755757137" data-share-method="host" data-aspect-ratio="2.20354" data-width="100%">
+<a href="https://tenor.com/view/rugby-yay-gif-3156747878755757137">Rugby Yay GIF</a>
+</div>
+</div>
+
+<!-- image 2 -->
+<img src="../assets/images/story/end2.jpg" class="story-image" alt="">
+
+<!-- images 3-4 -->
+<img src="../assets/images/story/end3.jpg" class="story-image" alt="">
+<img src="../assets/images/story/end4.jpg" class="story-image" alt="">
+
+<!-- gif between image 4 and 5 -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="26058767" data-share-method="host" data-aspect-ratio="1.77778" data-width="100%">
+<a href="https://tenor.com/view/pillow-pillow-fight-couple-gif-26058767">Pillow Pillow Fight GIF</a>
+</div>
+</div>
+
+<!-- image 5 -->
+<img src="../assets/images/story/end5.jpg" class="story-image" alt="">
+
+<!-- image 6 -->
+<img src="../assets/images/story/end6.jpg" class="story-image" alt="">
+
+<!-- gif between image 6 and 7 -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="16356106285349646826" data-share-method="host" data-aspect-ratio="1.15814" data-width="100%">
+<a href="https://tenor.com/view/cat-no-nonono-noooo-cat-no-gif-16356106285349646826">Cat No GIF</a>
+</div>
+</div>
+
+<!-- images 7-9 -->
+<img src="../assets/images/story/end7.jpg" class="story-image" alt="">
+<img src="../assets/images/story/end8.jpg" class="story-image" alt="">
+<img src="../assets/images/story/end9.jpg" class="story-image" alt="">
+
+<!-- final gif -->
+<div class="gif-container">
+<div class="tenor-gif-embed" data-postid="3205895451106484105" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+<a href="https://tenor.com/view/kiss-lip-kiss-hug-kiss-kiss-kiss-sending-kisses-gif-3205895451106484105">Kiss Lip Kiss GIF</a>
+</div>
+</div>
+
+</main>
+
+<script async src="https://tenor.com/embed.js"></script>
+
+</body>
+</html>
